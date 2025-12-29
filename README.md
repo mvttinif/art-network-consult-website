@@ -1,16 +1,101 @@
-# React + Vite
+# ArtNetwork Consult
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Site institucional da **ArtNetwork Consult LDA** - Agência de Web Design e Consultoria Digital em Portugal.
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)
+![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite)
+![TailwindCSS](https://img.shields.io/badge/Tailwind-4-06B6D4?logo=tailwindcss)
+![License](https://img.shields.io/badge/License-Proprietary-red)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Sobre
 
-## React Compiler
+Website moderno e responsivo desenvolvido para apresentar os serviços de web design, marketing digital e consultoria da ArtNetwork Consult.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Funcionalidades
 
-## Expanding the ESLint configuration
+- Design moderno e responsivo
+- Hero interativo com gradiente que segue o mouse
+- Animações suaves com Framer Motion
+- Carrossel de testemunhos
+- Formulário de contacto funcional (EmailJS)
+- SEO optimizado
+- Deploy automático via GitHub Actions
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+| Tecnologia | Uso |
+|------------|-----|
+| **React 18** | Framework UI |
+| **Vite 5** | Build tool |
+| **Tailwind CSS 4** | Styling |
+| **Framer Motion** | Animações |
+| **Swiper** | Carrossel |
+| **EmailJS** | Formulário de contacto |
+| **React Scroll** | Navegação suave |
+
+## Estrutura do Projeto
+
+```
+src/
+├── components/
+│   ├── layout/
+│   │   ├── Navbar.jsx
+│   │   └── Footer.jsx
+│   └── sections/
+│       ├── Hero.jsx
+│       ├── Services.jsx
+│       ├── Portfolio.jsx
+│       ├── Testimonials.jsx
+│       └── Contact.jsx
+├── data/
+│   ├── services.js
+│   ├── portfolio.js
+│   └── testimonials.js
+├── utils/
+│   └── emailService.js
+├── App.jsx
+├── main.jsx
+└── index.css
+```
+
+## Instalação
+
+```bash
+# Clonar repositório
+git clone https://github.com/mvttinif/art-network-consult-website.git
+
+# Instalar dependências
+cd art-network-consult-website
+npm install
+
+# Iniciar servidor de desenvolvimento
+npm run dev
+
+# Build para produção
+npm run build
+```
+
+## Deploy
+
+O deploy é automático via GitHub Actions:
+
+1. Push para `main` → GitHub Actions faz build
+2. Ficheiros compilados vão para branch `deploy`
+3. Hostinger puxa automaticamente da branch `deploy`
+
+## Paleta de Cores
+
+| Cor | Hex | Uso |
+|-----|-----|-----|
+| Primary Red | `#C41E3A` | CTAs, destaques |
+| Dark | `#1A1A1A` | Backgrounds |
+| Bright Red | `#EF4444` | Hover states |
+| Gray | `#6B7280` | Texto secundário |
+
+## Licença
+
+Este projeto é propriedade da **ArtNetwork Consult LDA**. Todos os direitos reservados.
+
+---
+
+Desenvolvido com React + Vite
