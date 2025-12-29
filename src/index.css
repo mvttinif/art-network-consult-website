@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --color-artnetwork-primary: #C41E3A;
+  --color-artnetwork-dark: #1A1A1A;
+  --color-artnetwork-light: #F5F5F5;
+  --color-artnetwork-gray: #6B7280;
+  --color-artnetwork-bright: #EF4444;
+  --color-artnetwork-white: #FFFFFF;
+
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-artnetwork-dark);
+  background-color: white;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+.btn-primary {
+  background-color: var(--color-artnetwork-primary);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-artnetwork-bright);
+  transform: scale(1.05);
+}
+
+.btn-primary:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: var(--color-artnetwork-primary);
+  ring-offset: 2px;
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-secondary:hover {
+  background-color: white;
+  color: var(--color-artnetwork-dark);
+}
+
+.section-padding {
+  padding: 5rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 5rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding: 5rem 4rem;
+  }
+}
+
+.container-custom {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+}
