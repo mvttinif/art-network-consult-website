@@ -89,19 +89,19 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <HiOutlineMail className="w-5 h-5 text-artnetwork-primary mt-1" />
                 <a
-                  href="mailto:info@artnetwork.pt"
+                  href="mailto:artnetworkconsult@gmail.com"
                   className="text-artnetwork-gray hover:text-artnetwork-primary transition-colors"
                 >
-                  info@artnetwork.pt
+                  artnetworkconsult@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <HiOutlinePhone className="w-5 h-5 text-artnetwork-primary mt-1" />
                 <a
-                  href="tel:+351000000000"
+                  href="tel:+351965093138"
                   className="text-artnetwork-gray hover:text-artnetwork-primary transition-colors"
                 >
-                  +351 000 000 000
+                  +351 965 093 138
                 </a>
               </li>
               <li className="flex items-start gap-3">

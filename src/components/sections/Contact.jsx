@@ -13,14 +13,14 @@ const contactInfo = [
   {
     icon: HiOutlineMail,
     title: 'Email',
-    content: 'info@artnetwork.pt',
-    href: 'mailto:info@artnetwork.pt',
+    content: 'artnetworkconsult@gmail.com',
+    href: 'mailto:artnetworkconsult@gmail.com',
   },
   {
     icon: HiOutlinePhone,
     title: 'Telefone',
-    content: '+351 000 000 000',
-    href: 'tel:+351000000000',
+    content: '+351 965 093 138',
+    href: 'tel:+351965093138',
   },
   {
     icon: HiOutlineLocationMarker,
@@ -321,11 +321,10 @@ const Contact = () => {
               {/* Status Message */}
               {status.message && (
                 <div
-                  className={`p-4 rounded-xl ${
-                    status.type === 'success'
+                  className={`p-4 rounded-xl ${status.type === 'success'
                       ? 'bg-green-100 text-green-800'
                       : 'bg-red-100 text-red-800'
-                  }`}
+                    }`}
                 >
                   {status.message}
                 </div>
