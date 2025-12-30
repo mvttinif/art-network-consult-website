@@ -96,7 +96,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container-custom px-6 lg:px-8">
+      <div className="relative z-10 container-custom px-4 sm:px-6 lg:px-8 pt-16 md:pt-0">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left - Text Content */}
           <div className="order-2 lg:order-1">
@@ -175,7 +175,7 @@ const Hero = () => {
           >
             <div className="relative">
               {/* Main visual - Abstract shapes */}
-              <div className="relative w-72 h-72 md:w-96 md:h-96">
+              <div className="relative w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96">
                 {/* Rotating ring */}
                 <motion.div
                   animate={{ rotate: 360 }}
@@ -187,37 +187,37 @@ const Hero = () => {
                 />
 
                 {/* Center logo */}
-                <div className="absolute inset-8 rounded-full bg-gradient-to-br from-artnetwork-dark to-black flex items-center justify-center border border-white/10">
+                <div className="absolute inset-4 flex items-center justify-center">
                   <img
-                    src="/ArtNetwork Logo.svg"
+                    src="/ArtNetwork Logo circle.png"
                     alt="ArtNetwork"
-                    className="w-24 h-24 md:w-32 md:h-32 object-contain rounded-2xl"
+                    className="w-full h-full object-contain"
                   />
                 </div>
 
-                {/* Floating elements */}
+                {/* Floating elements - visible but repositioned on mobile */}
                 <motion.div
                   animate={{ y: [-10, 10, -10] }}
                   transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute -top-4 right-8 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg border border-white/10"
+                  className="absolute -top-6 sm:-top-6 right-4 sm:right-8 px-3 sm:px-4 py-1.5 sm:py-2 bg-artnetwork-primary/20 backdrop-blur-sm rounded-lg border border-artnetwork-primary/30"
                 >
-                  <span className="text-white text-sm font-medium">Web Design</span>
+                  <span className="text-white text-xs sm:text-sm font-medium">Web Design</span>
                 </motion.div>
 
                 <motion.div
                   animate={{ y: [10, -10, 10] }}
                   transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute -bottom-4 left-8 px-4 py-2 bg-artnetwork-primary/20 backdrop-blur-sm rounded-lg border border-artnetwork-primary/30"
+                  className="absolute -bottom-6 sm:-bottom-6 left-4 sm:left-8 px-3 sm:px-4 py-1.5 sm:py-2 bg-artnetwork-primary/20 backdrop-blur-sm rounded-lg border border-artnetwork-primary/30"
                 >
-                  <span className="text-white text-sm font-medium">Marketing Digital</span>
+                  <span className="text-white text-xs sm:text-sm font-medium">Marketing Digital</span>
                 </motion.div>
 
                 <motion.div
-                  animate={{ x: [-10, 10, -10] }}
+                  animate={{ x: [-5, 5, -5] }}
                   transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute top-1/2 -right-8 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg border border-white/10"
+                  className="absolute top-1/3 -right-16 sm:-right-10 px-3 sm:px-4 py-1.5 sm:py-2 bg-artnetwork-primary/20 backdrop-blur-sm rounded-lg border border-artnetwork-primary/30"
                 >
-                  <span className="text-white text-sm font-medium">Lojas Online</span>
+                  <span className="text-white text-xs sm:text-sm font-medium">Lojas Online</span>
                 </motion.div>
               </div>
             </div>
@@ -229,37 +229,37 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-20 pt-10 border-t border-white/10"
+          className="mt-12 md:mt-20 pt-8 md:pt-10 border-t border-white/10"
         >
-          <div className="grid grid-cols-3 gap-8 max-w-2xl">
-            <div>
-              <div className="text-3xl md:text-4xl font-heading font-bold text-white">
+          <div className="grid grid-cols-3 gap-4 md:gap-8 max-w-2xl">
+            <div className="text-center md:text-left">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white">
                 100<span className="text-artnetwork-primary">+</span>
               </div>
-              <div className="text-sm text-gray-500 mt-1">Projetos Entregues</div>
+              <div className="text-xs sm:text-sm text-gray-500 mt-1">Projetos Entregues</div>
             </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-heading font-bold text-white">
+            <div className="text-center md:text-left">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white">
                 50<span className="text-artnetwork-primary">+</span>
               </div>
-              <div className="text-sm text-gray-500 mt-1">Clientes Satisfeitos</div>
+              <div className="text-xs sm:text-sm text-gray-500 mt-1">Clientes Satisfeitos</div>
             </div>
-            <div>
-              <div className="text-3xl md:text-4xl font-heading font-bold text-white">
+            <div className="text-center md:text-left">
+              <div className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white">
                 5<span className="text-artnetwork-primary">+</span>
               </div>
-              <div className="text-sm text-gray-500 mt-1">Anos de Experiência</div>
+              <div className="text-xs sm:text-sm text-gray-500 mt-1">Anos de Experiência</div>
             </div>
           </div>
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator - hidden on mobile */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 z-20"
+        className="hidden md:block absolute bottom-8 left-1/2 z-20"
         style={{ transform: 'translateX(-50%)' }}
       >
         <Link

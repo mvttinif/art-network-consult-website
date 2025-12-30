@@ -110,8 +110,8 @@ const Contact = () => {
   };
 
   return (
-    <section id="contacto" className="py-24 bg-white">
-      <div className="container-custom px-6 lg:px-8">
+    <section id="contacto" className="py-24 bg-white overflow-hidden">
+      <div className="container-custom px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           ref={ref}
@@ -144,7 +144,7 @@ const Contact = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-2"
           >
-            <div className="bg-artnetwork-dark rounded-3xl p-8 h-full">
+            <div className="bg-artnetwork-dark rounded-3xl p-6 md:p-8 h-full">
               <h3 className="text-2xl font-heading font-bold text-white mb-8">
                 Informações de Contacto
               </h3>
@@ -322,8 +322,8 @@ const Contact = () => {
               {status.message && (
                 <div
                   className={`p-4 rounded-xl ${status.type === 'success'
-                      ? 'bg-green-100 text-green-800'
-                      : 'bg-red-100 text-red-800'
+                    ? 'bg-green-100 text-green-800'
+                    : 'bg-red-100 text-red-800'
                     }`}
                 >
                   {status.message}

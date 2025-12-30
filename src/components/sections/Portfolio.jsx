@@ -127,11 +127,10 @@ const Portfolio = () => {
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  activeCategory === category
+                className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeCategory === category
                     ? 'bg-artnetwork-primary text-white'
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                }`}
+                  }`}
               >
                 {category}
               </button>
@@ -153,10 +152,10 @@ const Portfolio = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-16 flex flex-col md:flex-row items-center justify-between gap-6 p-8 rounded-2xl bg-gradient-to-r from-artnetwork-dark to-black"
+          className="mt-16 flex flex-col md:flex-row items-center justify-between gap-6 p-6 md:p-8 rounded-2xl bg-gradient-to-r from-artnetwork-dark to-black overflow-hidden"
         >
-          <div>
-            <h3 className="text-2xl font-heading font-bold text-white mb-2">
+          <div className="text-center md:text-left">
+            <h3 className="text-xl md:text-2xl font-heading font-bold text-white mb-2">
               Tem um projeto em mente?
             </h3>
             <p className="text-gray-400">
@@ -165,7 +164,7 @@ const Portfolio = () => {
           </div>
           <a
             href="#contacto"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-artnetwork-primary text-white font-semibold rounded-xl hover:bg-artnetwork-bright transition-colors whitespace-nowrap"
+            className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-artnetwork-primary text-white font-semibold rounded-xl hover:bg-artnetwork-bright transition-colors whitespace-nowrap"
           >
             Começar Projeto
             <HiArrowRight className="w-5 h-5" />
