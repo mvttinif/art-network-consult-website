@@ -61,15 +61,19 @@ const PortfolioCard = ({ item, index }) => {
           </motion.p>
 
           {/* View button */}
-          <motion.div
+          <motion.a
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: isHovered ? 1 : 0, x: isHovered ? 0 : -20 }}
             transition={{ duration: 0.3, delay: 0.1 }}
-            className="mt-4 flex items-center gap-2 text-artnetwork-primary font-medium"
+            className="mt-4 flex items-center gap-2 text-artnetwork-primary font-medium hover:text-artnetwork-bright transition-colors"
+            onClick={(e) => e.stopPropagation()}
           >
             <span>Ver projeto</span>
             <HiArrowRight className="w-4 h-4" />
-          </motion.div>
+          </motion.a>
         </div>
       </div>
     </motion.div>
@@ -128,8 +132,8 @@ const Portfolio = () => {
                 key={category}
                 onClick={() => setActiveCategory(category)}
                 className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeCategory === category
-                    ? 'bg-artnetwork-primary text-white'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  ? 'bg-artnetwork-primary text-white'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                   }`}
               >
                 {category}

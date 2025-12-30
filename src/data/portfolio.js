@@ -1,10 +1,11 @@
 export const portfolioItems = [
   {
     id: 1,
-    title: 'E-commerce Moda Lisboa',
-    category: 'Loja Online',
-    description: 'Loja online completa com integração de pagamentos e gestão de inventário.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop',
+    title: 'Construir Portugal',
+    category: 'Website',
+    description: 'Portal com catálogo online para materiais de construção, bricolage e climatização.',
+    image: '/construir-portugal.png',
+    url: 'https://construirportugal.pt',
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ export const portfolioItems = [
     category: 'Website',
     description: 'Site institucional com sistema de reservas online e menu digital.',
     image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop',
+    url: '#',
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ export const portfolioItems = [
     category: 'Website',
     description: 'Site profissional com agendamento online e área de pacientes.',
     image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&h=400&fit=crop',
+    url: '#',
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ export const portfolioItems = [
     category: 'Sistema Web',
     description: 'Sistema de gestão empresarial com dashboard e relatórios.',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop',
+    url: '#',
   },
   {
     id: 5,
@@ -33,6 +37,7 @@ export const portfolioItems = [
     category: 'Marketing Digital',
     description: 'Campanha completa de marketing digital com resultados expressivos.',
     image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop',
+    url: '#',
   },
   {
     id: 6,
@@ -40,5 +45,6 @@ export const portfolioItems = [
     category: 'Website',
     description: 'Portal imobiliário com pesquisa avançada e visitas virtuais.',
     image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop',
+    url: '#',
   },
 ];
