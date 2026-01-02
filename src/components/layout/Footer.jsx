@@ -31,7 +31,7 @@ const Footer = () => {
   return (
     <footer className="bg-artnetwork-dark text-white">
       <div className="container-custom section-padding pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About */}
           <div>
             <div className="flex items-center gap-3 mb-6">
@@ -85,16 +85,16 @@ const Footer = () => {
             <h3 className="font-heading font-bold text-lg mb-6">Contacto</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <HiOutlineMail className="w-5 h-5 text-artnetwork-primary mt-1" />
+                <HiOutlineMail className="w-5 h-5 text-artnetwork-primary mt-1 flex-shrink-0" />
                 <a
                   href="mailto:artnetworkconsult@gmail.com"
-                  className="text-artnetwork-gray hover:text-artnetwork-primary transition-colors"
+                  className="text-artnetwork-gray hover:text-artnetwork-primary transition-colors break-all"
                 >
                   artnetworkconsult@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <HiOutlinePhone className="w-5 h-5 text-artnetwork-primary mt-1" />
+                <HiOutlinePhone className="w-5 h-5 text-artnetwork-primary mt-1 flex-shrink-0" />
                 <a
                   href="tel:+351965093138"
                   className="text-artnetwork-gray hover:text-artnetwork-primary transition-colors"
@@ -103,7 +103,7 @@ const Footer = () => {
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <HiOutlineLocationMarker className="w-5 h-5 text-artnetwork-primary mt-1" />
+                <HiOutlineLocationMarker className="w-5 h-5 text-artnetwork-primary mt-1 flex-shrink-0" />
                 <span className="text-artnetwork-gray">Portugal</span>
               </li>
             </ul>
