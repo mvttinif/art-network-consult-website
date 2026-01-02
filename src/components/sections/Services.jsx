@@ -106,18 +106,18 @@ const Services = () => {
           </motion.span>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-artnetwork-dark leading-tight">
-            Soluções digitais
-            <span className="block text-artnetwork-primary">que geram resultados</span>
+            Soluções de IA
+            <span className="block text-artnetwork-primary">que transformam negócios</span>
           </h2>
 
           <p className="text-gray-600 text-lg mt-6 max-w-xl">
-            Cada projeto é único. Desenvolvemos estratégias personalizadas
-            para impulsionar o crescimento do seu negócio no mundo digital.
+            Cada projeto é único. Combinamos Inteligência Artificial e consultoria
+            estratégica para impulsionar o crescimento do seu negócio.
           </p>
         </motion.div>
 
         {/* Services Grid - Bento style */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {services.map((service, index) => (
             <ServiceCard key={service.id} service={service} index={index} />
           ))}

@@ -15,12 +15,10 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const services = [
-    'Criação de Sites',
-    'Web Design',
-    'Marketing Digital',
-    'Lojas Online',
     'Soluções de IA',
+    'Consultoria Web',
     'Sistemas Web',
+    'Criação de Sites',
   ];
 
   const socialLinks = [
@@ -45,8 +43,8 @@ const Footer = () => {
               <span className="font-heading font-bold text-xl">ArtNetwork</span>
             </div>
             <p className="text-artnetwork-gray leading-relaxed mb-6">
-              Agência de web design e consultoria digital. Transformamos ideias
-              em sucesso online com soluções inovadoras e personalizadas.
+              Especialistas em Inteligência Artificial e consultoria web.
+              Transformamos negócios com soluções de IA inovadoras e personalizadas.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social) => (

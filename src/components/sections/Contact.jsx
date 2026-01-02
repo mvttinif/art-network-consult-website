@@ -37,12 +37,10 @@ const contactInfo = [
 ];
 
 const serviceOptions = [
-  'Criação de Site',
-  'Web Design',
-  'Marketing Digital',
-  'Loja Online',
   'Soluções de IA',
+  'Consultoria Web',
   'Sistemas Web',
+  'Criação de Sites',
   'Outro',
 ];
 

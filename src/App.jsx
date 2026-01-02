@@ -5,6 +5,7 @@ import Services from './components/sections/Services';
 import Portfolio from './components/sections/Portfolio';
 import Testimonials from './components/sections/Testimonials';
 import Contact from './components/sections/Contact';
+import AIConsultant from './components/ai/AIConsultant';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <AIConsultant />
     </div>
   );
 }

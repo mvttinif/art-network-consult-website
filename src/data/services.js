@@ -1,47 +1,35 @@
 import {
-  HiOutlineGlobeAlt,
-  HiOutlineColorSwatch,
-  HiOutlineSpeakerphone,
-  HiOutlineShoppingCart,
   HiOutlineLightningBolt,
-  HiOutlineServer
+  HiOutlineAcademicCap,
+  HiOutlineServer,
+  HiOutlineGlobeAlt
 } from 'react-icons/hi';
 
 export const services = [
   {
     id: 1,
-    icon: HiOutlineGlobeAlt,
-    title: 'Criação de Sites',
-    description: 'Criamos sites incríveis e fáceis de encontrar, para empresas, pequenos negócios, comerciantes e muito mais.',
+    icon: HiOutlineLightningBolt,
+    title: 'Soluções de IA',
+    description: 'Transforme o seu negócio com Inteligência Artificial. Chatbots, automação de processos, análise preditiva e integração de IA personalizada.',
+    featured: true,
   },
   {
     id: 2,
-    icon: HiOutlineColorSwatch,
-    title: 'Web Design',
-    description: 'Desenvolvemos a solução web para ter sucesso online com designs modernos e funcionais.',
+    icon: HiOutlineAcademicCap,
+    title: 'Consultoria Web',
+    description: 'Estratégia digital personalizada para o seu negócio. Auditorias, otimização, marketing digital e planeamento de crescimento online.',
+    featured: true,
   },
   {
     id: 3,
-    icon: HiOutlineSpeakerphone,
-    title: 'Marketing Digital',
-    description: 'Criamos estratégias de marketing digital que fazem crescer o seu negócio de forma sustentável.',
+    icon: HiOutlineServer,
+    title: 'Sistemas Web',
+    description: 'Criamos sistemas web personalizados que facilitam os processos internos da sua empresa. Dashboards, automação e gestão eficiente.',
   },
   {
     id: 4,
-    icon: HiOutlineShoppingCart,
-    title: 'Lojas Online',
-    description: 'Criamos lojas online que vendem, com experiências de compra otimizadas e seguras.',
-  },
-  {
-    id: 5,
-    icon: HiOutlineLightningBolt,
-    title: 'Soluções de IA',
-    description: 'Integramos o seu negócio com o poder da Inteligência Artificial para automatizar e otimizar processos.',
-  },
-  {
-    id: 6,
-    icon: HiOutlineServer,
-    title: 'Sistemas Web',
-    description: 'Criamos sistemas web que facilitam os processos internos da sua empresa ou negócio.',
+    icon: HiOutlineGlobeAlt,
+    title: 'Criação de Sites',
+    description: 'Sites profissionais com design moderno e funcional. Landing pages, websites corporativos e presença online de impacto.',
   },
 ];

@@ -118,25 +118,25 @@ const Hero = () => {
               >
                 <span className="w-2 h-2 rounded-full bg-artnetwork-primary animate-pulse" />
                 <span className="text-artnetwork-primary text-sm font-medium">
-                  Web Design & Consultoria Digital
+                  IA & Consultoria Web
                 </span>
               </motion.div>
 
               {/* Headline */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold text-white leading-[1.1] mb-6">
-                Criamos
+                Potenciamos
                 <span className="block relative">
                   <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-artnetwork-primary to-artnetwork-bright">
-                    experiências
+                    negócios
                   </span>
                 </span>
-                digitais únicas
+                com Inteligência Artificial
               </h1>
 
               {/* Description */}
               <p className="text-lg md:text-xl text-gray-400 max-w-xl mb-10 leading-relaxed">
-                Transformamos a sua visão em realidade digital. Sites, lojas online
-                e estratégias de marketing que <strong className="text-white">geram resultados</strong>.
+                Transformamos o seu negócio com soluções de IA e consultoria web estratégica
+                que <strong className="text-white">geram resultados</strong>.
               </p>
 
               {/* CTAs */}
@@ -201,7 +201,7 @@ const Hero = () => {
                   transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
                   className="absolute -top-6 sm:-top-6 right-4 sm:right-8 px-3 sm:px-4 py-1.5 sm:py-2 bg-artnetwork-primary/20 backdrop-blur-sm rounded-lg border border-artnetwork-primary/30"
                 >
-                  <span className="text-white text-xs sm:text-sm font-medium">Web Design</span>
+                  <span className="text-white text-xs sm:text-sm font-medium">Inteligência Artificial</span>
                 </motion.div>
 
                 <motion.div
@@ -209,7 +209,7 @@ const Hero = () => {
                   transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
                   className="absolute -bottom-6 sm:-bottom-6 left-4 sm:left-8 px-3 sm:px-4 py-1.5 sm:py-2 bg-artnetwork-primary/20 backdrop-blur-sm rounded-lg border border-artnetwork-primary/30"
                 >
-                  <span className="text-white text-xs sm:text-sm font-medium">Marketing Digital</span>
+                  <span className="text-white text-xs sm:text-sm font-medium">Consultoria Web</span>
                 </motion.div>
 
                 <motion.div
@@ -217,7 +217,7 @@ const Hero = () => {
                   transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
                   className="absolute top-1/3 -right-16 sm:-right-10 px-3 sm:px-4 py-1.5 sm:py-2 bg-artnetwork-primary/20 backdrop-blur-sm rounded-lg border border-artnetwork-primary/30"
                 >
-                  <span className="text-white text-xs sm:text-sm font-medium">Lojas Online</span>
+                  <span className="text-white text-xs sm:text-sm font-medium">Automação</span>
                 </motion.div>
               </div>
             </div>
