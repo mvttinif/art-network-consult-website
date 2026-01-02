@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import { portfolioItems } from '../../data/portfolio';
 import { HiArrowRight } from 'react-icons/hi';
 
-const categories = ['Todos', 'Website', 'Loja Online', 'Sistema Web', 'Marketing Digital'];
+const categories = ['Todos', 'Website', 'Soluções de IA', 'Consultoria Web', 'Sistema Web'];
 
 const PortfolioCard = ({ item, index }) => {
   const [isHovered, setIsHovered] = useState(false);
