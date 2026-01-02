@@ -30,10 +30,11 @@ const ChatMessage = ({ message, isBot }) => (
     className={`flex ${isBot ? 'justify-start' : 'justify-end'} mb-3`}
   >
     <div
-      className={`max-w-[85%] px-4 py-3 rounded-2xl ${isBot
+      className={`max-w-[85%] px-4 py-3 rounded-2xl ${
+        isBot
           ? 'bg-gray-100 text-gray-800 rounded-bl-md'
           : 'bg-artnetwork-primary text-white rounded-br-md'
-        }`}
+      }`}
     >
       <div
         className="text-sm leading-relaxed whitespace-pre-line"
@@ -45,10 +46,14 @@ const ChatMessage = ({ message, isBot }) => (
   </motion.div>
 );
 
-const QuickActionButton = ({ label, onClick }) => (
+const ActionButton = ({ label, onClick, variant = 'default' }) => (
   <button
     onClick={onClick}
-    className="px-3 py-1.5 text-xs bg-artnetwork-primary/10 text-artnetwork-primary rounded-full hover:bg-artnetwork-primary/20 transition-colors whitespace-nowrap"
+    className={`px-3 py-1.5 text-xs rounded-full transition-colors whitespace-nowrap ${
+      variant === 'followUp'
+        ? 'bg-artnetwork-dark/10 text-artnetwork-dark hover:bg-artnetwork-dark/20'
+        : 'bg-artnetwork-primary/10 text-artnetwork-primary hover:bg-artnetwork-primary/20'
+    }`}
   >
     {label}
   </button>
@@ -59,18 +64,18 @@ const AIConsultant = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const [quickActions, setQuickActions] = useState([]);
+  const [currentFollowUps, setCurrentFollowUps] = useState([]);
+  const [initialActions] = useState(getQuickActions());
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
   useEffect(() => {
-    setQuickActions(getQuickActions());
-  }, []);
-
-  useEffect(() => {
     if (isOpen && messages.length === 0) {
-      // Enviar mensagem inicial do bot
-      setMessages([{ text: getInitialGreeting(), isBot: true }]);
+      setMessages([{
+        text: getInitialGreeting(),
+        isBot: true
+      }]);
+      setCurrentFollowUps([]);
     }
   }, [isOpen, messages.length]);
 
@@ -87,11 +92,19 @@ const AIConsultant = () => {
   const handleSendMessage = async (text, actionId = null) => {
     if (!text.trim() && !actionId) return;
 
-    const userMessage = text.trim() || quickActions.find((a) => a.id === actionId)?.label;
+    // Determinar texto da mensagem do utilizador
+    let userMessage = text.trim();
+    if (!userMessage && actionId) {
+      // Procurar label nas ações iniciais ou follow-ups
+      const initialAction = initialActions.find((a) => a.id === actionId);
+      const followUpAction = currentFollowUps.find((a) => a.id === actionId);
+      userMessage = initialAction?.label || followUpAction?.label || actionId;
+    }
 
     // Adicionar mensagem do utilizador
     setMessages((prev) => [...prev, { text: userMessage, isBot: false }]);
     setInput('');
+    setCurrentFollowUps([]);
     setIsTyping(true);
 
     // Obter resposta do bot
@@ -99,6 +112,13 @@ const AIConsultant = () => {
 
     setIsTyping(false);
     setMessages((prev) => [...prev, { text: response.text, isBot: true }]);
+
+    // Atualizar follow-ups disponíveis
+    if (response.followUp && response.followUp.length > 0) {
+      setCurrentFollowUps(response.followUp);
+    } else {
+      setCurrentFollowUps([]);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -106,20 +126,24 @@ const AIConsultant = () => {
     handleSendMessage(input);
   };
 
+  // Determinar que botões mostrar
+  const showInitialActions = messages.length <= 1 && !isTyping && currentFollowUps.length === 0;
+  const showFollowUps = !isTyping && currentFollowUps.length > 0;
+
   return (
     <>
       {/* Chat Button */}
       <motion.button
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-6 right-6 z-50 w-14 h-14 bg-artnetwork-primary text-white rounded-full shadow-lg flex items-center justify-center hover:bg-artnetwork-bright transition-colors ${isOpen ? 'hidden' : ''
-          }`}
+        className={`fixed bottom-6 right-6 z-50 w-14 h-14 bg-artnetwork-primary text-white rounded-full shadow-lg flex items-center justify-center hover:bg-artnetwork-bright transition-colors ${
+          isOpen ? 'hidden' : ''
+        }`}
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
       >
         <HiOutlineChat className="w-6 h-6" />
-        {/* Pulse animation */}
         <span className="absolute w-full h-full rounded-full bg-artnetwork-primary animate-ping opacity-30" />
       </motion.button>
 
@@ -132,7 +156,7 @@ const AIConsultant = () => {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
             className="fixed bottom-6 right-6 z-50 w-[380px] max-w-[calc(100vw-48px)] bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col"
-            style={{ height: 'min(700px, calc(100vh - 100px))' }}
+            style={{ height: 'min(600px, calc(100vh - 100px))' }}
           >
             {/* Header */}
             <div className="bg-artnetwork-dark px-4 py-4 flex items-center justify-between flex-shrink-0">
@@ -162,17 +186,42 @@ const AIConsultant = () => {
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Quick Actions */}
-            {messages.length <= 2 && !isTyping && (
-              <div className="px-4 py-2 bg-white border-t border-gray-100 flex gap-2 overflow-x-auto flex-shrink-0">
-                {quickActions.map((action) => (
-                  <QuickActionButton
+            {/* Initial Quick Actions */}
+            {showInitialActions && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="px-4 py-3 bg-white border-t border-gray-100 flex gap-2 overflow-x-auto flex-shrink-0"
+              >
+                {initialActions.map((action) => (
+                  <ActionButton
                     key={action.id}
                     label={action.label}
                     onClick={() => handleSendMessage('', action.id)}
                   />
                 ))}
-              </div>
+              </motion.div>
+            )}
+
+            {/* Follow-up Actions */}
+            {showFollowUps && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="px-4 py-3 bg-white border-t border-gray-100 flex-shrink-0"
+              >
+                <p className="text-xs text-gray-500 mb-2">Sugestões:</p>
+                <div className="flex gap-2 overflow-x-auto">
+                  {currentFollowUps.map((action) => (
+                    <ActionButton
+                      key={action.id}
+                      label={action.label}
+                      variant="followUp"
+                      onClick={() => handleSendMessage('', action.id)}
+                    />
+                  ))}
+                </div>
+              </motion.div>
             )}
 
             {/* Input */}
