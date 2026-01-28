@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-scroll';
-import { motion } from 'framer-motion';
-import { HiArrowDown } from 'react-icons/hi';
+import { useState, useEffect, useRef } from "react";
+import { Link } from "react-scroll";
+import { motion } from "framer-motion";
+import { HiArrowDown } from "react-icons/hi";
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
@@ -17,8 +17,8 @@ const Hero = () => {
       }
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   return (
@@ -51,12 +51,12 @@ const Hero = () => {
             scale: [1, 1.2, 1],
             rotate: [0, 90, 0],
           }}
-          transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           className="absolute -top-40 -right-40 w-[500px] h-[500px] opacity-20"
           style={{
-            background: 'linear-gradient(135deg, #C41E3A 0%, #EF4444 100%)',
-            borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
-            filter: 'blur(40px)',
+            background: "linear-gradient(135deg, #C41E3A 0%, #EF4444 100%)",
+            borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
+            filter: "blur(40px)",
           }}
         />
 
@@ -66,20 +66,44 @@ const Hero = () => {
             scale: [1, 1.1, 1],
             rotate: [0, -90, 0],
           }}
-          transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
           className="absolute -bottom-20 -left-20 w-[400px] h-[400px] opacity-15"
           style={{
-            background: 'linear-gradient(135deg, #EF4444 0%, #C41E3A 100%)',
-            borderRadius: '40% 60% 70% 30% / 40% 50% 60% 50%',
-            filter: 'blur(40px)',
+            background: "linear-gradient(135deg, #EF4444 0%, #C41E3A 100%)",
+            borderRadius: "40% 60% 70% 30% / 40% 50% 60% 50%",
+            filter: "blur(40px)",
           }}
         />
 
         {/* Linhas decorativas */}
-        <svg className="absolute top-20 left-10 w-40 h-40 opacity-10" viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="40" fill="none" stroke="#C41E3A" strokeWidth="0.5" />
-          <circle cx="50" cy="50" r="30" fill="none" stroke="#C41E3A" strokeWidth="0.5" />
-          <circle cx="50" cy="50" r="20" fill="none" stroke="#C41E3A" strokeWidth="0.5" />
+        <svg
+          className="absolute top-20 left-10 w-40 h-40 opacity-10"
+          viewBox="0 0 100 100"
+        >
+          <circle
+            cx="50"
+            cy="50"
+            r="40"
+            fill="none"
+            stroke="#C41E3A"
+            strokeWidth="0.5"
+          />
+          <circle
+            cx="50"
+            cy="50"
+            r="30"
+            fill="none"
+            stroke="#C41E3A"
+            strokeWidth="0.5"
+          />
+          <circle
+            cx="50"
+            cy="50"
+            r="20"
+            fill="none"
+            stroke="#C41E3A"
+            strokeWidth="0.5"
+          />
         </svg>
 
         {/* Grid pattern */}
@@ -90,7 +114,7 @@ const Hero = () => {
               linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
               linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
             `,
-            backgroundSize: '50px 50px',
+            backgroundSize: "50px 50px",
           }}
         />
       </div>
@@ -112,13 +136,13 @@ const Hero = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8"
                 style={{
-                  background: 'rgba(196, 30, 58, 0.1)',
-                  border: '1px solid rgba(196, 30, 58, 0.3)',
+                  background: "rgba(196, 30, 58, 0.1)",
+                  border: "1px solid rgba(196, 30, 58, 0.3)",
                 }}
               >
                 <span className="w-2 h-2 rounded-full bg-artnetwork-primary animate-pulse" />
                 <span className="text-artnetwork-primary text-sm font-medium">
-                  IA & Consultoria Web
+                  IA & Consultoria Digital
                 </span>
               </motion.div>
 
@@ -135,8 +159,9 @@ const Hero = () => {
 
               {/* Description */}
               <p className="text-lg md:text-xl text-gray-400 max-w-xl mb-10 leading-relaxed">
-                Transformamos o seu negócio com soluções de IA e consultoria web estratégica
-                que <strong className="text-white">geram resultados</strong>.
+                Transformamos o seu negócio com Soluções de IA e Consultoria
+                Digital estratégica que{" "}
+                <strong className="text-white">geram resultados</strong>.
               </p>
 
               {/* CTAs */}
@@ -148,8 +173,18 @@ const Hero = () => {
                   className="group relative inline-flex items-center gap-2 px-8 py-4 bg-artnetwork-primary text-white font-semibold rounded-xl cursor-pointer overflow-hidden transition-transform hover:scale-105"
                 >
                   <span className="relative z-10">Iniciar Projeto</span>
-                  <svg className="relative z-10 w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  <svg
+                    className="relative z-10 w-5 h-5 transition-transform group-hover:translate-x-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
                   </svg>
                   <div className="absolute inset-0 bg-gradient-to-r from-artnetwork-bright to-artnetwork-primary opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
@@ -179,10 +214,14 @@ const Hero = () => {
                 {/* Rotating ring */}
                 <motion.div
                   animate={{ rotate: 360 }}
-                  transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
+                  transition={{
+                    duration: 30,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
                   className="absolute inset-0 rounded-full border border-artnetwork-primary/30"
                   style={{
-                    borderStyle: 'dashed',
+                    borderStyle: "dashed",
                   }}
                 />
 
@@ -198,26 +237,44 @@ const Hero = () => {
                 {/* Floating elements - visible but repositioned on mobile */}
                 <motion.div
                   animate={{ y: [-10, 10, -10] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
                   className="absolute -top-6 sm:-top-6 right-4 sm:right-8 px-3 sm:px-4 py-1.5 sm:py-2 bg-artnetwork-primary/20 backdrop-blur-sm rounded-lg border border-artnetwork-primary/30"
                 >
-                  <span className="text-white text-xs sm:text-sm font-medium">Inteligência Artificial</span>
+                  <span className="text-white text-xs sm:text-sm font-medium">
+                    Inteligência Artificial
+                  </span>
                 </motion.div>
 
                 <motion.div
                   animate={{ y: [10, -10, 10] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+                  transition={{
+                    duration: 5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
                   className="absolute -bottom-6 sm:-bottom-6 left-4 sm:left-8 px-3 sm:px-4 py-1.5 sm:py-2 bg-artnetwork-primary/20 backdrop-blur-sm rounded-lg border border-artnetwork-primary/30"
                 >
-                  <span className="text-white text-xs sm:text-sm font-medium">Consultoria Web</span>
+                  <span className="text-white text-xs sm:text-sm font-medium">
+                    Consultoria Web
+                  </span>
                 </motion.div>
 
                 <motion.div
                   animate={{ x: [-5, 5, -5] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                  transition={{
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
                   className="absolute top-1/3 -right-16 sm:-right-10 px-3 sm:px-4 py-1.5 sm:py-2 bg-artnetwork-primary/20 backdrop-blur-sm rounded-lg border border-artnetwork-primary/30"
                 >
-                  <span className="text-white text-xs sm:text-sm font-medium">Automação</span>
+                  <span className="text-white text-xs sm:text-sm font-medium">
+                    Automação
+                  </span>
                 </motion.div>
               </div>
             </div>
@@ -236,19 +293,25 @@ const Hero = () => {
               <div className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white">
                 100<span className="text-artnetwork-primary">+</span>
               </div>
-              <div className="text-xs sm:text-sm text-gray-500 mt-1">Projetos Entregues</div>
+              <div className="text-xs sm:text-sm text-gray-500 mt-1">
+                Projetos Entregues
+              </div>
             </div>
             <div className="text-center md:text-left">
               <div className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white">
                 50<span className="text-artnetwork-primary">+</span>
               </div>
-              <div className="text-xs sm:text-sm text-gray-500 mt-1">Clientes Satisfeitos</div>
+              <div className="text-xs sm:text-sm text-gray-500 mt-1">
+                Clientes Satisfeitos
+              </div>
             </div>
             <div className="text-center md:text-left">
               <div className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white">
                 5<span className="text-artnetwork-primary">+</span>
               </div>
-              <div className="text-xs sm:text-sm text-gray-500 mt-1">Anos de Experiência</div>
+              <div className="text-xs sm:text-sm text-gray-500 mt-1">
+                Anos de Experiência
+              </div>
             </div>
           </div>
         </motion.div>
@@ -260,7 +323,7 @@ const Hero = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1.2 }}
         className="hidden md:block absolute bottom-8 left-1/2 z-20"
-        style={{ transform: 'translateX(-50%)' }}
+        style={{ transform: "translateX(-50%)" }}
       >
         <Link
           to="servicos"

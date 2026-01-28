@@ -43,7 +43,7 @@ const Footer = () => {
               <span className="font-heading font-bold text-xl">ArtNetwork</span>
             </div>
             <p className="text-artnetwork-gray leading-relaxed mb-6">
-              Especialistas em Inteligência Artificial e consultoria web.
+              Especialistas em Inteligência Artificial e Consultoria Digital.
               Transformamos negócios com soluções de IA inovadoras e personalizadas.
             </p>
             <div className="flex gap-4">
