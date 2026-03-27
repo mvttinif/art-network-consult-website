@@ -1,0 +1,68 @@
+import { useEffect } from 'react';
+import { motion } from 'framer-motion';
+
+const Legal = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <section className="pt-32 pb-24 bg-[#0a0a0a] min-h-screen">
+      <div className="container-custom px-6 lg:px-12 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-4xl"
+        >
+          <span className="inline-block text-artnetwork-primary font-body text-xs font-bold uppercase tracking-[0.2em] mb-6">
+            [ 05 — Aviso Legal ]
+          </span>
+          <h1 className="text-5xl lg:text-7xl font-heading font-bold text-white leading-[0.9] tracking-tighter uppercase mb-12">
+            Termos e <br />
+            <span className="text-white/40 italic font-normal tracking-wide lowercase">Condições</span>
+          </h1>
+
+          <div className="space-y-12 text-white/70 font-body font-light leading-relaxed">
+            <div>
+              <h2 className="text-white font-heading text-xl mb-4 uppercase tracking-wider">1. Informação Geral</h2>
+              <p>
+                Este website é propriedade da **ArtNetwork Consult LDA**, com sede em Portugal. O acesso e utilização deste site estão sujeitos aos seguintes termos e condições e a todas as leis aplicáveis. Ao navegar neste site, o utilizador aceita, sem limitação ou reserva, estes termos.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-white font-heading text-xl mb-4 uppercase tracking-wider">2. Propriedade Intelectual</h2>
+              <p>
+                Todo o conteúdo deste site, incluindo textos, gráficos, logótipos, ícones, imagens e software, é propriedade da ArtNetwork Consult ou dos seus fornecedores de conteúdo e está protegido pelas leis de direitos de autor internacionais e de Portugal. A reprodução, modificação ou distribuição de qualquer conteúdo sem autorização prévia por escrito é estritamente proibida.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-white font-heading text-xl mb-4 uppercase tracking-wider">3. Isenção de Responsabilidade</h2>
+              <p>
+                A ArtNetwork Consult envidará todos os esforços razoáveis para incluir informações precisas e atualizadas, mas não oferece garantias ou representações quanto à sua precisão. Não seremos responsáveis por quaisquer danos diretos, incidentais ou consequentes resultantes do uso ou da incapacidade de usar este site.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-white font-heading text-xl mb-4 uppercase tracking-wider">4. Links para Terceiros</h2>
+              <p>
+                Este site pode conter links para sites operados por terceiros. Estes links são fornecidos apenas para conveniência. A ArtNetwork Consult não controla tais sites e não é responsável pelo seu conteúdo ou pelas suas políticas de privacidade.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-white font-heading text-xl mb-4 uppercase tracking-wider">5. Jurisdição</h2>
+              <p>
+                Estes termos e condições são regidos e interpretados de acordo com as leis de Portugal. Qualquer litígio emergente da utilização deste site será submetido à jurisdição exclusiva dos tribunais portugueses.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default Legal;

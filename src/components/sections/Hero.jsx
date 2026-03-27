@@ -1,346 +1,130 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
-import { HiArrowDown } from "react-icons/hi";
+import Spline from '@splinetool/react-spline';
 
 const Hero = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
-  const heroRef = useRef(null);
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      if (heroRef.current) {
-        const rect = heroRef.current.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
-        setMousePosition({ x, y });
-      }
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   return (
     <section
-      ref={heroRef}
       id="inicio"
-      className="relative min-h-screen flex items-center overflow-hidden"
-      style={{
-        background: `
-          radial-gradient(
-            circle at ${mousePosition.x}% ${mousePosition.y}%,
-            rgba(196, 30, 58, 0.4) 0%,
-            rgba(196, 30, 58, 0.1) 25%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at ${100 - mousePosition.x}% ${100 - mousePosition.y}%,
-            rgba(239, 68, 68, 0.3) 0%,
-            transparent 40%
-          ),
-          linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%)
-        `,
-      }}
+      className="relative min-h-screen flex items-center bg-black overflow-hidden selection:bg-artnetwork-primary selection:text-white"
     >
-      {/* Formas Orgânicas Decorativas */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Blob 1 */}
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 90, 0],
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-40 -right-40 w-[500px] h-[500px] opacity-20"
-          style={{
-            background: "linear-gradient(135deg, #C41E3A 0%, #EF4444 100%)",
-            borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
-            filter: "blur(40px)",
-          }}
+      {/* Editorial Grid overlay for structure */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.02] z-0 flex justify-between px-6 lg:px-12">
+        <div className="w-[1px] h-full bg-white"></div>
+        <div className="w-[1px] h-full bg-white"></div>
+        <div className="w-[1px] h-full bg-white"></div>
+        <div className="w-[1px] h-full bg-white"></div>
+      </div>
+      
+      {/* Dynamic 3D Element via Spline (Spans background) */}
+      <div className="absolute inset-0 w-full h-full z-0 pointer-events-auto">
+         <Spline 
+          scene="https://prod.spline.design/ePI80qDtDhPPhf2g/scene.splinecode" 
+          onLoad={() => setIsLoaded(true)}
+          aria-label="ArtNetwork Nucleus - Interativo 3D"
+          role="img"
         />
-
-        {/* Blob 2 */}
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 1],
-            rotate: [0, -90, 0],
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-20 -left-20 w-[400px] h-[400px] opacity-15"
-          style={{
-            background: "linear-gradient(135deg, #EF4444 0%, #C41E3A 100%)",
-            borderRadius: "40% 60% 70% 30% / 40% 50% 60% 50%",
-            filter: "blur(40px)",
-          }}
-        />
-
-        {/* Linhas decorativas */}
-        <svg
-          className="absolute top-20 left-10 w-40 h-40 opacity-10"
-          viewBox="0 0 100 100"
-        >
-          <circle
-            cx="50"
-            cy="50"
-            r="40"
-            fill="none"
-            stroke="#C41E3A"
-            strokeWidth="0.5"
-          />
-          <circle
-            cx="50"
-            cy="50"
-            r="30"
-            fill="none"
-            stroke="#C41E3A"
-            strokeWidth="0.5"
-          />
-          <circle
-            cx="50"
-            cy="50"
-            r="20"
-            fill="none"
-            stroke="#C41E3A"
-            strokeWidth="0.5"
-          />
-        </svg>
-
-        {/* Grid pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: "50px 50px",
-          }}
-        />
+        {!isLoaded && (
+          <div className="absolute inset-0 flex items-center justify-center bg-black">
+            <motion.div 
+              animate={{ opacity: [0.4, 1, 0.4] }} 
+              transition={{ repeat: Infinity, duration: 1.5 }}
+              className="text-white/60 tracking-widest text-xs font-body font-bold"
+            >
+              INITIALIZING 3D ENVIRONMENT...
+            </motion.div>
+          </div>
+        )}
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 container-custom px-4 sm:px-6 lg:px-8 pt-16 md:pt-0">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left - Text Content */}
-          <div className="order-2 lg:order-1">
+      {/* Container - enable pointer events none on container so we can click background, and auto on content */}
+      <div className="container-custom relative z-10 px-6 lg:px-12 w-full pt-16 lg:pt-0 pointer-events-none">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8 mt-12 mb-8">
+          
+          {/* Left Side: Editorial Typography Content */}
+          <div className="w-full lg:w-[60%] flex flex-col items-start text-left lg:py-12 pointer-events-auto">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             >
-              {/* Badge */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8"
-                style={{
-                  background: "rgba(196, 30, 58, 0.1)",
-                  border: "1px solid rgba(196, 30, 58, 0.3)",
-                }}
-              >
-                <span className="w-2 h-2 rounded-full bg-artnetwork-primary animate-pulse" />
-                <span className="text-artnetwork-primary text-sm font-medium">
-                  IA & Consultoria Digital
+              <div className="flex items-center gap-4 mb-6">
+                <span className="h-px w-12 bg-artnetwork-primary"></span>
+                <span className="text-white/90 text-sm font-body font-bold uppercase tracking-[0.25em]">
+                  Consultoria de IA e Digital 
                 </span>
-              </motion.div>
+              </div>
 
-              {/* Headline */}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold text-white leading-[1.1] mb-6">
-                Potenciamos
-                <span className="block relative">
-                  <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-artnetwork-primary to-artnetwork-bright">
-                    negócios
-                  </span>
+              <h1 className="text-5xl md:text-6xl xl:text-[6rem] font-heading font-bold text-white leading-[0.95] tracking-tight mb-6 pointer-events-auto">
+                Moldamos <br />
+                o Futuro <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-artnetwork-primary to-white italic font-normal tracking-wide pr-4">
+                  Digital
                 </span>
-                com Inteligência Artificial
               </h1>
 
-              {/* Description */}
-              <p className="text-lg md:text-xl text-gray-400 max-w-xl mb-10 leading-relaxed">
-                Transformamos o seu negócio com Soluções de IA e Consultoria
-                Digital estratégica que{" "}
-                <strong className="text-white">geram resultados</strong>.
+              <p className="text-base md:text-lg text-white/80 max-w-lg mb-8 leading-relaxed font-body font-light pointer-events-auto">
+                Soluções digitais desenhadas para elevar o seu negócio através de 
+                <span className="text-white font-bold"> tecnologia estratégica e design de alta performance</span>.
               </p>
 
-              {/* CTAs */}
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-6 mt-2 pointer-events-auto">
                 <Link
                   to="contacto"
                   smooth={true}
-                  duration={500}
-                  className="group relative inline-flex items-center gap-2 px-8 py-4 bg-artnetwork-primary text-white font-semibold rounded-xl cursor-pointer overflow-hidden transition-transform hover:scale-105"
+                  className="px-8 py-4 bg-artnetwork-primary hover:bg-white text-white hover:text-black font-body font-bold text-sm uppercase tracking-widest rounded-none transition-all duration-300 flex items-center justify-center gap-3 group"
                 >
-                  <span className="relative z-10">Iniciar Projeto</span>
-                  <svg
-                    className="relative z-10 w-5 h-5 transition-transform group-hover:translate-x-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                  <div className="absolute inset-0 bg-gradient-to-r from-artnetwork-bright to-artnetwork-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <span className="relative overflow-hidden flex items-center gap-2">
+                    Iniciar Projeto
+                    <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+                  </span>
                 </Link>
-
-                <Link
+                                <Link
                   to="portfolio"
                   smooth={true}
-                  duration={500}
-                  className="inline-flex items-center gap-2 px-8 py-4 text-white font-semibold rounded-xl cursor-pointer border border-white/20 hover:bg-white/5 transition-colors"
+                  className="px-8 py-4 bg-transparent border border-white/40 hover:border-white text-white font-body font-bold text-sm uppercase tracking-widest rounded-none transition-all duration-300 flex items-center justify-center cursor-pointer"
                 >
-                  Ver Trabalhos
+                  Ver Casos
                 </Link>
+              </div>
+
+              {/* Stats Bar */}
+               <div className="mt-12 pt-8 border-t border-white/20 flex items-center gap-12 max-w-lg pointer-events-auto bg-white/5 backdrop-blur-md p-6 border border-white/10">
+                <div className="flex flex-col gap-1">
+                  <span className="text-xl font-heading font-bold text-white tracking-widest uppercase">Estratégia</span>
+                  <span className="text-[10px] text-white/60 uppercase font-bold tracking-[0.2em] font-body">Personalizada</span>
+                </div>
+                <div className="flex flex-col gap-1 pl-8 border-l border-white/20">
+                  <span className="text-xl font-heading font-bold text-white tracking-widest uppercase">Impacto</span>
+                  <span className="text-[10px] text-white/60 uppercase font-bold tracking-[0.2em] font-body">Mensurável</span>
+                </div>
               </div>
             </motion.div>
           </div>
 
-          {/* Right - Visual Element */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="order-1 lg:order-2 flex justify-center"
-          >
-            <div className="relative">
-              {/* Main visual - Abstract shapes */}
-              <div className="relative w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96">
-                {/* Rotating ring */}
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{
-                    duration: 30,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  className="absolute inset-0 rounded-full border border-artnetwork-primary/30"
-                  style={{
-                    borderStyle: "dashed",
-                  }}
-                />
-
-                {/* Center logo */}
-                <div className="absolute inset-4 flex items-center justify-center">
-                  <img
-                    src="/ArtNetwork Logo circle.png"
-                    alt="ArtNetwork"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-
-                {/* Floating elements - visible but repositioned on mobile */}
-                <motion.div
-                  animate={{ y: [-10, 10, -10] }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute -top-6 sm:-top-6 right-4 sm:right-8 px-3 sm:px-4 py-1.5 sm:py-2 bg-artnetwork-primary/20 backdrop-blur-sm rounded-lg border border-artnetwork-primary/30"
-                >
-                  <span className="text-white text-xs sm:text-sm font-medium">
-                    Inteligência Artificial
-                  </span>
-                </motion.div>
-
-                <motion.div
-                  animate={{ y: [10, -10, 10] }}
-                  transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute -bottom-6 sm:-bottom-6 left-4 sm:left-8 px-3 sm:px-4 py-1.5 sm:py-2 bg-artnetwork-primary/20 backdrop-blur-sm rounded-lg border border-artnetwork-primary/30"
-                >
-                  <span className="text-white text-xs sm:text-sm font-medium">
-                    Consultoria Web
-                  </span>
-                </motion.div>
-
-                <motion.div
-                  animate={{ x: [-5, 5, -5] }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute top-1/3 -right-16 sm:-right-10 px-3 sm:px-4 py-1.5 sm:py-2 bg-artnetwork-primary/20 backdrop-blur-sm rounded-lg border border-artnetwork-primary/30"
-                >
-                  <span className="text-white text-xs sm:text-sm font-medium">
-                    Automação
-                  </span>
-                </motion.div>
-              </div>
-            </div>
-          </motion.div>
         </div>
-
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-12 md:mt-20 pt-8 md:pt-10 border-t border-white/10"
-        >
-          <div className="grid grid-cols-3 gap-4 md:gap-8 max-w-2xl">
-            <div className="text-center md:text-left">
-              <div className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white">
-                100<span className="text-artnetwork-primary">+</span>
-              </div>
-              <div className="text-xs sm:text-sm text-gray-500 mt-1">
-                Projetos Entregues
-              </div>
-            </div>
-            <div className="text-center md:text-left">
-              <div className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white">
-                50<span className="text-artnetwork-primary">+</span>
-              </div>
-              <div className="text-xs sm:text-sm text-gray-500 mt-1">
-                Clientes Satisfeitos
-              </div>
-            </div>
-            <div className="text-center md:text-left">
-              <div className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white">
-                5<span className="text-artnetwork-primary">+</span>
-              </div>
-              <div className="text-xs sm:text-sm text-gray-500 mt-1">
-                Anos de Experiência
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
 
-      {/* Scroll Indicator - hidden on mobile */}
-      <motion.div
+      {/* Modern Scroll Indicator */}
+      <motion.div 
+        className="absolute bottom-8 right-12 hidden lg:flex items-center gap-4 origin-right rotate-90 z-20"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 1.2 }}
-        className="hidden md:block absolute bottom-8 left-1/2 z-20"
-        style={{ transform: "translateX(-50%)" }}
+        transition={{ delay: 1, duration: 1 }}
       >
-        <Link
-          to="servicos"
-          smooth={true}
-          duration={500}
-          className="cursor-pointer"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="flex flex-col items-center gap-2 text-gray-500 hover:text-artnetwork-primary transition-colors"
-          >
-            <span className="text-xs uppercase tracking-widest">Explorar</span>
-            <HiArrowDown className="w-5 h-5" />
-          </motion.div>
-        </Link>
+        <span className="text-[10px] text-white/50 uppercase tracking-[0.4em] font-body">Descubra mais</span>
+        <div className="w-16 h-[1px] bg-white/20 relative overflow-hidden">
+          <motion.div 
+            className="absolute top-0 left-0 w-full h-full bg-artnetwork-primary origin-left"
+            animate={{ scaleX: [0, 1, 0], transformOrigin: ["0% 50%", "0% 50%", "100% 50%"] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </div>
       </motion.div>
+
     </section>
   );
 };

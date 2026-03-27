@@ -8,8 +8,8 @@
   --color-artnetwork-bright: #EF4444;
   --color-artnetwork-white: #FFFFFF;
 
-  --font-heading: 'Poppins', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Syne', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
 }
 
 html {
@@ -19,8 +19,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  color: var(--color-artnetwork-dark);
-  background-color: white;
+  color: white;
+  background-color: #000000;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -100,4 +100,52 @@ h6 {
   max-width: 80rem;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-artnetwork-primary);
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) #050505;
+}
+
+/* Internal smooth scroll for modal content */
+.overflow-y-auto {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+
+.overflow-y-auto::-webkit-scrollbar {
+  width: 4px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: var(--color-artnetwork-primary);
 }

@@ -7,7 +7,7 @@ const navLinks = [
   { id: 'inicio', label: 'Início' },
   { id: 'servicos', label: 'Serviços' },
   { id: 'portfolio', label: 'Portfólio' },
-  { id: 'testemunhos', label: 'Testemunhos' },
+  // { id: 'testemunhos', label: 'Testemunhos' },
   { id: 'contacto', label: 'Contacto' },
 ];
 
@@ -64,11 +64,10 @@ const Navbar = () => {
                 duration={500}
                 offset={-80}
                 spy={true}
-                activeClass="!text-artnetwork-primary"
-                className="relative px-4 py-2 text-gray-400 hover:text-white transition-colors cursor-pointer font-medium text-sm group"
+                activeClass="!text-white after:w-1/2"
+                className="relative px-4 py-2 text-white/50 hover:text-white transition-all cursor-pointer font-body text-[11px] uppercase tracking-[0.2em] group after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-artnetwork-primary after:transition-all after:duration-300 hover:after:w-1/2"
               >
                 {link.label}
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-artnetwork-primary transition-all duration-300 group-hover:w-1/2" />
               </Link>
             ))}
 

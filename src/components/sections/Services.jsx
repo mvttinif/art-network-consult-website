@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { HiX, HiCheck } from 'react-icons/hi';
+import { HiX } from 'react-icons/hi';
 import { services } from '../../data/services';
 
 const ServiceModal = ({ service, isOpen, onClose }) => {
@@ -17,70 +17,78 @@ const ServiceModal = ({ service, isOpen, onClose }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
+            className="fixed inset-0 bg-[#050505]/95 z-50 backdrop-blur-md"
           />
 
           {/* Modal */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-4 md:inset-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-2xl md:max-h-[85vh] bg-white rounded-3xl shadow-2xl z-50 overflow-hidden flex flex-col"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-4 md:inset-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-4xl bg-[#0a0a0a] border border-white/10 z-50 flex flex-col md:flex-row h-[90vh] md:h-[70vh] rounded-none overflow-hidden"
           >
-            {/* Header */}
-            <div className="relative bg-gradient-to-br from-artnetwork-dark to-black p-8 pb-12">
+            {/* Header / Accent Column */}
+            <div className="relative bg-artnetwork-primary text-white p-8 md:p-12 md:w-1/3 flex flex-col justify-between">
               <button
                 onClick={onClose}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+                className="md:hidden absolute top-4 right-4 w-10 h-10 border border-white/20 flex items-center justify-center hover:bg-white hover:text-artnetwork-primary transition-colors"
               >
-                <HiX className="w-5 h-5 text-white" />
+                <HiX className="w-5 h-5" />
               </button>
 
-              <div className="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mb-6">
-                <service.icon className="w-8 h-8 text-artnetwork-primary" />
+              <div>
+                <div className="w-12 h-12 flex items-center justify-center border border-white/30 mb-8" aria-hidden="true">
+                  <service.icon className="w-6 h-6" />
+                </div>
+                <h3 className="text-3xl font-heading font-bold mb-4 tracking-tight leading-none">
+                  {service.title}
+                </h3>
               </div>
-
-              <h3 className="text-2xl md:text-3xl font-heading font-bold text-white mb-2">
-                {service.title}
-              </h3>
-              <p className="text-gray-400">
-                {service.description}
-              </p>
+              
+              <div className="hidden md:block">
+                <span className="text-[10px] uppercase font-body tracking-[0.2em] opacity-50">ArtNetwork Standard</span>
+              </div>
             </div>
 
-            {/* Content */}
-            <div className="flex-1 overflow-y-auto p-8">
-              <p className="text-gray-600 leading-relaxed mb-8">
-                {service.extendedDescription}
+            {/* Content Column */}
+            <div className="flex-1 overflow-y-auto p-8 md:p-12 relative flex flex-col">
+              <button
+                onClick={onClose}
+                className="hidden md:flex absolute top-8 right-8 w-12 h-12 border border-white/10 items-center justify-center hover:bg-white hover:text-black transition-colors text-white"
+              >
+                <HiX className="w-5 h-5" />
+              </button>
+
+              <p className="text-white/80 font-body text-lg leading-relaxed mb-12 max-w-xl">
+                {service.extendedDescription || service.description}
               </p>
 
-              <h4 className="text-lg font-heading font-bold text-artnetwork-dark mb-4">
-                O que inclui
-              </h4>
-
-              <ul className="space-y-3 mb-8">
-                {service.features?.map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-artnetwork-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <HiCheck className="w-3 h-3 text-artnetwork-primary" />
-                    </div>
-                    <span className="text-gray-600">{feature}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="mb-12">
+                <h4 className="text-xs font-body font-bold text-white uppercase tracking-[0.2em] mb-6 border-b border-white/10 pb-4">
+                  O que inclui
+                </h4>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
+                  {service.features?.map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-4">
+                      <span className="text-artnetwork-primary font-bold mt-1 text-xs">0{idx + 1}</span>
+                      <span className="text-white/80 font-body text-sm font-light">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
               {/* CTA */}
-              <a
-                href="#contacto"
-                onClick={onClose}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-artnetwork-primary text-white font-semibold rounded-xl hover:bg-artnetwork-bright transition-colors"
-              >
-                Solicitar Orçamento
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
+              <div className="mt-auto pt-8 border-t border-white/10">
+                <a
+                  href="#contacto"
+                  onClick={onClose}
+                  className="inline-flex items-center justify-between w-full p-4 bg-white text-black font-body font-bold text-xs uppercase tracking-[0.2em] hover:bg-artnetwork-primary hover:text-white transition-colors group"
+                >
+                  <span>Solicitar Orçamento</span>
+                  <span className="group-hover:translate-x-2 transition-transform">→</span>
+                </a>
+              </div>
             </div>
           </motion.div>
         </>
@@ -95,70 +103,39 @@ const ServiceCard = ({ service, index, onOpenModal }) => {
     threshold: 0.1,
   });
 
-  // Padrão xadrez: 1 e 4 pretos, 2 e 3 brancos
-  const isDark = index === 0 || index === 3;
-
   return (
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      className={`group relative p-8 rounded-3xl overflow-hidden transition-all duration-500 hover:scale-[1.02] ${
-        isDark
-          ? 'bg-gradient-to-br from-artnetwork-dark to-black text-white'
-          : 'bg-white border border-gray-100'
-      }`}
+      transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+      className="group relative border-t border-white/30 p-8 flex flex-col md:flex-row gap-8 items-start md:items-center justify-between hover:bg-white/[0.03] transition-colors cursor-pointer"
+      onClick={() => onOpenModal(service)}
     >
-      {/* Decorative corner */}
-      <div
-        className={`absolute top-0 right-0 w-24 h-24 rounded-bl-full transition-all duration-500 group-hover:w-32 group-hover:h-32 ${
-          isDark ? 'bg-artnetwork-primary/20' : 'bg-artnetwork-primary/5'
-        }`}
-      />
-
-      {/* Number */}
-      <span className={`text-7xl font-heading font-bold absolute top-4 right-6 ${
-        isDark ? 'text-white/5' : 'text-gray-100'
-      }`}>
-        {String(index + 1).padStart(2, '0')}
-      </span>
-
-      {/* Icon */}
-      <div className={`relative z-10 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 ${
-        isDark
-          ? 'bg-white/10 text-artnetwork-primary'
-          : 'bg-artnetwork-primary text-white'
-      }`}>
-        <service.icon className="w-7 h-7" />
+      <div className="flex items-start gap-8 w-full md:w-1/2">
+        <span className="text-xl font-heading font-bold text-artnetwork-primary tracking-tighter mt-1">
+          {String(index + 1).padStart(2, '0')}
+        </span>
+        <div>
+          <h3 className="text-2xl lg:text-3xl font-heading font-bold text-white mb-2 leading-tight">
+            {service.title}
+          </h3>
+        </div>
       </div>
 
-      {/* Title */}
-      <h3 className={`relative z-10 text-xl font-heading font-bold mb-4 ${
-        isDark ? 'text-white' : 'text-artnetwork-dark'
-      }`}>
-        {service.title}
-      </h3>
-
-      {/* Description */}
-      <p className={`relative z-10 leading-relaxed ${
-        isDark ? 'text-gray-400' : 'text-gray-600'
-      }`}>
-        {service.description}
-      </p>
-
-      {/* Arrow link */}
-      <button
-        onClick={() => onOpenModal(service)}
-        className={`relative z-10 mt-6 flex items-center gap-2 font-medium transition-all duration-300 group-hover:gap-4 cursor-pointer ${
-          isDark ? 'text-artnetwork-bright' : 'text-artnetwork-primary'
-        }`}
-      >
-        <span className="text-sm">Saber mais</span>
-        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-        </svg>
-      </button>
+      <div className="w-full md:w-1/3 flex items-center justify-between md:justify-end gap-6">
+         <p className="font-body text-sm text-white/70 font-light line-clamp-2 hidden md:block max-w-xs text-right">
+            {service.description}
+         </p>
+         <button 
+           className="w-12 h-12 rounded-full border border-white/40 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black group-hover:border-white transition-all shrink-0"
+           aria-label={`Saber mais sobre ${service.title}`}
+         >
+            <svg className="w-5 h-5 -rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+         </button>
+      </div>
     </motion.div>
   );
 };
@@ -172,92 +149,61 @@ const Services = () => {
   const [selectedService, setSelectedService] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleOpenModal = (service) => {
-    setSelectedService(service);
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
-
   return (
-    <section id="servicos" className="py-24 bg-gray-50 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-artnetwork-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-artnetwork-bright/5 rounded-full blur-3xl" />
-      </div>
-
-      <div className="container-custom px-6 lg:px-8 relative z-10">
+    <section id="servicos" className="py-24 lg:py-32 bg-black relative">
+      <div className="container-custom px-6 lg:px-12 relative z-10">
+        
         {/* Section Header */}
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl mb-16"
-        >
-          <motion.span
-            initial={{ opacity: 0, x: -20 }}
+        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+          <motion.div
+            ref={ref}
+            initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="inline-flex items-center gap-2 text-artnetwork-primary font-medium uppercase tracking-wider text-sm mb-4"
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-2xl"
           >
-            <span className="w-8 h-[2px] bg-artnetwork-primary" />
-            Serviços
-          </motion.span>
+            <span className="inline-block text-artnetwork-primary font-body text-xs font-bold uppercase tracking-[0.2em] mb-6">
+              [ 01 — As Nossas Soluções ]
+            </span>
+            <h2 className="text-5xl lg:text-7xl font-heading font-bold text-white leading-[0.9] tracking-tighter uppercase">
+              Estratégia <br />
+              <span className="text-white/40 italic font-normal tracking-wide lowercase">Aplicada</span>
+            </h2>
+          </motion.div>
+          
+          <motion.div
+             initial={{ opacity: 0, x: 30 }}
+             animate={inView ? { opacity: 1, x: 0 } : {}}
+             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          >
+             <p className="text-white/70 font-body max-w-sm text-sm lg:text-base font-light leading-relaxed">
+               Não entregamos ferramentas genéricas. Entregamos vantagem competitiva injusta através 
+               de tecnologias de ponta e precisão brutal.
+             </p>
+          </motion.div>
+        </div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-artnetwork-dark leading-tight">
-            Soluções de IA
-            <span className="block text-artnetwork-primary">que transformam negócios</span>
-          </h2>
-
-          <p className="text-gray-600 text-lg mt-6 max-w-xl">
-            Cada projeto é único. Combinamos Inteligência Artificial e consultoria
-            estratégica para impulsionar o crescimento do seu negócio.
-          </p>
-        </motion.div>
-
-        {/* Services Grid - Bento style */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Services List - Brutalist Editorial List */}
+        <div className="border-b border-white/30">
           {services.map((service, index) => (
             <ServiceCard
               key={service.id}
               service={service}
               index={index}
-              onOpenModal={handleOpenModal}
+              onOpenModal={(s) => {
+                setSelectedService(s);
+                setIsModalOpen(true);
+              }}
             />
           ))}
         </div>
 
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-16 text-center"
-        >
-          <p className="text-gray-600 mb-6">
-            Não encontrou o que procura? Temos soluções para qualquer desafio digital.
-          </p>
-          <a
-            href="#contacto"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-artnetwork-dark text-white font-semibold rounded-xl hover:bg-artnetwork-primary transition-colors"
-          >
-            Fale Connosco
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
-        </motion.div>
       </div>
 
-      {/* Service Modal */}
       <ServiceModal
         service={selectedService}
         isOpen={isModalOpen}
-        onClose={handleCloseModal}
+        onClose={() => setIsModalOpen(false)}
       />
     </section>
   );

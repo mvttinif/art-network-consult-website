@@ -1,48 +1,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import {
-  HiOutlineMail,
-  HiOutlinePhone,
-  HiOutlineLocationMarker,
-  HiOutlineClock,
-} from 'react-icons/hi';
+import { HiOutlineArrowRight } from 'react-icons/hi';
 import { sendEmail } from '../../utils/emailService';
-
-const contactInfo = [
-  {
-    icon: HiOutlineMail,
-    title: 'Email',
-    content: 'artnetworkconsult@gmail.com',
-    href: 'mailto:artnetworkconsult@gmail.com',
-  },
-  {
-    icon: HiOutlinePhone,
-    title: 'Telefone',
-    content: '+351 965 093 138',
-    href: 'tel:+351965093138',
-  },
-  {
-    icon: HiOutlineLocationMarker,
-    title: 'Localização',
-    content: 'Portugal',
-    href: null,
-  },
-  {
-    icon: HiOutlineClock,
-    title: 'Horário',
-    content: 'Seg - Sex: 9h - 18h',
-    href: null,
-  },
-];
-
-const serviceOptions = [
-  'Soluções de IA',
-  'Consultoria Web',
-  'Sistemas Web',
-  'Criação de Sites',
-  'Outro',
-];
 
 const Contact = () => {
   const [ref, inView] = useInView({
@@ -53,9 +13,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
     company: '',
-    service: '',
     message: '',
   });
 
@@ -72,11 +30,10 @@ const Contact = () => {
     setIsSubmitting(true);
     setStatus({ type: '', message: '' });
 
-    // Validate required fields
-    if (!formData.name || !formData.email || !formData.service || !formData.message) {
+    if (!formData.name || !formData.email || !formData.message) {
       setStatus({
         type: 'error',
-        message: 'Por favor, preencha todos os campos obrigatórios.',
+        message: 'Por favor, preencha os campos obrigatórios.',
       });
       setIsSubmitting(false);
       return;
@@ -87,20 +44,13 @@ const Contact = () => {
     if (result.success) {
       setStatus({
         type: 'success',
-        message: 'Mensagem enviada com sucesso! Entraremos em contacto em breve.',
+        message: 'Mensagem enviada com sucesso.',
       });
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        service: '',
-        message: '',
-      });
+      setFormData({ name: '', email: '', company: '', message: '' });
     } else {
       setStatus({
         type: 'error',
-        message: 'Erro ao enviar mensagem. Por favor, tente novamente ou contacte-nos diretamente.',
+        message: 'Erro ao enviar. Tente novamente.',
       });
     }
 
@@ -108,233 +58,165 @@ const Contact = () => {
   };
 
   return (
-    <section id="contacto" className="py-24 bg-white overflow-hidden">
-      <div className="container-custom px-4 sm:px-6 lg:px-8">
+    <section id="contacto" className="py-24 lg:py-32 bg-[#050505] relative border-t border-white/10">
+      <div className="container-custom px-6 lg:px-12 relative z-10">
+        
         {/* Section Header */}
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
-        >
-          <span className="inline-flex items-center gap-2 text-artnetwork-primary font-medium uppercase tracking-wider text-sm mb-4">
-            <span className="w-8 h-[2px] bg-artnetwork-primary" />
-            Contacto
-            <span className="w-8 h-[2px] bg-artnetwork-primary" />
-          </span>
-
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-artnetwork-dark leading-tight">
-            Vamos <span className="text-artnetwork-primary">conversar</span>?
-          </h2>
-
-          <p className="text-gray-600 text-lg mt-6">
-            Tem um projeto em mente? Entre em contacto connosco e vamos
-            transformar as suas ideias em realidade.
-          </p>
-        </motion.div>
-
-        <div className="grid lg:grid-cols-5 gap-12">
-          {/* Contact Info */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-20">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-2"
+            ref={ref}
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-2xl"
           >
-            <div className="bg-artnetwork-dark rounded-3xl p-6 md:p-8 h-full">
-              <h3 className="text-2xl font-heading font-bold text-white mb-8">
-                Informações de Contacto
-              </h3>
+            <span className="inline-block text-artnetwork-primary font-body text-xs font-bold uppercase tracking-[0.2em] mb-6">
+              [ 04 — Contacto ]
+            </span>
 
-              <div className="space-y-6">
-                {contactInfo.map((item) => (
-                  <div key={item.title} className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-artnetwork-primary/20 flex items-center justify-center flex-shrink-0">
-                      <item.icon className="w-6 h-6 text-artnetwork-primary" />
-                    </div>
-                    <div>
-                      <h4 className="text-white font-medium mb-1">{item.title}</h4>
-                      {item.href ? (
-                        <a
-                          href={item.href}
-                          className="text-gray-400 hover:text-artnetwork-primary transition-colors"
-                        >
-                          {item.content}
-                        </a>
-                      ) : (
-                        <p className="text-gray-400">{item.content}</p>
-                      )}
-                    </div>
-                  </div>
-                ))}
+            <h2 className="text-5xl lg:text-7xl font-heading font-bold text-white leading-[0.9] tracking-tighter uppercase">
+              Iniciar <br />
+              <span className="text-white/40 italic font-normal tracking-wide lowercase">Conversa</span>
+            </h2>
+          </motion.div>
+          
+          <motion.div
+             initial={{ opacity: 0, x: 30 }}
+             animate={inView ? { opacity: 1, x: 0 } : {}}
+             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          >
+             <p className="text-white/70 font-body max-w-sm text-sm lg:text-base font-light leading-relaxed">
+               Pronto para transformar o seu projeto? Preencha o formulário e a nossa equipa entrará em contacto para uma consulta estratégica.
+             </p>
+          </motion.div>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-20">
+          {/* Left: Contact Details / Minimalist info */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="flex flex-col justify-between"
+          >
+            <div className="space-y-12">
+              <div>
+                <span className="text-[10px] uppercase font-body font-bold tracking-[0.3em] text-artnetwork-primary block mb-4">Direct Link</span>
+                <a href="mailto:artnetworkconsult@gmail.com" className="text-2xl md:text-4xl font-heading font-bold text-white hover:text-artnetwork-primary transition-colors border-b border-white/20 pb-4 inline-block">
+                  artnetworkconsult@gmail.com
+                </a>
+              </div>
+              
+              <div>
+                <span className="text-[10px] uppercase font-body font-bold tracking-[0.3em] text-artnetwork-primary block mb-4">Phone Support</span>
+                <a href="tel:+351965093138" className="text-2xl md:text-4xl font-heading font-bold text-white hover:text-artnetwork-primary transition-colors border-b border-white/20 pb-4 inline-block">
+                  +351 965 093 138
+                </a>
               </div>
 
-              {/* CTA */}
-              <div className="mt-12 p-6 bg-artnetwork-primary/10 rounded-xl border border-artnetwork-primary/20">
-                <h4 className="text-white font-heading font-bold mb-2">
-                  Orçamento Grátis
-                </h4>
-                <p className="text-gray-400 text-sm">
-                  Preencha o formulário e receba um orçamento personalizado sem
-                  qualquer compromisso.
-                </p>
+              <div className="pt-12 grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                  <span className="text-[10px] uppercase font-body font-bold tracking-[0.3em] text-artnetwork-primary block mb-6">Horário de Atendimento</span>
+                  <ul className="space-y-3 font-body text-sm text-white/70">
+                    <li className="flex justify-between border-b border-white/5 pb-2">
+                       <span>Segunda - Sexta</span>
+                       <span className="text-white font-medium">9:00 - 18:00</span>
+                    </li>
+                    <li className="flex justify-between border-b border-white/5 pb-2">
+                       <span>Sábado</span>
+                       <span className="text-white font-medium">10:00 - 14:00</span>
+                    </li>
+                    <li className="flex justify-between">
+                       <span>Domingo</span>
+                       <span className="text-white font-medium italic">Fechado</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <span className="text-[10px] uppercase font-body font-bold tracking-[0.3em] text-artnetwork-primary block mb-6">Suporte Rápido</span>
+                  <p className="text-white/70 font-body text-sm leading-relaxed mb-4">
+                    Disponíveis também via <span className="text-white font-bold italic">WhatsApp</span> para consultas urgentes e suporte consultivo.
+                  </p>
+                  <p className="text-white/40 font-body text-[10px] uppercase tracking-widest leading-relaxed">
+                    Portugal — Disponibilidade Global <br />
+                    <span className="text-white/60">Focado em Resultados que Escalam.</span>
+                  </p>
+                </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Right: Modern Form */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="lg:col-span-3"
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="bg-white/5 p-8 lg:p-12 border border-white/10"
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                {/* Name */}
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-artnetwork-dark mb-2"
-                  >
-                    Nome *
-                  </label>
+            <form onSubmit={handleSubmit} className="space-y-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div className="relative group">
+                  <label className="text-[10px] uppercase font-body font-bold tracking-[0.2em] text-white/40 mb-2 block">Nome</label>
                   <input
                     type="text"
-                    id="name"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
+                    className="w-full bg-transparent border-b border-white/20 py-2 text-white focus:border-artnetwork-primary outline-none transition-all font-body text-lg font-light"
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-artnetwork-primary focus:ring-2 focus:ring-artnetwork-primary/20 outline-none transition-all"
-                    placeholder="O seu nome"
                   />
                 </div>
-
-                {/* Email */}
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-artnetwork-dark mb-2"
-                  >
-                    Email *
-                  </label>
+                <div className="relative group">
+                  <label className="text-[10px] uppercase font-body font-bold tracking-[0.2em] text-white/40 mb-2 block">Email</label>
                   <input
                     type="email"
-                    id="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
+                    className="w-full bg-transparent border-b border-white/20 py-2 text-white focus:border-artnetwork-primary outline-none transition-all font-body text-lg font-light"
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-artnetwork-primary focus:ring-2 focus:ring-artnetwork-primary/20 outline-none transition-all"
-                    placeholder="o.seu@email.com"
-                  />
-                </div>
-
-                {/* Phone */}
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm font-medium text-artnetwork-dark mb-2"
-                  >
-                    Telefone
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-artnetwork-primary focus:ring-2 focus:ring-artnetwork-primary/20 outline-none transition-all"
-                    placeholder="+351 000 000 000"
-                  />
-                </div>
-
-                {/* Company */}
-                <div>
-                  <label
-                    htmlFor="company"
-                    className="block text-sm font-medium text-artnetwork-dark mb-2"
-                  >
-                    Empresa
-                  </label>
-                  <input
-                    type="text"
-                    id="company"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-artnetwork-primary focus:ring-2 focus:ring-artnetwork-primary/20 outline-none transition-all"
-                    placeholder="Nome da empresa"
                   />
                 </div>
               </div>
 
-              {/* Service */}
-              <div>
-                <label
-                  htmlFor="service"
-                  className="block text-sm font-medium text-artnetwork-dark mb-2"
-                >
-                  Serviço de Interesse *
-                </label>
-                <select
-                  id="service"
-                  name="service"
-                  value={formData.service}
+              <div className="relative group">
+                <label className="text-[10px] uppercase font-body font-bold tracking-[0.2em] text-white/40 mb-2 block">Empresa (opcional)</label>
+                <input
+                  type="text"
+                  name="company"
+                  value={formData.company}
                   onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-artnetwork-primary focus:ring-2 focus:ring-artnetwork-primary/20 outline-none transition-all bg-white"
-                >
-                  <option value="">Selecione um serviço</option>
-                  {serviceOptions.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Message */}
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-artnetwork-dark mb-2"
-                >
-                  Mensagem *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-artnetwork-primary focus:ring-2 focus:ring-artnetwork-primary/20 outline-none transition-all resize-none"
-                  placeholder="Descreva o seu projeto ou dúvida..."
+                  className="w-full bg-transparent border-b border-white/20 py-2 text-white focus:border-artnetwork-primary outline-none transition-all font-body text-lg font-light"
                 />
               </div>
 
-              {/* Status Message */}
+              <div className="relative group">
+                <label className="text-[10px] uppercase font-body font-bold tracking-[0.2em] text-white/40 mb-2 block">Como podemos ajudar?</label>
+                 <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows={4}
+                  className="w-full bg-transparent border-b border-white/20 py-2 text-white focus:border-artnetwork-primary outline-none transition-all font-body text-lg font-light resize-none"
+                  required
+                />
+              </div>
+
               {status.message && (
-                <div
-                  className={`p-4 rounded-xl ${status.type === 'success'
-                    ? 'bg-green-100 text-green-800'
-                    : 'bg-red-100 text-red-800'
-                    }`}
-                >
+                <div className={`text-sm font-body ${status.type === 'success' ? 'text-green-400' : 'text-artnetwork-primary'}`}>
                   {status.message}
                 </div>
               )}
 
-              {/* Submit Button */}
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 bg-artnetwork-primary text-white font-semibold rounded-xl hover:bg-artnetwork-bright transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="group flex items-center gap-4 text-white uppercase font-body font-bold text-xs tracking-[0.3em] hover:text-artnetwork-primary transition-colors disabled:opacity-50"
               >
-                {isSubmitting ? 'A Enviar...' : 'Enviar Mensagem'}
+                <span>{isSubmitting ? 'A Enviar' : 'Enviar Pedido'}</span>
+                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-artnetwork-primary transition-colors">
+                  <HiOutlineArrowRight className="w-5 h-5" />
+                </div>
               </button>
             </form>
           </motion.div>

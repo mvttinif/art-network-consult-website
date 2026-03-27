@@ -1,10 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { portfolioItems } from '../../data/portfolio';
-import { HiArrowRight } from 'react-icons/hi';
-
-const categories = ['Todos', 'Website', 'Soluções de IA', 'Consultoria Web', 'Sistema Web'];
+import { portfolioItems, categories } from '../../data/portfolio';
 
 const PortfolioCard = ({ item, index }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -12,71 +9,82 @@ const PortfolioCard = ({ item, index }) => {
   return (
     <motion.div
       layout
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.9 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group relative cursor-pointer"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+      className={`group relative ${item.status === 'coming-soon' ? 'cursor-default' : 'cursor-pointer'}`}
+      onMouseEnter={() => item.status !== 'coming-soon' && setIsHovered(true)}
+      onMouseLeave={() => item.status !== 'coming-soon' && setIsHovered(false)}
     >
       {/* Image Container */}
-      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-artnetwork-dark">
+      <div className="relative aspect-[4/5] md:aspect-[21/9] lg:aspect-[24/10] overflow-hidden bg-[#050505] border border-white/10 group-hover:border-white/40 transition-colors duration-500">
         <img
           src={item.image}
           alt={item.title}
-          className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+          className={`w-full h-full object-cover transition-all duration-1000 ${
+            item.status === 'coming-soon' ? 'opacity-30 mix-blend-luminosity scale-105 blur-sm' : 'opacity-70 group-hover:scale-105 group-hover:opacity-100'
+          }`}
         />
 
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-500" />
+        {/* Coming Soon Overlay */}
+        {item.status === 'coming-soon' && (
+          <div className="absolute inset-0 flex items-center justify-center p-6 bg-black/40">
+            <div className="bg-white text-black px-6 py-2">
+              <span className="text-xs font-body font-bold tracking-[0.2em] uppercase">
+                Em Breve
+              </span>
+            </div>
+          </div>
+        )}
 
-        {/* Content */}
-        <div className="absolute inset-0 p-6 flex flex-col justify-end">
-          {/* Category */}
-          <motion.span
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: isHovered ? 1 : 0.7, y: isHovered ? 0 : 10 }}
-            className="inline-block self-start px-3 py-1 bg-artnetwork-primary text-white text-xs font-medium rounded-full mb-3"
-          >
-            {item.category}
-          </motion.span>
+        {/* Content Overlay */}
+        <div className={`absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black via-black/40 to-transparent ${item.status === 'coming-soon' ? 'opacity-60' : ''}`}>
+          <div className="container-custom w-full px-6 lg:px-12 pb-12 md:pb-20">
+            <div className="flex justify-between items-end gap-8">
+              <div className="max-w-3xl">
+                <motion.span
+                  className="inline-block text-artnetwork-primary font-body text-xs font-bold uppercase tracking-[0.3em] mb-4"
+                >
+                  [ {item.category} ]
+                </motion.span>
+      
+                <h3 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white leading-none tracking-tighter uppercase mb-2">
+                  {item.title}
+                </h3>
 
-          {/* Title */}
-          <h3 className="text-xl md:text-2xl font-heading font-bold text-white mb-2 transition-transform duration-300 group-hover:translate-x-2">
-            {item.title}
-          </h3>
-
-          {/* Description - shows on hover */}
-          <motion.p
-            initial={{ opacity: 0, height: 0 }}
-            animate={{
-              opacity: isHovered ? 1 : 0,
-              height: isHovered ? 'auto' : 0,
-            }}
-            transition={{ duration: 0.3 }}
-            className="text-gray-300 text-sm overflow-hidden"
-          >
-            {item.description}
-          </motion.p>
-
-          {/* View button */}
-          <motion.a
-            href={item.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: isHovered ? 1 : 0, x: isHovered ? 0 : -20 }}
-            transition={{ duration: 0.3, delay: 0.1 }}
-            className="mt-4 flex items-center gap-2 text-artnetwork-primary font-medium hover:text-artnetwork-bright transition-colors"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <span>Ver projeto</span>
-            <HiArrowRight className="w-4 h-4" />
-          </motion.a>
+                <motion.p
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{
+                    height: isHovered ? 'auto' : 0,
+                    opacity: isHovered ? 1 : 0,
+                    marginTop: isHovered ? 24 : 0,
+                  }}
+                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  className="text-white/70 text-base md:text-lg font-body font-light max-w-xl overflow-hidden"
+                >
+                  {item.description}
+                </motion.p>
+              </div>
+              
+              {/* View button */}
+              {item.status !== 'coming-soon' && (
+                <motion.a
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/btn hidden md:flex w-20 h-20 border border-white/20 rounded-full items-center justify-center text-white bg-white/5 hover:bg-white hover:text-black transition-all duration-500 shrink-0"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <span className="text-3xl transform group-hover/btn:translate-x-1 transition-transform">→</span>
+                </motion.a>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </motion.div>
+
   );
 };
 
@@ -93,47 +101,42 @@ const Portfolio = () => {
       : portfolioItems.filter((item) => item.category === activeCategory);
 
   return (
-    <section id="portfolio" className="py-24 bg-white relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-gray-50 to-transparent pointer-events-none" />
-
-      <div className="container-custom px-6 lg:px-8 relative z-10">
-        {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12">
+    <section id="portfolio" className="py-24 lg:py-32 bg-[#0a0a0a] relative border-t border-white/10 overflow-hidden">
+      
+      {/* Header Container */}
+      <div className="container-custom px-6 lg:px-12 relative z-10">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-20">
           <motion.div
             ref={ref}
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-2xl"
           >
-            <span className="inline-flex items-center gap-2 text-artnetwork-primary font-medium uppercase tracking-wider text-sm mb-4">
-              <span className="w-8 h-[2px] bg-artnetwork-primary" />
-              Portfólio
+            <span className="inline-block text-artnetwork-primary font-body text-xs font-bold uppercase tracking-[0.2em] mb-6">
+              [ 02 — Portfolio ]
             </span>
 
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-artnetwork-dark leading-tight">
-              Projetos que
-              <span className="block">
-                <span className="text-artnetwork-primary">inspiram</span> confiança
-              </span>
+            <h2 className="text-5xl lg:text-7xl font-heading font-bold text-white leading-[0.9] tracking-tighter uppercase">
+              Projetos <br />
+              <span className="text-white/40 italic font-normal tracking-wide lowercase">Impacto</span>
             </h2>
           </motion.div>
 
-          {/* Filter Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-wrap gap-2"
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-wrap gap-4 lg:justify-end"
           >
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeCategory === category
-                  ? 'bg-artnetwork-primary text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                className={`px-4 py-2 text-[10px] font-body font-bold uppercase tracking-[0.2em] transition-all duration-300 border ${
+                  activeCategory === category
+                  ? 'border-artnetwork-primary bg-artnetwork-primary text-white'
+                  : 'border-white/20 text-white/50 hover:text-white hover:border-white'
                   }`}
               >
                 {category}
@@ -141,37 +144,44 @@ const Portfolio = () => {
             ))}
           </motion.div>
         </div>
+      </div>
 
-        {/* Portfolio Grid */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Portfolio Full Width Grid */}
+      <div className="w-full relative z-10 border-y border-white/5">
+        <motion.div layout className="grid grid-cols-1">
           <AnimatePresence mode="popLayout">
             {filteredItems.map((item, index) => (
               <PortfolioCard key={item.id} item={item} index={index} />
             ))}
           </AnimatePresence>
         </motion.div>
+      </div>
 
-        {/* Bottom CTA */}
+      {/* Bottom CTA Container */}
+      <div className="container-custom px-6 lg:px-12 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-16 flex flex-col md:flex-row items-center justify-between gap-6 p-6 md:p-8 rounded-2xl bg-gradient-to-r from-artnetwork-dark to-black overflow-hidden"
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-32 pt-16 border-t border-white/20 flex flex-col md:flex-row items-center justify-between gap-8"
         >
-          <div className="text-center md:text-left">
-            <h3 className="text-xl md:text-2xl font-heading font-bold text-white mb-2">
-              Tem um projeto em mente?
+          <div>
+            <h3 className="text-3xl lg:text-5xl font-heading font-bold text-white mb-2 tracking-tighter uppercase">
+              A SUA Próxima <br />
+              <span className="text-white/40 italic font-normal lowercase italic">História de Sucesso</span>
             </h3>
-            <p className="text-gray-400">
-              Vamos criar algo incrível juntos.
+            <p className="font-body text-white/40 text-sm tracking-[0.2em] uppercase mt-4">
+              Ligue-se à vanguarda tecnológica.
             </p>
           </div>
           <a
             href="#contacto"
-            className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-artnetwork-primary text-white font-semibold rounded-xl hover:bg-artnetwork-bright transition-colors whitespace-nowrap"
+            className="group flex flex-col items-center justify-center p-8 bg-white hover:bg-artnetwork-primary text-black hover:text-white transition-colors duration-500 rounded-full shrink-0 h-40 w-40"
           >
-            Começar Projeto
-            <HiArrowRight className="w-5 h-5" />
+            <span className="font-body text-[10px] uppercase tracking-[0.2em] font-bold text-center">
+              Avançar
+            </span>
+            <span className="text-2xl mt-1 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
           </a>
         </motion.div>
       </div>

@@ -1,64 +1,26 @@
 export const portfolioItems = [
   {
     id: 1,
-    title: 'Assistente Virtual Bancário',
-    category: 'Soluções de IA',
-    description: 'Chatbot inteligente para atendimento ao cliente com processamento de linguagem natural e integração com sistemas bancários.',
-    image: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=600&h=400&fit=crop',
-    url: '#',
-    tags: ['Chatbot', 'NLP', 'Integração API'],
+    title: "Construir Portugal",
+    category: "Catálogo",
+    description:
+      "Portal com catálogo online para materiais de construção, bricolage e climatização.",
+    image: "/construir-portugal.png",
+    url: "https://construirportugal.pt",
+    tags: ["E-commerce", "Catálogo", "SEO"],
   },
   {
     id: 2,
-    title: 'Construir Portugal',
-    category: 'Website',
-    description: 'Portal com catálogo online para materiais de construção, bricolage e climatização.',
-    image: '/construir-portugal.png',
-    url: 'https://construirportugal.pt',
-    tags: ['E-commerce', 'Catálogo', 'SEO'],
-  },
-  {
-    id: 3,
-    title: 'Sistema de Análise Preditiva',
-    category: 'Soluções de IA',
-    description: 'Plataforma de machine learning para previsão de vendas e otimização de inventário em tempo real.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop',
-    url: '#',
-    tags: ['Machine Learning', 'Analytics', 'Dashboard'],
-  },
-  {
-    id: 4,
-    title: 'Automação de Atendimento',
-    category: 'Soluções de IA',
-    description: 'Sistema de triagem automática de tickets com classificação por IA e routing inteligente para suporte técnico.',
-    image: 'https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=600&h=400&fit=crop',
-    url: '#',
-    tags: ['Automação', 'Classificação IA', 'Workflow'],
-  },
-  {
-    id: 5,
-    title: 'Dashboard Executivo',
-    category: 'Sistema Web',
-    description: 'Painel de controlo empresarial com KPIs em tempo real, relatórios automatizados e alertas inteligentes.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop',
-    url: '#',
-    tags: ['Dashboard', 'KPIs', 'Business Intelligence'],
-  },
-  {
-    id: 6,
-    title: 'Consultoria Digital - Clínica',
-    category: 'Consultoria Web',
-    description: 'Estratégia digital completa para clínica médica: SEO, presença online e sistema de agendamentos.',
-    image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&h=400&fit=crop',
-    url: '#',
-    tags: ['SEO', 'Estratégia Digital', 'Agendamentos'],
+    title: "Portugal Online",
+    category: "E-commerce",
+    description:
+      "Um novo sistema inteligente está a ser desenvolvido para revolucionar o seu negócio.",
+    image:
+      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.elo7.com.br%2Fproduct%2Fmain%2F44F5540%2Fbandeira-brasil-portugal-bandeira.jpg&f=1&nofb=1&ipt=24902571d1da7113c7117793f973281cc76ff4c36da3a72fe513f384279649fb?w=600&h=400&fit=crop",
+    url: "#",
+    status: "coming-soon",
+    tags: ["E-commerce", "Catálogo", "Futuro"],
   },
 ];
 
-export const categories = [
-  'Todos',
-  'Soluções de IA',
-  'Consultoria Web',
-  'Sistema Web',
-  'Website',
-];
+export const categories = ["Todos", "Catálogo", "E-commerce"];
