@@ -53,51 +53,65 @@ const Hero = () => {
             >
               <div className="flex items-center gap-4 mb-6">
                 <span className="h-px w-12 bg-artnetwork-primary"></span>
-                <span className="text-white/90 text-sm font-body font-bold uppercase tracking-[0.25em]">
-                  Consultoria de IA e Digital 
+                <span className="text-white/90 text-sm font-body font-bold uppercase tracking-[0.25em] flex items-center gap-3">
+                  Agência de IA e Digital 
+                  <span className="px-2 py-0.5 rounded-full bg-artnetwork-primary/20 text-artnetwork-primary border border-artnetwork-primary/30 text-[9px] flex items-center gap-1 animate-pulse">
+                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    POWERED BY AI
+                  </span>
                 </span>
               </div>
 
               <h1 className="text-5xl md:text-6xl xl:text-[6rem] font-heading font-bold text-white leading-[0.95] tracking-tight mb-6 pointer-events-auto">
                 Moldamos <br />
-                o Futuro <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-artnetwork-primary to-white italic font-normal tracking-wide pr-4">
-                  Digital
+                o Futuro com <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-artnetwork-primary via-red-300 to-white italic font-light tracking-wide inline-block pr-6 pb-2">
+                  Inteligência 
+                </span>
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-artnetwork-primary via-red-300 to-white italic font-light tracking-wide inline-block pr-6 pb-2">
+                  Artificial
                 </span>
               </h1>
 
               <p className="text-base md:text-lg text-white/80 max-w-lg mb-8 leading-relaxed font-body font-light pointer-events-auto">
-                Soluções digitais desenhadas para elevar o seu negócio através de 
-                <span className="text-white font-bold"> tecnologia estratégica e design de alta performance</span>.
+                A sua agência de consultoria digital em Portugal. Desenvolvemos websites de alta performance, gerimos social media e elevamos o seu negócio através de <span className="text-white font-bold">desenvolvimento web contínuo e tecnologia baseada em IA (AI)</span>.
               </p>
 
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-6 mt-2 pointer-events-auto">
                 <Link
                   to="contacto"
                   smooth={true}
-                  className="px-8 py-4 bg-artnetwork-primary hover:bg-white text-white hover:text-black font-body font-bold text-sm uppercase tracking-widest rounded-none transition-all duration-300 flex items-center justify-center gap-3 group"
+                  duration={500}
+                  offset={-80}
+                  ignoreCancelEvents={true}
+                  className="px-8 py-4 bg-artnetwork-primary hover:bg-white text-white hover:text-black font-body font-bold text-sm uppercase tracking-widest rounded-none transition-all duration-300 flex items-center justify-center gap-3 group cursor-pointer"
                 >
                   <span className="relative overflow-hidden flex items-center gap-2">
                     Iniciar Projeto
                     <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
                   </span>
                 </Link>
-                                <Link
+                <Link
                   to="portfolio"
                   smooth={true}
+                  duration={500}
+                  offset={-80}
+                  ignoreCancelEvents={true}
                   className="px-8 py-4 bg-transparent border border-white/40 hover:border-white text-white font-body font-bold text-sm uppercase tracking-widest rounded-none transition-all duration-300 flex items-center justify-center cursor-pointer"
                 >
                   Ver Casos
                 </Link>
               </div>
 
-              {/* Stats Bar */}
-               <div className="mt-12 pt-8 border-t border-white/20 flex items-center gap-12 max-w-lg pointer-events-auto bg-white/5 backdrop-blur-md p-6 border border-white/10">
-                <div className="flex flex-col gap-1">
+               {/* Stats Bar */}
+               <div className="mt-12 pt-6 sm:pt-8 sm:border-t border-white/20 flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-12 max-w-lg pointer-events-auto bg-white/5 backdrop-blur-md p-6 border border-white/10 relative overflow-hidden">
+                <div className="absolute inset-0 bg-artnetwork-primary/5 hidden sm:block"></div>
+                <div className="flex flex-col gap-1 relative z-10">
                   <span className="text-xl font-heading font-bold text-white tracking-widest uppercase">Estratégia</span>
                   <span className="text-[10px] text-white/60 uppercase font-bold tracking-[0.2em] font-body">Personalizada</span>
                 </div>
-                <div className="flex flex-col gap-1 pl-8 border-l border-white/20">
+                <div className="flex flex-col gap-1 pt-6 sm:pt-0 pl-0 sm:pl-8 border-t sm:border-t-0 sm:border-l border-white/20 relative z-10 w-full sm:w-auto">
                   <span className="text-xl font-heading font-bold text-white tracking-widest uppercase">Impacto</span>
                   <span className="text-[10px] text-white/60 uppercase font-bold tracking-[0.2em] font-body">Mensurável</span>
                 </div>

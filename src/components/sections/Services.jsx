@@ -109,26 +109,42 @@ const ServiceCard = ({ service, index, onOpenModal }) => {
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      className="group relative border-t border-white/30 p-8 flex flex-col md:flex-row gap-8 items-start md:items-center justify-between hover:bg-white/[0.03] transition-colors cursor-pointer"
+      className={`group relative border-t p-6 sm:p-8 flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center justify-between hover:bg-white/[0.03] transition-colors cursor-pointer overflow-hidden ${
+        index === 0 
+          ? 'border-artnetwork-primary/50 bg-gradient-to-r from-artnetwork-primary/[0.03] to-transparent shadow-[inset_0_1px_20px_rgba(200,20,50,0.05)]' 
+          : 'border-white/30'
+      }`}
       onClick={() => onOpenModal(service)}
     >
-      <div className="flex items-start gap-8 w-full md:w-1/2">
-        <span className="text-xl font-heading font-bold text-artnetwork-primary tracking-tighter mt-1">
+      {/* Decorative pulse for the AI card */}
+      {index === 0 && (
+        <div className="absolute top-0 right-1/4 w-32 h-px bg-gradient-to-r from-transparent via-artnetwork-primary to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
+      )}
+
+      <div className="flex items-start md:items-center gap-4 md:gap-8 w-full md:w-1/2">
+        <span className={`text-xl md:text-2xl font-heading font-bold tracking-tighter mt-1 md:mt-0 ${index === 0 ? 'text-white' : 'text-artnetwork-primary'}`}>
           {String(index + 1).padStart(2, '0')}
         </span>
-        <div>
-          <h3 className="text-2xl lg:text-3xl font-heading font-bold text-white mb-2 leading-tight">
-            {service.title}
-          </h3>
+        <div className="flex-1">
+          <div className="flex items-center gap-3 mb-1 md:mb-2">
+            <h3 className="text-2xl lg:text-3xl font-heading font-bold text-white leading-tight">
+              {service.title}
+            </h3>
+            {index === 0 && (
+              <span className="px-2 py-[2px] border border-artnetwork-primary bg-artnetwork-primary/10 text-artnetwork-primary text-[8px] uppercase font-bold tracking-[0.2em] rounded-full hidden sm:inline-block">
+                Core
+              </span>
+            )}
+          </div>
         </div>
       </div>
 
-      <div className="w-full md:w-1/3 flex items-center justify-between md:justify-end gap-6">
-         <p className="font-body text-sm text-white/70 font-light line-clamp-2 hidden md:block max-w-xs text-right">
+      <div className="w-full md:w-1/2 flex items-center justify-between md:justify-end gap-6 pl-10 md:pl-0">
+         <p className="font-body text-sm text-white/70 font-light line-clamp-2 md:block max-w-[280px] text-left md:text-right hidden sm:block">
             {service.description}
          </p>
          <button 
-           className="w-12 h-12 rounded-full border border-white/40 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black group-hover:border-white transition-all shrink-0"
+           className="w-12 h-12 rounded-full border border-white/40 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black group-hover:border-white transition-all shrink-0 md:ml-6"
            aria-label={`Saber mais sobre ${service.title}`}
          >
             <svg className="w-5 h-5 -rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -4,25 +4,20 @@ import { useInView } from 'react-intersection-observer';
 import { portfolioItems, categories } from '../../data/portfolio';
 
 const PortfolioCard = ({ item, index }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
     <motion.div
-      layout
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
       className={`group relative ${item.status === 'coming-soon' ? 'cursor-default' : 'cursor-pointer'}`}
-      onMouseEnter={() => item.status !== 'coming-soon' && setIsHovered(true)}
-      onMouseLeave={() => item.status !== 'coming-soon' && setIsHovered(false)}
     >
       {/* Image Container */}
       <div className="relative aspect-[4/5] md:aspect-[21/9] lg:aspect-[24/10] overflow-hidden bg-[#050505] border border-white/10 group-hover:border-white/40 transition-colors duration-500">
         <img
           src={item.image}
           alt={item.title}
-          className={`w-full h-full object-cover transition-all duration-1000 ${
+          className={`w-full h-full object-cover transition-all duration-700 ${
             item.status === 'coming-soon' ? 'opacity-30 mix-blend-luminosity scale-105 blur-sm' : 'opacity-70 group-hover:scale-105 group-hover:opacity-100'
           }`}
         />
@@ -43,41 +38,33 @@ const PortfolioCard = ({ item, index }) => {
           <div className="container-custom w-full px-6 lg:px-12 pb-12 md:pb-20">
             <div className="flex justify-between items-end gap-8">
               <div className="max-w-3xl">
-                <motion.span
+                {/* Category hidden as requested */}
+                {/* <span
                   className="inline-block text-artnetwork-primary font-body text-xs font-bold uppercase tracking-[0.3em] mb-4"
                 >
                   [ {item.category} ]
-                </motion.span>
+                </span> */}
       
                 <h3 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white leading-none tracking-tighter uppercase mb-2">
                   {item.title}
                 </h3>
 
-                <motion.p
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{
-                    height: isHovered ? 'auto' : 0,
-                    opacity: isHovered ? 1 : 0,
-                    marginTop: isHovered ? 24 : 0,
-                  }}
-                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-white/70 text-base md:text-lg font-body font-light max-w-xl overflow-hidden"
-                >
+                <p className="text-white/70 text-base md:text-lg font-body font-light max-w-xl opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100">
                   {item.description}
-                </motion.p>
+                </p>
               </div>
               
               {/* View button */}
               {item.status !== 'coming-soon' && (
-                <motion.a
+                <a
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group/btn hidden md:flex w-20 h-20 border border-white/20 rounded-full items-center justify-center text-white bg-white/5 hover:bg-white hover:text-black transition-all duration-500 shrink-0"
+                  className="group/btn hidden md:flex w-20 h-20 border border-white/20 rounded-full items-center justify-center text-white bg-white/5 hover:bg-white hover:text-black transition-all duration-500 shrink-0 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <span className="text-3xl transform group-hover/btn:translate-x-1 transition-transform">→</span>
-                </motion.a>
+                </a>
               )}
             </div>
           </div>
@@ -148,13 +135,13 @@ const Portfolio = () => {
 
       {/* Portfolio Full Width Grid */}
       <div className="w-full relative z-10 border-y border-white/5">
-        <motion.div layout className="grid grid-cols-1">
+        <div className="grid grid-cols-1">
           <AnimatePresence mode="popLayout">
             {filteredItems.map((item, index) => (
               <PortfolioCard key={item.id} item={item} index={index} />
             ))}
           </AnimatePresence>
-        </motion.div>
+        </div>
       </div>
 
       {/* Bottom CTA Container */}

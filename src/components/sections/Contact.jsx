@@ -58,40 +58,37 @@ const Contact = () => {
   };
 
   return (
-    <section id="contacto" className="py-24 lg:py-32 bg-[#050505] relative border-t border-white/10">
+    <section id="contacto" className="py-24 lg:py-32 pb-32 lg:pb-40 bg-[#050505] relative border-t border-white/10">
       <div className="container-custom px-6 lg:px-12 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-20">
+        <div className="relative mb-24 lg:mb-32">
           <motion.div
             ref={ref}
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-2xl"
+            className="flex flex-col lg:flex-row lg:items-end justify-between gap-8"
           >
-            <span className="inline-block text-artnetwork-primary font-body text-xs font-bold uppercase tracking-[0.2em] mb-6">
-              [ 04 — Contacto ]
-            </span>
-
-            <h2 className="text-5xl lg:text-7xl font-heading font-bold text-white leading-[0.9] tracking-tighter uppercase">
-              Iniciar <br />
-              <span className="text-white/40 italic font-normal tracking-wide lowercase">Conversa</span>
-            </h2>
-          </motion.div>
-          
-          <motion.div
-             initial={{ opacity: 0, x: 30 }}
-             animate={inView ? { opacity: 1, x: 0 } : {}}
-             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          >
-             <p className="text-white/70 font-body max-w-sm text-sm lg:text-base font-light leading-relaxed">
-               Pronto para transformar o seu projeto? Preencha o formulário e a nossa equipa entrará em contacto para uma consulta estratégica.
-             </p>
+            <div className="relative">
+              <span className="inline-block text-artnetwork-primary font-body text-xs font-bold uppercase tracking-[0.3em] mb-8">
+                [ 04 — Contacto ]
+              </span>
+              <h2 className="text-6xl md:text-8xl lg:text-[10rem] font-heading font-bold text-white leading-[0.85] tracking-tighter uppercase">
+                Vamos <br />
+                <span className="text-white/20 italic font-normal tracking-wide lowercase">Conversar?</span>
+              </h2>
+            </div>
+            
+            <div className="lg:mb-6 max-w-sm pr-16 lg:pr-0">
+              <p className="text-white/60 font-body text-base lg:text-lg font-light leading-relaxed border-l-2 border-artnetwork-primary pl-6">
+                Pronto para transformar o seu projeto? Preencha o formulário e a nossa equipa entrará em contacto para uma consulta estratégica.
+              </p>
+            </div>
           </motion.div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-20">
+        <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 xl:gap-20">
           {/* Left: Contact Details / Minimalist info */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -99,47 +96,50 @@ const Contact = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="flex flex-col justify-between"
           >
-            <div className="space-y-12">
-              <div>
-                <span className="text-[10px] uppercase font-body font-bold tracking-[0.3em] text-artnetwork-primary block mb-4">Direct Link</span>
-                <a href="mailto:artnetworkconsult@gmail.com" className="text-2xl md:text-4xl font-heading font-bold text-white hover:text-artnetwork-primary transition-colors border-b border-white/20 pb-4 inline-block">
-                  artnetworkconsult@gmail.com
+            <div className="space-y-16">
+              <div className="group">
+                <span className="text-[10px] uppercase font-body font-bold tracking-[0.4em] text-artnetwork-primary block mb-4 opacity-50 group-hover:opacity-100 transition-opacity">Email</span>
+                <a 
+                  href="mailto:contacto@artnetworkconsult.com" 
+                  className="text-xl sm:text-2xl lg:text-xl xl:text-[1.75rem] 2xl:text-3xl font-heading font-bold text-white hover:text-artnetwork-primary transition-all duration-300 border-b border-white/10 group-hover:border-artnetwork-primary pb-6 block w-fit max-w-full tracking-tighter whitespace-nowrap"
+                >
+                  contacto@artnetworkconsult.com
                 </a>
               </div>
               
-              <div>
-                <span className="text-[10px] uppercase font-body font-bold tracking-[0.3em] text-artnetwork-primary block mb-4">Phone Support</span>
-                <a href="tel:+351965093138" className="text-2xl md:text-4xl font-heading font-bold text-white hover:text-artnetwork-primary transition-colors border-b border-white/20 pb-4 inline-block">
-                  +351 965 093 138
+              <div className="group">
+                <span className="text-[10px] uppercase font-body font-bold tracking-[0.4em] text-artnetwork-primary block mb-4 opacity-50 group-hover:opacity-100 transition-opacity">Telefone & WhatsApp</span>
+                <a 
+                  href="tel:+351932240189" 
+                  className="text-xl sm:text-2xl lg:text-xl xl:text-[1.75rem] 2xl:text-3xl font-heading font-bold text-white hover:text-artnetwork-primary transition-all duration-300 border-b border-white/10 group-hover:border-artnetwork-primary pb-6 block w-fit max-w-full tracking-tighter"
+                >
+                  +351 932 240 189
                 </a>
               </div>
 
-              <div className="pt-12 grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div className="pt-8 grid grid-cols-1 sm:grid-cols-2 gap-12 border-t border-white/5">
                 <div>
-                  <span className="text-[10px] uppercase font-body font-bold tracking-[0.3em] text-artnetwork-primary block mb-6">Horário de Atendimento</span>
-                  <ul className="space-y-3 font-body text-sm text-white/70">
-                    <li className="flex justify-between border-b border-white/5 pb-2">
-                       <span>Segunda - Sexta</span>
+                  <span className="text-[10px] uppercase font-body font-bold tracking-[0.3em] text-white/40 block mb-6">Apoio ao Cliente</span>
+                  <ul className="space-y-4 font-body text-sm text-white/60">
+                    <li className="flex justify-between items-center group/item hover:text-white transition-colors">
+                       <span className="font-light">Segunda - Sexta</span>
+                       <span className="text-white font-bold h-px w-8 bg-white/20 mx-4 hidden sm:block"></span>
                        <span className="text-white font-medium">9:00 - 18:00</span>
                     </li>
-                    <li className="flex justify-between border-b border-white/5 pb-2">
-                       <span>Sábado</span>
+                    <li className="flex justify-between items-center group/item hover:text-white transition-colors">
+                       <span className="font-light">Sábado</span>
+                       <span className="text-white font-bold h-px w-8 bg-white/20 mx-4 hidden sm:block"></span>
                        <span className="text-white font-medium">10:00 - 14:00</span>
-                    </li>
-                    <li className="flex justify-between">
-                       <span>Domingo</span>
-                       <span className="text-white font-medium italic">Fechado</span>
                     </li>
                   </ul>
                 </div>
                 <div>
-                  <span className="text-[10px] uppercase font-body font-bold tracking-[0.3em] text-artnetwork-primary block mb-6">Suporte Rápido</span>
-                  <p className="text-white/70 font-body text-sm leading-relaxed mb-4">
-                    Disponíveis também via <span className="text-white font-bold italic">WhatsApp</span> para consultas urgentes e suporte consultivo.
+                  <span className="text-[10px] uppercase font-body font-bold tracking-[0.3em] text-white/40 block mb-6">Localização</span>
+                  <p className="text-white/70 font-body text-sm leading-relaxed">
+                    Portugal <span className="text-artnetwork-primary mx-2">/</span> Disponibilidade <span className="text-white font-bold italic">Global</span>
                   </p>
-                  <p className="text-white/40 font-body text-[10px] uppercase tracking-widest leading-relaxed">
-                    Portugal — Disponibilidade Global <br />
-                    <span className="text-white/60">Focado em Resultados que Escalam.</span>
+                  <p className="text-white/30 font-body text-[10px] uppercase tracking-[0.2em] mt-4">
+                    Focado em Resultados que Escalam.
                   </p>
                 </div>
               </div>
@@ -149,11 +149,15 @@ const Contact = () => {
           {/* Right: Modern Form */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="bg-white/5 p-8 lg:p-12 border border-white/10"
+            className="p-8 lg:p-16 border border-white/10 relative overflow-hidden group/form bg-white/[0.02]"
           >
-            <form onSubmit={handleSubmit} className="space-y-10">
+              {/* Subtle accent border */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-artnetwork-primary/5 blur-3xl rounded-full -mr-16 -mt-16 group-hover/form:bg-artnetwork-primary/10 transition-all duration-700"></div>
+              
+              <form onSubmit={handleSubmit} className="space-y-12 relative z-10">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div className="relative group">
                   <label className="text-[10px] uppercase font-body font-bold tracking-[0.2em] text-white/40 mb-2 block">Nome</label>
@@ -211,11 +215,14 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="group flex items-center gap-4 text-white uppercase font-body font-bold text-xs tracking-[0.3em] hover:text-artnetwork-primary transition-colors disabled:opacity-50"
+                className="w-full group relative flex items-center justify-between p-6 bg-white hover:bg-artnetwork-primary text-black hover:text-white transition-all duration-500 overflow-hidden"
               >
-                <span>{isSubmitting ? 'A Enviar' : 'Enviar Pedido'}</span>
-                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-artnetwork-primary transition-colors">
-                  <HiOutlineArrowRight className="w-5 h-5" />
+                <div className="absolute inset-0 w-0 bg-artnetwork-primary group-hover:w-full transition-all duration-500 ease-out -z-10"></div>
+                <span className="font-heading font-bold text-lg uppercase tracking-tighter">
+                  {isSubmitting ? 'A processar pedido...' : 'Enviar Pedido de Consulta'}
+                </span>
+                <div className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center bg-black/5 group-hover:bg-white/20 group-hover:border-white/20 transition-all">
+                  <HiOutlineArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </button>
             </form>

@@ -21,6 +21,18 @@ export const portfolioItems = [
     status: "coming-soon",
     tags: ["E-commerce", "Catálogo", "Futuro"],
   },
+  {
+    id: 3,
+    title: "LifeArt Seguros",
+    category: "Corporativo",
+    description:
+      "Desenvolvimento de um website de seguros moderno, aliado a consultoria web estratégica e gestão de social media.",
+    image:
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=600&h=400&auto=format&fit=crop",
+    url: "#",
+    status: "coming-soon",
+    tags: ["Website", "Consultoria Web", "Corporativo"],
+  },
 ];
 
-export const categories = ["Todos", "Catálogo", "E-commerce"];
+export const categories = ["Todos", "Catálogo", "E-commerce", "Corporativo"];
