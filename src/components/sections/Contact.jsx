@@ -71,10 +71,8 @@ const Contact = () => {
             className="flex flex-col lg:flex-row lg:items-end justify-between gap-8"
           >
             <div className="relative">
-              <span className="inline-block text-artnetwork-primary font-body text-xs font-bold uppercase tracking-[0.3em] mb-8">
-                [ 04 — Contacto ]
-              </span>
-              <h2 className="text-6xl md:text-8xl lg:text-[10rem] font-heading font-bold text-white leading-[0.85] tracking-tighter uppercase">
+
+              <h2 className="text-5xl md:text-7xl lg:text-[8rem] font-heading font-bold text-white leading-[0.85] tracking-tighter uppercase">
                 Vamos <br />
                 <span className="text-white/20 italic font-normal tracking-wide lowercase">Conversar?</span>
               </h2>

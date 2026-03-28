@@ -100,9 +100,6 @@ const Portfolio = () => {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-2xl"
           >
-            <span className="inline-block text-artnetwork-primary font-body text-xs font-bold uppercase tracking-[0.2em] mb-6">
-              [ 02 — Portfolio ]
-            </span>
 
             <h2 className="text-5xl lg:text-7xl font-heading font-bold text-white leading-[0.9] tracking-tighter uppercase">
               Projetos <br />

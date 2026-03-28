@@ -178,9 +178,7 @@ const Services = () => {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-2xl"
           >
-            <span className="inline-block text-artnetwork-primary font-body text-xs font-bold uppercase tracking-[0.2em] mb-6">
-              [ 01 — As Nossas Soluções ]
-            </span>
+
             <h2 className="text-5xl lg:text-7xl font-heading font-bold text-white leading-[0.9] tracking-tighter uppercase">
               Estratégia <br />
               <span className="text-white/40 italic font-normal tracking-wide lowercase">Aplicada</span>
@@ -193,7 +191,7 @@ const Services = () => {
              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
              <p className="text-white/70 font-body max-w-sm text-sm lg:text-base font-light leading-relaxed">
-               Não entregamos ferramentas genéricas. Entregamos vantagem competitiva injusta através 
+               Não entregamos ferramentas genéricas. Entregamos vantagens competitivas através 
                de tecnologias de ponta e precisão brutal.
              </p>
           </motion.div>

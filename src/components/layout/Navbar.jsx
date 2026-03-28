@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { HiMenu, HiX } from 'react-icons/hi';
 import { motion, AnimatePresence } from 'framer-motion';
+import useScrollOffset from '../../hooks/useScrollOffset';
 
 const navLinks = [
   { id: 'inicio', label: 'Início' },
@@ -14,6 +15,7 @@ const navLinks = [
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const scrollOffset = useScrollOffset();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,7 +64,7 @@ const Navbar = () => {
                 to={link.id}
                 smooth={true}
                 duration={500}
-                offset={-80}
+                offset={scrollOffset}
                 spy={true}
                 activeClass="!text-white after:w-1/2"
                 className="relative px-4 py-2 text-white/50 hover:text-white transition-all cursor-pointer font-body text-[11px] uppercase tracking-[0.2em] group after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-artnetwork-primary after:transition-all after:duration-300 hover:after:w-1/2"
@@ -117,7 +119,7 @@ const Navbar = () => {
                     to={link.id}
                     smooth={true}
                     duration={500}
-                    offset={-80}
+                    offset={scrollOffset}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block py-3 text-gray-400 hover:text-white transition-colors cursor-pointer font-medium border-b border-white/5"
                   >

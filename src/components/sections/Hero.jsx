@@ -2,9 +2,11 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
 import Spline from '@splinetool/react-spline';
+import useScrollOffset from '../../hooks/useScrollOffset';
 
 const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const scrollOffset = useScrollOffset();
 
   return (
     <section
@@ -83,7 +85,7 @@ const Hero = () => {
                   to="contacto"
                   smooth={true}
                   duration={500}
-                  offset={-80}
+                  offset={scrollOffset}
                   ignoreCancelEvents={true}
                   className="px-8 py-4 bg-artnetwork-primary hover:bg-white text-white hover:text-black font-body font-bold text-sm uppercase tracking-widest rounded-none transition-all duration-300 flex items-center justify-center gap-3 group cursor-pointer"
                 >
@@ -96,7 +98,7 @@ const Hero = () => {
                   to="portfolio"
                   smooth={true}
                   duration={500}
-                  offset={-80}
+                  offset={scrollOffset}
                   ignoreCancelEvents={true}
                   className="px-8 py-4 bg-transparent border border-white/40 hover:border-white text-white font-body font-bold text-sm uppercase tracking-widest rounded-none transition-all duration-300 flex items-center justify-center cursor-pointer"
                 >
