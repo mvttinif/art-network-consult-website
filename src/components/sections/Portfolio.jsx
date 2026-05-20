@@ -13,15 +13,41 @@ const PortfolioCard = ({ item }) => {
   
   const CardContent = (
     <div className="relative aspect-[4/5] overflow-hidden bg-[#050505] border border-white/10 group-hover:border-white/40 transition-colors duration-500">
-      <img
-        src={item.image}
-        alt={item.title}
-        className={`w-full h-full object-cover transition-all duration-700 ${
-          item.status === 'coming-soon'
-            ? 'opacity-30 mix-blend-luminosity scale-100 group-hover:scale-105 group-hover:opacity-40 blur-[2px]'
-            : 'opacity-70 group-hover:scale-105 group-hover:opacity-100'
-        }`}
-      />
+      {item.image.startsWith('/') ? (
+        <picture>
+          {/* Mobile: smaller webp variant (640px), Desktop: full webp */}
+          <source
+            srcSet={`${item.image.replace(/\.png$/, '-mobile.webp')} 640w, ${item.image.replace(/\.png$/, '.webp')} 1200w`}
+            sizes="(max-width: 640px) 640px, 1200px"
+            type="image/webp"
+          />
+          <img
+            src={item.image}
+            alt={item.title}
+            loading="lazy"
+            width={600}
+            height={800}
+            className={`w-full h-full object-cover transition-all duration-700 ${
+              item.status === 'coming-soon'
+                ? 'opacity-30 mix-blend-luminosity scale-100 group-hover:scale-105 group-hover:opacity-40 blur-[2px]'
+                : 'opacity-70 group-hover:scale-105 group-hover:opacity-100'
+            }`}
+          />
+        </picture>
+      ) : (
+        <img
+          src={item.image}
+          alt={item.title}
+          loading="lazy"
+          width={600}
+          height={800}
+          className={`w-full h-full object-cover transition-all duration-700 ${
+            item.status === 'coming-soon'
+              ? 'opacity-30 mix-blend-luminosity scale-100 group-hover:scale-105 group-hover:opacity-40 blur-[2px]'
+              : 'opacity-70 group-hover:scale-105 group-hover:opacity-100'
+          }`}
+        />
+      )}
 
       {/* Base Gradient Overlay (always visible to ensure title contrast) */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-10" />

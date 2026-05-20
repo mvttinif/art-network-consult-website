@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { HiOutlineArrowRight } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
-import { sendEmail } from '../../utils/emailService';
 
 const Contact = () => {
   const [ref, inView] = useInView({
@@ -50,6 +49,7 @@ const Contact = () => {
       return;
     }
 
+    const { sendEmail } = await import('../../utils/emailService');
     const result = await sendEmail(formData);
 
     if (result.success) {

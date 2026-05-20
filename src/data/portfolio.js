@@ -42,26 +42,6 @@ export const portfolioItems = [
     status: "coming-soon",
     tags: ["Sistemas", "Digital", "Futuro"],
   },
-  {
-    id: 5,
-    title: "Brevemente",
-    category: "E-commerce",
-    description: "",
-    image: "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=600&h=800&auto=format&fit=crop",
-    url: "#",
-    status: "coming-soon",
-    tags: ["Sistemas", "IA", "Futuro"],
-  },
-  {
-    id: 6,
-    title: "Brevemente",
-    category: "Catálogo",
-    description: "",
-    image: "https://images.unsplash.com/photo-1604871000636-074fa5117945?q=80&w=600&h=800&auto=format&fit=crop",
-    url: "#",
-    status: "coming-soon",
-    tags: ["Digital", "Estratégia", "Futuro"],
-  },
 ];
 
 export const categories = ["Todos", "Catálogo", "E-commerce", "Corporativo"];

@@ -1,11 +1,16 @@
+import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
-import Footer from './components/layout/Footer';
 import LandingPage from './components/sections/LandingPage';
-import Legal from './components/legal/Legal';
-import Privacy from './components/legal/Privacy';
-import AIConsultant from './components/ai/AIConsultant';
-import PreferencesBanner from './components/layout/PreferencesBanner';
+
+// Lazy load everything below the fold or non-critical
+const Footer = lazy(() => import('./components/layout/Footer'));
+
+// Lazy load secondary routes and heavy components
+const Legal = lazy(() => import('./components/legal/Legal'));
+const Privacy = lazy(() => import('./components/legal/Privacy'));
+const AIConsultant = lazy(() => import('./components/ai/AIConsultant'));
+const PreferencesBanner = lazy(() => import('./components/layout/PreferencesBanner'));
 
 function App() {
   return (
@@ -15,17 +20,30 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/legal" element={<Legal />} />
-            <Route path="/privacidade" element={<Privacy />} />
+            <Route path="/legal" element={
+              <Suspense fallback={<div className="min-h-screen bg-black" />}>
+                <Legal />
+              </Suspense>
+            } />
+            <Route path="/privacidade" element={
+              <Suspense fallback={<div className="min-h-screen bg-black" />}>
+                <Privacy />
+              </Suspense>
+            } />
           </Routes>
         </main>
-        <Footer />
-        <AIConsultant />
-        <PreferencesBanner />
+        <Suspense fallback={null}>
+          <Footer />
+        </Suspense>
+        <Suspense fallback={null}>
+          <AIConsultant />
+        </Suspense>
+        <Suspense fallback={null}>
+          <PreferencesBanner />
+        </Suspense>
       </div>
     </Router>
   );
 }
 
 export default App;
-

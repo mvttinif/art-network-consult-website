@@ -1,7 +1,15 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiOutlineChat, HiX, HiPaperAirplane } from 'react-icons/hi';
-import { getAIResponse, getInitialGreeting, getQuickActions } from '../../utils/aiService';
+
+// aiService is loaded dynamically when the chat first opens (~16KB saved from initial bundle)
+let aiServiceCache = null;
+const loadAIService = async () => {
+  if (!aiServiceCache) {
+    aiServiceCache = await import('../../utils/aiService');
+  }
+  return aiServiceCache;
+};
 
 const TypingIndicator = () => (
   <div className="flex items-center gap-1 px-4 py-3">
@@ -65,17 +73,21 @@ const AIConsultant = () => {
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [currentFollowUps, setCurrentFollowUps] = useState([]);
-  const [initialActions] = useState(getQuickActions());
+  const [initialActions, setInitialActions] = useState([]);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
   useEffect(() => {
     if (isOpen && messages.length === 0) {
-      setMessages([{
-        text: getInitialGreeting(),
-        isBot: true
-      }]);
-      setCurrentFollowUps([]);
+      // Load AI service dynamically on first open
+      loadAIService().then((service) => {
+        setMessages([{
+          text: service.getInitialGreeting(),
+          isBot: true
+        }]);
+        setInitialActions(service.getQuickActions());
+        setCurrentFollowUps([]);
+      });
     }
   }, [isOpen, messages.length]);
 
@@ -107,8 +119,9 @@ const AIConsultant = () => {
     setCurrentFollowUps([]);
     setIsTyping(true);
 
-    // Obter resposta do bot
-    const response = await getAIResponse(userMessage, actionId);
+    // Obter resposta do bot (dynamically loaded)
+    const service = await loadAIService();
+    const response = await service.getAIResponse(userMessage, actionId);
 
     setIsTyping(false);
     setMessages((prev) => [...prev, { text: response.text, isBot: true }]);
@@ -144,7 +157,7 @@ const AIConsultant = () => {
         whileTap={{ scale: 0.95 }}
       >
         <HiOutlineChat className="w-6 h-6" />
-        <span className="absolute w-full h-full rounded-full bg-artnetwork-primary animate-ping opacity-30" />
+        <span className="absolute w-full h-full rounded-full bg-artnetwork-primary animate-pulse opacity-30" />
       </motion.button>
 
       {/* Chat Window */}
