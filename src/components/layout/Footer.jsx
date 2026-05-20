@@ -1,7 +1,9 @@
+import { useRef } from 'react';
+import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
 import { scrollToSection } from '../../utils/scroll';
 import { Link as RouterLink } from 'react-router-dom';
 
-// Inline SVGs — eliminates react-icons/fa from bundle entirely
+// ─── Inline SVGs ─────────────────────────────────────────────────────────────
 const FacebookIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" aria-hidden="true">
     <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
@@ -20,8 +22,93 @@ const WhatsAppIcon = () => (
   </svg>
 );
 
+// ─── Animated wordmark — cada letra cai do topo com stagger ──────────────────
+const WORD_ART    = ['A','r','t'];
+const WORD_NET    = ['N','e','t','w','o','r','k'];
+
+const letterVariants = {
+  hidden: { y: 100, opacity: 0, rotateX: -50 },
+  visible: (i) => ({
+    y: 0,
+    opacity: 1,
+    rotateX: 0,
+    transition: {
+      delay: 0.15 + i * 0.06,
+      duration: 0.9,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  }),
+};
+
+const AnimatedWordmark = ({ inView }) => (
+  <div
+    className="flex items-end justify-center gap-0 select-none overflow-hidden"
+    style={{ perspective: '800px' }}
+    aria-label="ArtNetwork"
+  >
+    {/* "Art" — white */}
+    <span className="flex">
+      {WORD_ART.map((char, i) => (
+        <motion.span
+          key={`art-${i}`}
+          custom={i}
+          variants={letterVariants}
+          initial="hidden"
+          animate={inView ? 'visible' : 'hidden'}
+          className="font-heading font-bold uppercase italic tracking-tighter leading-none text-white will-change-transform"
+          style={{
+            fontSize: 'clamp(3.5rem, 12vw, 10rem)',
+            display: 'inline-block',
+            transformOrigin: 'bottom center',
+          }}
+        >
+          {char}
+        </motion.span>
+      ))}
+    </span>
+
+    {/* "Network" — red */}
+    <span className="flex text-artnetwork-primary">
+      {WORD_NET.map((char, i) => (
+        <motion.span
+          key={`net-${i}`}
+          custom={WORD_ART.length + i}
+          variants={letterVariants}
+          initial="hidden"
+          animate={inView ? 'visible' : 'hidden'}
+          className="font-heading font-bold uppercase italic tracking-tighter leading-none will-change-transform"
+          style={{
+            fontSize: 'clamp(3.5rem, 12vw, 10rem)',
+            display: 'inline-block',
+            transformOrigin: 'bottom center',
+          }}
+        >
+          {char}
+        </motion.span>
+      ))}
+    </span>
+  </div>
+);
+
+// ─── Footer ───────────────────────────────────────────────────────────────────
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  // Trigger quando o bloco entra no viewport — margem generosa para disparar cedo
+  const brandRef = useRef(null);
+  const isInView = useInView(brandRef, { once: true, margin: '0px 0px -5% 0px' });
+
+  // Parallax suave no glow — apenas cosmético, não bloqueia as animações principais
+  const { scrollYProgress } = useScroll({ target: brandRef, offset: ['start end', 'end start'] });
+  const rawY  = useTransform(scrollYProgress, [0, 1], [40, -40]);
+  const glowY = useSpring(rawY, { stiffness: 40, damping: 18 });
+
+  // Parallax suave na logo e tagline enquanto o utilizador continua a rolar
+  const logoY          = useTransform(scrollYProgress, [0, 1], [20, -20]);
+  const logoSpringY    = useSpring(logoY, { stiffness: 60, damping: 20 });
+
+  const taglineY       = useTransform(scrollYProgress, [0, 1], [12, -12]);
+  const taglineSpringY = useSpring(taglineY, { stiffness: 60, damping: 20 });
 
   const socialLinks = [
     { Icon: FacebookIcon, href: 'https://facebook.com/artnetwork-consult', label: 'Facebook' },
@@ -30,54 +117,105 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#050505] text-white pt-24 pb-12 border-t border-white/10">
-      <div className="container-custom px-6 lg:px-12">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-12 lg:gap-24 mb-24">
-          
-          {/* Brand & Manifesto */}
-          <div className="max-w-sm">
-            <div className="flex items-center gap-3 mb-8">
-              <img
-                src="/ArtNetwork Logo W no-bg.svg"
-                alt="ArtNetwork Consult"
-                className="h-10 w-auto"
-                width={40}
-                height={40}
-                loading="lazy"
-              />
-              <span className="font-heading font-bold text-2xl tracking-tighter uppercase italic">
-                Art<span className="text-artnetwork-primary">Network</span>
-              </span>
-            </div>
-            <p className="text-white/40 font-body text-sm leading-relaxed tracking-wide mb-8">
-              Especialistas em Inteligência Artificial e Consultoria Digital. 
-              Transformamos negócios com soluções de IA inovadoras e personalizadas.
-            </p>
-            <div className="flex gap-4">
-               {socialLinks.map((social) => (
-                 <a
-                   key={social.label}
-                   href={social.href}
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label={social.label}
-                   className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-artnetwork-primary hover:border-artnetwork-primary hover:text-white text-white/40 transition-all"
-                 >
-                   <social.Icon />
-                 </a>
-               ))}
-            </div>
-          </div>
+    <footer className="bg-[#050505] text-white border-t border-white/10">
 
-          {/* Quick Links Group */}
+      {/* ── HERO BRAND BLOCK ─────────────────────────────────── */}
+      <div
+        ref={brandRef}
+        className="relative border-b border-white/10 py-20 lg:py-28 flex flex-col items-center justify-center overflow-hidden"
+      >
+        {/* Parallax glow blob */}
+        <motion.div
+          aria-hidden="true"
+          style={{ y: glowY }}
+          className="absolute inset-0 flex items-center justify-center pointer-events-none"
+        >
+          <div className="w-[700px] h-[350px] bg-artnetwork-primary/6 rounded-full blur-[140px]" />
+        </motion.div>
+
+        {/* Decorative hairline above wordmark */}
+        <motion.div
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={isInView ? { scaleX: 1, opacity: 1 } : {}}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0 }}
+          className="w-24 h-px bg-artnetwork-primary/50 mb-10 origin-center"
+        />
+
+        {/* Logo icon */}
+        <motion.div
+          style={{ y: logoSpringY }}
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.9, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-6 relative z-10"
+        >
+          <img
+            src="/ArtNetwork Logo W no-bg.svg"
+            alt="ArtNetwork Consult"
+            className="h-14 lg:h-20 w-auto opacity-80"
+            width={80}
+            height={80}
+            loading="lazy"
+          />
+        </motion.div>
+
+        {/* Giant animated wordmark */}
+        <div className="relative z-10 w-full flex justify-center px-4">
+          <AnimatedWordmark inView={isInView} />
+        </div>
+
+        {/* Tagline */}
+        <motion.p
+          style={{ y: taglineSpringY }}
+          initial={{ opacity: 0, y: 24 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.75, ease: [0.16, 1, 0.3, 1] }}
+          className="relative z-10 mt-6 text-white/25 font-body text-xs lg:text-sm uppercase tracking-[0.5em] text-center"
+        >
+          Inteligência Artificial &amp; Consultoria Digital
+        </motion.p>
+
+        {/* Social icons row */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.95, ease: [0.16, 1, 0.3, 1] }}
+          className="relative z-10 flex gap-4 mt-10"
+        >
+          {socialLinks.map((social) => (
+            <a
+              key={social.label}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.label}
+              className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:bg-artnetwork-primary hover:border-artnetwork-primary text-white/30 hover:text-white transition-all duration-300"
+            >
+              <social.Icon />
+            </a>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* ── LINKS + LEGAL ─────────────────────────────────────── */}
+      <div className="container-custom px-6 lg:px-12 pt-16 pb-12">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-12 lg:gap-24 mb-20">
+
+          {/* Quick Links */}
           <div className="grid grid-cols-2 gap-12 lg:gap-24">
             <div>
               <h4 className="text-[10px] uppercase font-body font-bold tracking-[0.3em] text-white/20 mb-8">Navegação</h4>
               <ul className="space-y-4">
-                <li><button onClick={() => scrollToSection('inicio')} className="text-sm font-body text-white/60 hover:text-artnetwork-primary transition-colors cursor-pointer uppercase tracking-widest bg-transparent border-none p-0">Início</button></li>
-                <li><button onClick={() => scrollToSection('servicos')} className="text-sm font-body text-white/60 hover:text-artnetwork-primary transition-colors cursor-pointer uppercase tracking-widest bg-transparent border-none p-0">Serviços</button></li>
-                <li><button onClick={() => scrollToSection('portfolio')} className="text-sm font-body text-white/60 hover:text-artnetwork-primary transition-colors cursor-pointer uppercase tracking-widest bg-transparent border-none p-0">Portfólio</button></li>
-                <li><button onClick={() => scrollToSection('contacto')} className="text-sm font-body text-white/60 hover:text-artnetwork-primary transition-colors cursor-pointer uppercase tracking-widest bg-transparent border-none p-0">Contacto</button></li>
+                {['inicio','servicos','portfolio','contacto'].map((id, i) => (
+                  <li key={id}>
+                    <button
+                      onClick={() => scrollToSection(id)}
+                      className="text-sm font-body text-white/60 hover:text-artnetwork-primary transition-colors cursor-pointer uppercase tracking-widest bg-transparent border-none p-0"
+                    >
+                      {['Início','Serviços','Portfólio','Contacto'][i]}
+                    </button>
+                  </li>
+                ))}
               </ul>
             </div>
             <div>
@@ -85,7 +223,12 @@ const Footer = () => {
               <ul className="space-y-4">
                 {socialLinks.map((social) => (
                   <li key={social.label}>
-                    <a href={social.href} target="_blank" rel="noopener noreferrer" className="text-sm font-body text-white/60 hover:text-artnetwork-primary transition-colors uppercase tracking-widest">
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-body text-white/60 hover:text-artnetwork-primary transition-colors uppercase tracking-widest"
+                    >
                       {social.label}
                     </a>
                   </li>
@@ -94,25 +237,30 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Contact Direct */}
+          {/* Contact */}
           <div className="md:text-right">
-             <h4 className="text-[10px] uppercase font-body font-bold tracking-[0.3em] text-white/20 mb-8">Portugal & Brasil</h4>
-             <p className="text-white font-heading text-lg mb-2 italic">Entre em contato conosco</p>
-             <a href="mailto:contacto@artnetworkconsult.com" className="text-white/40 hover:text-white transition-colors text-sm font-body">contacto@artnetworkconsult.com</a>
+            <h4 className="text-[10px] uppercase font-body font-bold tracking-[0.3em] text-white/20 mb-8">Portugal &amp; Brasil</h4>
+            <p className="text-white font-heading text-lg mb-2 italic">Entre em contato conosco</p>
+            <a
+              href="mailto:contacto@artnetworkconsult.com"
+              className="text-white/40 hover:text-white transition-colors text-sm font-body"
+            >
+              contacto@artnetworkconsult.com
+            </a>
           </div>
         </div>
 
-        {/* Legal & Copyright */}
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+        {/* Legal */}
+        <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-wrap gap-8 justify-center md:justify-start">
-             <RouterLink to="/privacidade" className="text-[10px] uppercase font-body font-bold tracking-[0.2em] text-white/20 hover:text-white transition-colors">Privacidade</RouterLink>
-             <RouterLink to="/legal" className="text-[10px] uppercase font-body font-bold tracking-[0.2em] text-white/20 hover:text-white transition-colors">Legal</RouterLink>
-             <button 
-               onClick={() => window.dispatchEvent(new Event('openCookieConsent'))}
-               className="text-[10px] uppercase font-body font-bold tracking-[0.2em] text-white/20 hover:text-white transition-colors cursor-pointer bg-transparent border-none p-0 outline-none"
-             >
-               Cookies
-             </button>
+            <RouterLink to="/privacidade" className="text-[10px] uppercase font-body font-bold tracking-[0.2em] text-white/20 hover:text-white transition-colors">Privacidade</RouterLink>
+            <RouterLink to="/legal" className="text-[10px] uppercase font-body font-bold tracking-[0.2em] text-white/20 hover:text-white transition-colors">Legal</RouterLink>
+            <button
+              onClick={() => window.dispatchEvent(new Event('openCookieConsent'))}
+              className="text-[10px] uppercase font-body font-bold tracking-[0.2em] text-white/20 hover:text-white transition-colors cursor-pointer bg-transparent border-none p-0 outline-none"
+            >
+              Cookies
+            </button>
           </div>
           <p className="text-[10px] uppercase font-body font-bold tracking-[0.2em] text-white/10">
             &copy; {currentYear} ArtNetwork Consult LDA. Todos os direitos reservados.
