@@ -52,13 +52,26 @@
     />
     <meta property="twitter:image" content="/ArtNetwork Logo.webp" />
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts — non-render-blocking preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Syne:wght@400;500;600;700;800&display=swap"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Syne:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Syne:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
 
     <!-- Schema.org -->
     <script type="application/ld+json">
@@ -92,8 +105,10 @@
         }
       }
     </script>
-    <script type="module" crossorigin src="/assets/index-Jv1ZJ3fm.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BrPbN_bN.css">
+    <script type="module" crossorigin src="/assets/index-srk1x7xG.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-react-CFUAJSY-.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-motion-BDBu8iy_.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-N7frEcgv.css">
   </head>
   <body>
     <div id="root"></div>
