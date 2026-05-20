@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { HiOutlineArrowRight } from 'react-icons/hi';
+import { Link } from 'react-router-dom';
 import { sendEmail } from '../../utils/emailService';
 
 const Contact = () => {
@@ -19,6 +20,7 @@ const Contact = () => {
 
   const [status, setStatus] = useState({ type: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [acceptedPrivacy, setAcceptedPrivacy] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,6 +41,15 @@ const Contact = () => {
       return;
     }
 
+    if (!acceptedPrivacy) {
+      setStatus({
+        type: 'error',
+        message: 'Por favor, aceite a Política de Privacidade para enviar o pedido.',
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
     const result = await sendEmail(formData);
 
     if (result.success) {
@@ -47,6 +58,7 @@ const Contact = () => {
         message: 'Mensagem enviada com sucesso.',
       });
       setFormData({ name: '', email: '', company: '', message: '' });
+      setAcceptedPrivacy(false);
     } else {
       setStatus({
         type: 'error',
@@ -202,6 +214,25 @@ const Contact = () => {
                   className="w-full bg-transparent border-b border-white/20 py-2 text-white focus:border-artnetwork-primary outline-none transition-all font-body text-lg font-light resize-none"
                   required
                 />
+              </div>
+
+              {/* GDPR Consent Checkbox */}
+              <div className="flex items-start gap-3 pt-2">
+                <input
+                  type="checkbox"
+                  id="privacyConsent"
+                  checked={acceptedPrivacy}
+                  onChange={(e) => setAcceptedPrivacy(e.target.checked)}
+                  className="mt-1 w-4 h-4 rounded border-white/20 bg-transparent text-artnetwork-primary focus:ring-0 focus:ring-offset-0 cursor-pointer accent-artnetwork-primary"
+                  required
+                />
+                <label htmlFor="privacyConsent" className="text-xs text-white/50 font-body font-light leading-relaxed cursor-pointer select-none">
+                  Li e aceito a{" "}
+                  <Link to="/privacidade" className="text-artnetwork-primary hover:underline font-semibold">
+                    Política de Privacidade
+                  </Link>{" "}
+                  e consinto no tratamento dos meus dados pessoais para receber uma resposta ao meu contacto.
+                </label>
               </div>
 
               {status.message && (

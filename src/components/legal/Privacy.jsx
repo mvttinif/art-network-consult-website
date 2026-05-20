@@ -55,7 +55,7 @@ const Privacy = () => {
             <div>
               <h2 className="text-white font-heading text-xl mb-4 uppercase tracking-wider">5. Seus Direitos</h2>
               <p>
-                O utilizador tem o direito de solicitar o acesso, retificação ou eliminação dos seus dados pessoais a qualquer momento. Para exercer estes direitos, contacte-nos através do e-mail: **artnetworkconsult@gmail.com**.
+                O utilizador tem o direito de solicitar o acesso, retificação ou eliminação dos seus dados pessoais a qualquer momento. Para exercer estes direitos, contacte-nos através do e-mail: **contacto@artnetworkconsult.com**.
               </p>
             </div>
           </div>

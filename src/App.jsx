@@ -5,6 +5,7 @@ import LandingPage from './components/sections/LandingPage';
 import Legal from './components/legal/Legal';
 import Privacy from './components/legal/Privacy';
 import AIConsultant from './components/ai/AIConsultant';
+import PreferencesBanner from './components/layout/PreferencesBanner';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         </main>
         <Footer />
         <AIConsultant />
+        <PreferencesBanner />
       </div>
     </Router>
   );

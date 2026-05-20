@@ -102,7 +102,7 @@ export const aiResponses = {
       followUp: ['ai_help', 'consulting', 'website'],
     },
     meeting: {
-      text: 'Ótimo! Adoramos conhecer novos projetos. Pode contactar-nos por:\n\n📧 **Email:** artnetworkconsult@gmail.com\n📱 **Telefone:** +351 965 093 138\n💬 **WhatsApp:** Mesmo número\n📝 **Formulário:** Abaixo nesta página\n\n**Oferecemos uma consulta inicial gratuita** de 30 minutos para entender o seu projeto.\n\nPrefere manhã ou tarde?',
+      text: 'Ótimo! Adoramos conhecer novos projetos. Pode contactar-nos por:\n\n📧 **Email:** contacto@artnetworkconsult.com\n📱 **Telefone:** +351 965 093 138\n💬 **WhatsApp:** Mesmo número\n📝 **Formulário:** Abaixo nesta página\n\n**Oferecemos uma consulta inicial gratuita** de 30 minutos para entender o seu projeto.\n\nPrefere manhã ou tarde?',
       followUp: ['services', 'pricing'],
     },
     pricing: {

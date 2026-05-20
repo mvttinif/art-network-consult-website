@@ -11,15 +11,14 @@ export const portfolioItems = [
   },
   {
     id: 2,
-    title: "Portugal Online",
+    title: "Portugal Gourmet",
     category: "E-commerce",
     description:
-      "Um novo sistema inteligente está a ser desenvolvido para revolucionar o seu negócio.",
+      "A nova geração do comércio gourmet premium entre Portugal e Brasil. Marketplace premium de Portugal para o Brasil.",
     image:
-      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.elo7.com.br%2Fproduct%2Fmain%2F44F5540%2Fbandeira-brasil-portugal-bandeira.jpg&f=1&nofb=1&ipt=24902571d1da7113c7117793f973281cc76ff4c36da3a72fe513f384279649fb?w=600&h=400&fit=crop",
-    url: "#",
-    status: "coming-soon",
-    tags: ["E-commerce", "Catálogo", "Futuro"],
+      "/portugal-gourmet.png",
+    url: "https://portugalgourmet.pt",
+    tags: ["Website", "E-commerce", "Gourmet"],
   },
   {
     id: 3,
@@ -32,6 +31,36 @@ export const portfolioItems = [
     url: "#",
     status: "coming-soon",
     tags: ["Website", "Consultoria Web", "Corporativo"],
+  },
+  {
+    id: 4,
+    title: "Brevemente",
+    category: "Corporativo",
+    description: "",
+    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&h=800&auto=format&fit=crop",
+    url: "#",
+    status: "coming-soon",
+    tags: ["Sistemas", "Digital", "Futuro"],
+  },
+  {
+    id: 5,
+    title: "Brevemente",
+    category: "E-commerce",
+    description: "",
+    image: "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=600&h=800&auto=format&fit=crop",
+    url: "#",
+    status: "coming-soon",
+    tags: ["Sistemas", "IA", "Futuro"],
+  },
+  {
+    id: 6,
+    title: "Brevemente",
+    category: "Catálogo",
+    description: "",
+    image: "https://images.unsplash.com/photo-1604871000636-074fa5117945?q=80&w=600&h=800&auto=format&fit=crop",
+    url: "#",
+    status: "coming-soon",
+    tags: ["Digital", "Estratégia", "Futuro"],
   },
 ];
 
