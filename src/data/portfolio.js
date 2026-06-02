@@ -15,9 +15,8 @@ export const portfolioItems = [
     category: "E-commerce",
     description:
       "A nova geração do comércio gourmet premium entre Portugal e Brasil. Marketplace premium de Portugal para o Brasil.",
-    image:
-      "/portugal-gourmet.png",
-    url: "https://portugalgourmet.pt",
+    image: "/portugal-gourmet.png",
+    url: "https://portugalgourmet.net",
     tags: ["Website", "E-commerce", "Gourmet"],
   },
   {
@@ -37,7 +36,8 @@ export const portfolioItems = [
     title: "Brevemente",
     category: "Corporativo",
     description: "",
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&h=800&auto=format&fit=crop",
+    image:
+      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&h=800&auto=format&fit=crop",
     url: "#",
     status: "coming-soon",
     tags: ["Sistemas", "Digital", "Futuro"],
