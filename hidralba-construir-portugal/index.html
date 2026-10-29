@@ -23,7 +23,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font:17px/1.6 var(--body);color:var(--g7);background:var(--g05);overflow-x:clip;-webkit-text-size-adjust:100%}
-img{max-width:100%;display:block}
+img{max-width:100%;height:auto;display:block}
 .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
 h1,h2,h3{font-family:var(--disp);color:var(--b7);line-height:1.12;letter-spacing:-.015em}
 h2{font-size:clamp(30px,4.8vw,50px);font-weight:800;max-width:860px}
@@ -63,10 +63,8 @@ em{font-style:italic}
 .g2{grid-template-columns:repeat(2,1fr)}
 .g3{grid-template-columns:repeat(3,1fr)}
 .g4{grid-template-columns:repeat(4,1fr)}
-.card{background:#fff;border-radius:16px;padding:24px;box-shadow:var(--sh);transition:transform .2s,box-shadow .2s}
-.card:hover{transform:translateY(-3px);box-shadow:var(--sh-l)}
+.card{background:#fff;border-radius:16px;padding:24px;box-shadow:var(--sh)}
 .s-white .card{border:1px solid var(--g2);box-shadow:none}
-.s-white .card:hover{box-shadow:var(--sh)}
 .glass{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:22px}
 ul.ck{list-style:none;display:grid;gap:12px}
 ul.ck li{position:relative;padding-left:34px}
@@ -209,8 +207,6 @@ tr.hl td:first-child{color:var(--o9)}
 .brands{display:flex;flex-wrap:wrap;align-items:center;gap:28px;margin-top:34px;padding-top:26px;border-top:1px solid rgba(255,255,255,.12)}
 .brands img.cp{width:150px}
 .brands img.an{width:64px}
-.hid{font:800 20px/1 var(--disp);color:#fff;letter-spacing:.02em}
-.hid small{display:block;font:600 11px/1 var(--disp);letter-spacing:.18em;color:var(--o3);margin-top:5px;text-transform:uppercase}
 .brandset{display:flex;align-items:center;gap:14px}
 .chip-h{background:#fff;border-radius:12px;padding:9px 14px;display:flex;align-items:center}
 .chip-h img{height:24px;width:auto}
@@ -228,6 +224,7 @@ footer{background:var(--b9);border-top:1px solid rgba(255,255,255,.08);color:#7f
 
 @media(max-width:900px){
  .g3,.g4{grid-template-columns:repeat(2,1fr)}
+ .g3>:last-child:nth-child(odd){grid-column:1/-1}
  .g2,.hero .inner,.fecho .inner,.vision,.vs{grid-template-columns:1fr}
  .hero .inner{margin-top:36px;gap:40px}
  .mosaic{max-width:420px}
@@ -260,8 +257,8 @@ footer{background:var(--b9);border-top:1px solid rgba(255,255,255,.08);color:#7f
 
 <header class="hero">
  <div class="wrap top">
-  <img class="cp" src="cp-logo-w.svg" alt="Construir Portugal">
-  <div class="brandset"><span class="chip-h"><img src="hidralba-logo.webp" alt="Hidralba II"></span><img class="an" src="an-logo-w.webp" alt="ArtNetwork"></div>
+  <img width="839" height="371" class="cp" src="cp-logo-w.svg" alt="Construir Portugal">
+  <div class="brandset"><span class="chip-h"><img width="700" height="115" src="hidralba-logo.webp" alt="Hidralba II"></span><img width="220" height="214" class="an" src="an-logo-w.webp" alt="ArtNetwork"></div>
  </div>
  <div class="wrap inner">
   <div>
@@ -270,11 +267,11 @@ footer{background:var(--b9);border-top:1px solid rgba(255,255,255,.08);color:#7f
    <div class="sub">Construindo o Futuro da Distribuição de Materiais de Construção</div>
    <p>Uma empresa com origem em 1985, transformada através da tecnologia, Inteligência Artificial e um novo modelo logístico, preparada para liderar a digitalização da distribuição de materiais de construção em Portugal.</p>
    <div class="since"><span><b>1985</b> Hidralba</span><span><b>2026</b> ConstruirPortugal.pt</span><span><b>PRR</b> IA financiada</span></div>
-   <a class="btn pdfbtn" href="hidralba-construir-portugal.pdf?v=3" download style="margin-top:28px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>Descarregar em PDF</a>
+   <a class="btn pdfbtn" href="hidralba-construir-portugal.pdf?v=4" download style="margin-top:28px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>Descarregar em PDF</a>
   </div>
   <div class="mosaic" aria-hidden="true">
-   <div><img src="img/caldeira.webp" alt=""></div><div><img src="img/coluna-duche.webp" alt=""></div><div><img src="img/disjuntores.webp" alt=""></div>
-   <div><img src="img/tubo-pex.webp" alt=""></div><div><img src="img/martelo-perfurador.webp" alt=""></div><div><img src="img/lava-loicas.webp" alt=""></div>
+   <div><img width="480" height="480" src="img/caldeira.webp" alt=""></div><div><img width="211" height="536" src="img/coluna-duche.webp" alt=""></div><div><img width="349" height="346" src="img/disjuntores.webp" alt=""></div>
+   <div><img width="480" height="344" src="img/tubo-pex.webp" alt=""></div><div><img width="198" height="130" src="img/martelo-perfurador.webp" alt=""></div><div><img width="480" height="402" src="img/lava-loicas.webp" alt=""></div>
   </div>
  </div>
 </header>
@@ -294,7 +291,7 @@ footer{background:var(--b9);border-top:1px solid rgba(255,255,255,.08);color:#7f
     <li>Hoje procuramos um parceiro estratégico para acelerar a próxima fase de crescimento.</li>
    </ul>
   </div>
-  <figure class="photo"><img src="img/fachada.webp" alt="Fachada das instalações da Hidralba"><figcaption>Hidralba, desde 1985</figcaption></figure>
+  <figure class="photo"><img width="1100" height="511" src="img/fachada.webp" alt="Fachada das instalações da Hidralba"><figcaption>Hidralba, desde 1985</figcaption></figure>
   <div class="track">
    <div><b>1985</b><span>Experiência</span></div>
    <div><b>2024</b><span>Transformação</span></div>
@@ -372,7 +369,7 @@ footer{background:var(--b9);border-top:1px solid rgba(255,255,255,.08);color:#7f
    <div class="card"><div class="n">4.000</div><div class="l">SKUs</div></div>
    <div class="card"><div class="n">950</div><div class="l">clientes registados</div></div>
    <div class="card"><div class="n">100</div><div class="l">clientes ativos</div></div>
-   <div class="card ph"><img src="img/armazem.webp" alt="Interior do armazém da Hidralba em Águeda"><span>Armazém em Águeda · 1.300 m²</span></div>
+   <div class="card ph"><img width="908" height="682" src="img/armazem.webp" alt="Interior do armazém da Hidralba em Águeda"><span>Armazém em Águeda · 1.300 m²</span></div>
   </div>
   <div class="badges"><span>Portal concluído</span><span>Marketplace operacional</span><span>IA integrada</span><span>PRR aprovado</span></div>
   <div class="grid g3" style="margin-top:30px">
@@ -389,7 +386,7 @@ footer{background:var(--b9);border-top:1px solid rgba(255,255,255,.08);color:#7f
   <h2>Vantagens competitivas</h2>
   <div class="vs">
    <div class="old"><h3>Modelo tradicional</h3><ul><li>Venda de produtos</li><li>Catálogos isolados</li><li>Pesquisa manual</li><li>Orçamentos demorados</li><li>Relação fornecedor-cliente</li><li>Crescimento limitado</li></ul></div>
-   <div class="arrow" aria-hidden="true">→</div>
+   <div class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></div>
    <div class="new"><h3>ConstruirPortugal</h3><ul><li>Plataforma digital B2B</li><li>Catálogo centralizado</li><li>Inteligência Artificial</li><li>Processos digitalizados</li><li>Ecossistema colaborativo</li><li>Modelo escalável</li></ul></div>
   </div>
   <h3 style="margin-top:36px">Principais diferenciais</h3>
@@ -531,12 +528,12 @@ footer{background:var(--b9);border-top:1px solid rgba(255,255,255,.08);color:#7f
       <h2>Modernizar e construir o futuro da distribuição na construção civil</h2>
    <p class="lead" style="color:#b9c3e0">A experiência de quatro décadas. A inovação da Inteligência Artificial. A visão de uma plataforma nacional. O compromisso com o futuro da construção.</p>
    <div class="invite"><b>Convite</b><p style="color:#dfe5f5">Procuramos um parceiro estratégico para participar na próxima fase de crescimento de um projeto que une tradição, tecnologia e inovação.</p><em>Vamos construir o futuro juntos.</em></div>
-   <a class="btn pdfbtn" href="hidralba-construir-portugal.pdf?v=3" download style="margin-top:26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>Descarregar a apresentação em PDF</a>
-   <div class="brands"><img class="cp" src="cp-logo-w.svg" alt="Construir Portugal"><span class="chip-h"><img src="hidralba-logo.webp" alt="Hidralba II"></span><img class="an" src="an-logo-w.webp" alt="ArtNetwork"></div>
+   <a class="btn pdfbtn" href="hidralba-construir-portugal.pdf?v=4" download style="margin-top:26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>Descarregar a apresentação em PDF</a>
+   <div class="brands"><img width="839" height="371" class="cp" src="cp-logo-w.svg" alt="Construir Portugal"><span class="chip-h"><img width="700" height="115" src="hidralba-logo.webp" alt="Hidralba II"></span><img width="220" height="214" class="an" src="an-logo-w.webp" alt="ArtNetwork"></div>
   </div>
   <div class="mosaic" aria-hidden="true">
-   <div><img src="img/recuperador.webp" alt=""></div><div><img src="img/tomadas.webp" alt=""></div><div><img src="img/caldeira.webp" alt=""></div>
-   <div><img src="img/coluna-duche.webp" alt=""></div><div><img src="img/tubo-pex.webp" alt=""></div><div><img src="img/disjuntores.webp" alt=""></div>
+   <div><img width="480" height="388" src="img/recuperador.webp" alt=""></div><div><img width="433" height="422" src="img/tomadas.webp" alt=""></div><div><img width="480" height="480" src="img/caldeira.webp" alt=""></div>
+   <div><img width="211" height="536" src="img/coluna-duche.webp" alt=""></div><div><img width="480" height="344" src="img/tubo-pex.webp" alt=""></div><div><img width="349" height="346" src="img/disjuntores.webp" alt=""></div>
   </div>
  </div>
 </section>
