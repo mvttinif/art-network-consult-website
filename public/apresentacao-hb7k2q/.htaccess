@@ -1,0 +1,2 @@
+# endereco antigo: leva a pagina nova
+RedirectMatch 302 ^/apresentacao-hb7k2q/.*$ /hidralba-construir-portugal/
