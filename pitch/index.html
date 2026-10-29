@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0A0A0A">
+<title>Portugal Gourmet · Pitch</title>
+<meta name="description" content="Portugal Gourmet: marketplace internacional de produtos portugueses premium. Artnetwork Consultoria Lda em parceria com Hidralba II Lda.">
+<link rel="icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* a Cormorant desenha o «ê» com o acento deslocado; só esse glifo vem da EB Garamond */
+@font-face{font-family:"PG E";src:url(fonts/eb-e.woff2) format("woff2");font-weight:400 800;font-style:normal;unicode-range:U+EA,U+CA;size-adjust:92%}
+@font-face{font-family:"PG E";src:url(fonts/eb-e-italic.woff2) format("woff2");font-weight:400 800;font-style:italic;unicode-range:U+EA,U+CA;size-adjust:92%}
+:root{
+  /* marca Portugal Gourmet (colors.css do projeto) */
+  --preto:#0A0A0A; --preto-800:#1A1A1A; --preto-600:#3D3D3D; --preto-500:#555;
+  --marfim:#F3EFE8; --marfim-900:#EDE8DF; --marfim-800:#E3DDD2; --marfim-700:#D5CEC1; --marfim-500:#A89E8E;
+  --vinho:#8C1D33; --vinho-900:#5C1020; --vinho-500:#B03050;
+  --ouro:#D4B27A; --ouro-700:#A88040; --ouro-300:#E8CFA0;
+  --papel:#FAF8F4; --linha:rgba(10,10,10,.12); --linha-ouro:rgba(212,178,122,.35);
+  --display:"PG E","Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --corpo:"Josefin Sans","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--marfim);color:var(--preto-800);font:400 17px/1.6 var(--corpo)}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.08;margin:0;color:var(--preto)}
+p{margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+@media(min-width:720px){.wrap{padding:0 32px}}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border:1px solid var(--ouro);color:var(--ouro);text-decoration:none;font:600 13px/1 var(--corpo);letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;transition:background .2s,color .2s}
+.btn:hover{background:var(--ouro);color:var(--preto)}
+.btn:focus-visible{outline:2px solid var(--ouro-300);outline-offset:3px}
+.btn svg{width:15px;height:15px}
+
+/* topo + capa (escuro) */
+.escuro{background:var(--preto);color:var(--marfim)}
+.escuro h1,.escuro h2,.escuro h3{color:var(--marfim)}
+.topo{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 0;border-bottom:1px solid var(--linha-ouro)}
+.marca{display:flex;align-items:center;gap:12px;text-decoration:none}
+.marca img{width:30px;height:auto}
+.marca span{font:500 15px/1 var(--display);letter-spacing:.32em;text-transform:uppercase;color:var(--marfim)}
+.topo .btn{padding:10px 14px;font-size:12px}
+@media(max-width:480px){.marca span{display:none}.topo .btn .txt-longo{display:none}}
+
+.capa{display:grid;gap:32px;padding:32px 0 56px;align-items:center}
+@media(min-width:860px){.capa{grid-template-columns:1.05fr 1fr;gap:56px;padding:56px 0 80px}}
+.capa-texto{order:2}
+@media(min-width:860px){.capa-texto{order:1}}
+.capa h1 img{width:min(340px,78vw);height:auto}
+.capa .lead{font:500 italic clamp(24px,3.4vw,34px)/1.2 var(--display);color:var(--marfim);margin-top:24px;max-width:22ch}
+.pilares{display:flex;flex-wrap:wrap;gap:6px 14px;margin:22px 0 0;padding:0;list-style:none;font:600 12px/1.4 var(--corpo);letter-spacing:.2em;text-transform:uppercase;color:var(--ouro)}
+.pilares li+li::before{content:"◆";font-size:7px;vertical-align:2px;margin-right:14px;color:var(--vinho-500)}
+.assina{margin-top:28px;padding-top:18px;border-top:1px solid var(--linha-ouro);font-size:15px;color:var(--marfim-700)}
+.assina strong{color:var(--marfim);font-weight:600}
+.capa-img{order:1;position:relative;aspect-ratio:4/3;overflow:hidden;border:1px solid var(--linha-ouro)}
+@media(min-width:860px){.capa-img{order:2;aspect-ratio:14/11}}
+.capa-img img{width:100%;height:100%;object-fit:cover}
+.faixa{height:6px;background:var(--vinho)}
+
+/* secções claras */
+.sec{padding:64px 0}
+.sec+.sec{border-top:1px solid var(--linha)}
+@media(min-width:720px){.sec{padding:88px 0}}
+.olho{display:flex;align-items:center;gap:12px;font:600 12px/1 var(--corpo);letter-spacing:.24em;text-transform:uppercase;color:var(--vinho)}
+.olho span{font:500 italic 20px/1 var(--display);letter-spacing:0;color:var(--ouro-700)}
+.olho::after{content:"";flex:0 0 48px;height:1px;background:var(--ouro)}
+.sec h2{font-size:clamp(32px,5vw,52px);margin-top:16px;max-width:22ch;letter-spacing:-.01em}
+.sub{color:var(--preto-500);margin-top:14px;max-width:60ch;font-size:18px}
+.grelha{display:grid;gap:14px;margin-top:32px;grid-template-columns:1fr}
+.c4{grid-template-columns:1fr 1fr}
+@media(min-width:720px){.c2{grid-template-columns:1fr 1fr}.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}}
+.cartao{background:var(--papel);border:1px solid var(--linha);padding:22px}
+.cartao h3{font-size:23px;margin-bottom:8px}
+.cartao p{color:var(--preto-500);font-size:16px}
+.destaque{margin-top:18px;background:var(--preto);color:var(--marfim-700);padding:22px 24px;font-size:17px;border-left:3px solid var(--ouro)}
+.destaque strong{color:var(--ouro);font-weight:600}
+.provas{display:flex;flex-wrap:wrap;gap:10px 24px;margin:18px 0 0;padding:0;list-style:none;font-weight:600;font-size:15px;color:var(--preto-800)}
+.provas li::before{content:"✓";color:var(--vinho);margin-right:8px}
+
+/* cadeia */
+.cadeia{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:32px 0 0;padding:0;list-style:none}
+.cadeia li{padding:10px 14px;border:1px solid var(--linha);background:var(--papel);font-weight:600;font-size:15px}
+.cadeia li.seta{border:0;background:none;padding:0 2px;color:var(--ouro-700)}
+.cadeia li:first-child,.cadeia li:last-child{background:var(--preto);border-color:var(--preto);color:var(--marfim)}
+.perda{margin-top:18px;font:500 italic clamp(22px,2.8vw,28px)/1.25 var(--display);color:var(--preto)}
+.perda b{font-style:normal;font-weight:700;color:var(--vinho)}
+
+/* números */
+.num,.cartao .num{font:600 clamp(40px,5.4vw,56px)/1 var(--display);color:var(--vinho)}
+.num-leg,.cartao .num-leg{color:var(--preto-500);font-size:15px;margin-top:10px}
+ul.lista{margin:6px 0 0;padding:0;list-style:none;color:var(--preto-500);font-size:16px}
+ul.lista li{padding:6px 0 6px 18px;position:relative}
+ul.lista li::before{content:"";position:absolute;left:0;top:15px;width:7px;height:1px;background:var(--ouro-700)}
+
+/* tabelas */
+.ue{width:100%;border-collapse:collapse;font-size:16px}
+.ue td{padding:10px 0;border-bottom:1px solid var(--marfim-800)}
+.ue td:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap;padding-left:12px}
+.ue tr.menos td:last-child{color:var(--preto-500);font-weight:400}
+.ue tr.total td{border-bottom:0;padding-top:14px;font:700 22px/1.2 var(--display);color:var(--vinho)}
+.barra{display:flex;height:36px;overflow:hidden;margin:8px 0 16px}
+.barra span{display:flex;align-items:center;justify-content:center;color:var(--marfim);font-size:13px;font-weight:600}
+.legenda{list-style:none;padding:0;margin:0;font-size:15px;color:var(--preto-500)}
+.legenda li{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--marfim-800)}
+.legenda li:last-child{border-bottom:0}
+.legenda i{width:12px;height:12px;flex:none}
+.legenda b{color:var(--preto-800);margin-left:auto;font-variant-numeric:tabular-nums;font-weight:600}
+.k1{background:var(--vinho)}.k2{background:var(--vinho-500)}.k3{background:var(--ouro-700)}.k4{background:var(--ouro)}.k5{background:var(--ouro-300)}
+.k4,.k5{color:var(--preto)!important}
+
+.tabela-scroll{overflow-x:auto;margin-top:16px;border:1px solid var(--linha);background:var(--papel);-webkit-overflow-scrolling:touch}
+.fin{width:100%;min-width:600px;border-collapse:collapse;font-size:16px;font-variant-numeric:tabular-nums}
+.fin th,.fin td{padding:13px 16px;text-align:right;border-bottom:1px solid var(--marfim-800);white-space:nowrap}
+.fin th:first-child,.fin td:first-child{text-align:left}
+.fin thead th{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--preto-500);font-weight:600}
+.fin tbody tr:last-child td{border-bottom:0}
+.fin td.tot{font-weight:600;color:var(--vinho)}
+.nota{font-size:14px;color:var(--preto-500);margin-top:12px}
+.dica-scroll{display:none;font-size:13px;color:var(--preto-500);margin-top:8px}
+@media(max-width:640px){.dica-scroll{display:block}}
+
+/* roadmap */
+.fases{display:grid;gap:14px;margin-top:32px;grid-template-columns:1fr}
+@media(min-width:720px){.fases{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.fases{grid-template-columns:repeat(4,1fr)}}
+.fase{background:var(--papel);border:1px solid var(--linha);border-top:2px solid var(--ouro);padding:20px}
+.fase small{display:block;font-weight:600;color:var(--vinho);font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.fase h3{font-size:24px;margin:8px 0 4px}
+.fase .quando{font-weight:600;font-size:15px;color:var(--preto-800)}
+.fase p{color:var(--preto-500);font-size:15px;margin-top:10px}
+
+/* investimento (escuro) */
+.sec.escuro{border-top:0}
+.sec.escuro .olho{color:var(--ouro)}
+.sec.escuro .olho span{color:var(--ouro-300)}
+.inv{font:600 clamp(56px,10vw,104px)/1 var(--display);color:var(--ouro);margin-top:20px;letter-spacing:-.01em}
+.escuro .cartao{background:var(--preto-800);border-color:var(--linha-ouro)}
+.escuro .cartao h3{color:var(--marfim)}
+.escuro .legenda{color:var(--marfim-700)}
+.escuro .legenda li{border-color:rgba(243,239,232,.1)}
+.escuro .legenda b{color:var(--marfim)}
+.marcos{list-style:none;padding:0;margin:8px 0 0}
+.marcos li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid rgba(243,239,232,.1);color:var(--marfim-700);font-size:16px}
+.marcos li:last-child{border-bottom:0}
+.marcos b{color:var(--ouro);font-weight:600;text-align:right}
+
+/* porquê */
+.porque{display:grid;gap:14px;margin-top:32px;grid-template-columns:1fr}
+@media(min-width:720px){.porque{grid-template-columns:1fr 1fr}}
+.porque > div{display:flex;gap:16px;align-items:flex-start;background:var(--papel);border:1px solid var(--linha);padding:20px}
+.porque > div::before{content:"✓";flex:none;width:30px;height:30px;border:1px solid var(--ouro);border-radius:50%;color:var(--vinho);display:grid;place-items:center;font-weight:600;font-size:15px}
+.porque h3{font-size:22px}
+.porque p{color:var(--preto-500);font-size:15px;margin-top:4px}
+
+/* fecho (escuro) */
+.fecho{text-align:center;padding:72px 0 56px}
+.fecho .pg{width:min(300px,70vw);height:auto;margin:0 auto}
+.fecho .frase{font:500 italic clamp(24px,3.4vw,34px)/1.25 var(--display);color:var(--marfim);margin:28px auto 0;max-width:26ch}
+.fecho .assina{max-width:640px;margin:28px auto 0;border-top:1px solid var(--linha-ouro)}
+.fecho .btn{margin-top:28px}
+.inicia{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:56px;padding-top:32px;border-top:1px solid rgba(243,239,232,.1)}
+.inicia small{font:600 11px/1 var(--corpo);letter-spacing:.24em;text-transform:uppercase;color:var(--marfim-500)}
+.inicia img{width:96px;height:auto}
+.inicia p{font-size:14px;color:var(--marfim-700)}
+
+/* PDF horizontal: uma secção por página A4 */
+@media print{
+  @page{size:A4 landscape;margin:0}
+  body{background:var(--marfim);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .topo,.btn,.dica-scroll{display:none}
+  .faixa{display:none}
+  .wrap{max-width:none;padding:0 14mm}
+  body{font-size:14px}
+  header.escuro,.sec,.fecho-sec{break-after:page;break-inside:avoid;min-height:209mm;padding:11mm 0!important;border:0!important}
+  .fecho-sec{break-after:auto;padding:0!important}
+  .sec h2{font-size:36px;margin-top:10px}
+  .sub,.cartao p,.ue,.legenda,.fin,.fase p,.porque p,ul.lista,.num-leg,.cartao .num-leg,.marcos li,.destaque{font-size:13.5px}
+  .ue td{padding:6px 0}.fin th,.fin td{padding:7px 12px}
+  .cartao .num,.num{font-size:40px}.inv{font-size:72px;margin-top:10px}
+  .perda{font-size:22px;margin-top:12px}
+  .fecho{padding:16mm 0 0}.fecho .pg{width:220px}.fecho .frase{font-size:26px;margin-top:16px}
+  .fecho .assina{margin-top:16px}.inicia{margin-top:22px;padding-top:16px;gap:8px}.inicia img{width:70px}
+  .fecho-sec .faixa{display:none}
+  .capa{grid-template-columns:1fr 1fr;gap:12mm;padding:0;min-height:186mm}
+  .capa-texto{order:1}.capa-img{order:2;aspect-ratio:14/11}
+  .c2{grid-template-columns:1fr 1fr}.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}
+  .fases{grid-template-columns:repeat(4,1fr)}.porque{grid-template-columns:1fr 1fr}
+  .grelha,.fases,.porque,.cadeia{margin-top:16px;gap:10px}
+  .cartao,.fase,.porque > div{padding:14px}
+  .sec h2{max-width:none}
+  .fin{min-width:0}.tabela-scroll{overflow:visible}
+  .fecho{padding:20mm 0 0}
+}
+</style>
+</head>
+<body>
+
+<header class="escuro">
+  <div class="wrap">
+    <div class="topo">
+      <div class="marca"><img src="pg-monograma.webp" alt="" width="30" height="32"><span>Portugal Gourmet</span></div>
+      <a class="btn" href="portugal-gourmet-pitch.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>PDF<span class="txt-longo">&nbsp;horizontal</span>
+      </a>
+    </div>
+    <div class="capa">
+      <div class="capa-texto">
+        <h1><img src="pg-logo.webp" alt="Portugal Gourmet" width="520" height="400"></h1>
+        <p class="lead">Marketplace internacional de produtos portugueses premium</p>
+        <ul class="pilares"><li>Tecnologia</li><li>Logística</li><li>Inteligência Artificial</li><li>Cultura Portuguesa</li></ul>
+        <p class="assina"><strong>Artnetwork Consultoria Lda</strong> · Hidralba II Lda<br>CEO: Nuno Marques</p>
+      </div>
+      <div class="capa-img"><img src="hero-editorial.webp" alt="Azeite, vinho tinto, conservas e pão sobre uma mesa de pedra" width="1400" height="1100" fetchpriority="high"></div>
+    </div>
+  </div>
+  <div class="faixa"></div>
+</header>
+
+<main>
+  <section class="sec">
+    <div class="wrap">
+      <p class="olho"><span>01</span>O problema</p>
+      <h2>O mercado atual desperdiça margem e regularidade</h2>
+      <ol class="cadeia" aria-label="Cadeia atual do produtor ao consumidor">
+        <li>Produtor</li><li class="seta" aria-hidden="true">→</li><li>Importador</li><li class="seta" aria-hidden="true">→</li><li>Distribuidor</li><li class="seta" aria-hidden="true">→</li><li>Loja</li><li class="seta" aria-hidden="true">→</li><li>Consumidor</li>
+      </ol>
+      <p class="perda">Pelo caminho, o produtor perde <b>40% a 60%</b> da margem.</p>
+      <div class="grelha c3">
+        <div class="cartao"><h3>Sem regularidade no Brasil</h3><p>80% dos produtos têm registo ativo, mas chegam ao consumidor de forma irregular e inconsistente.</p></div>
+        <div class="cartao"><h3>Produtor sem poder</h3><p>Pequenos produtores sem estrutura logística, presença digital ou capacidade de exportação.</p></div>
+        <div class="cartao"><h3>Intermediários a mais</h3><p>Cada passo da cadeia reduz a margem, o controlo da marca e a proximidade ao consumidor final.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <p class="olho"><span>02</span>A solução</p>
+      <h2>Uma ponte direta entre o produtor português e o consumidor global</h2>
+      <div class="grelha c3">
+        <div class="cartao"><h3>Marketplace internacional</h3><p>Plataforma especializada em produtos portugueses premium, com uma experiência de compra à altura.</p></div>
+        <div class="cartao"><h3>Logística integrada</h3><p>Consolidação via Hidralba II: exportação, entreposto aduaneiro (bonded warehouse) e fulfillment no Brasil e na Europa.</p></div>
+        <div class="cartao"><h3>IA logística (PRR)</h3><p>Previsão de procura por SKU, escolha automática entre via aérea e marítima, gestão de stock em tempo real e estruturação do marketing digital.</p></div>
+      </div>
+      <p class="destaque"><strong>Modelo de consignação.</strong> O produtor mantém a propriedade do produto até à venda ao consumidor final. Mais margem para o produtor e nenhum capital parado em stock.</p>
+      <ul class="provas"><li>Produtores interessados confirmados</li><li>80% dos produtos com registo ativo no Brasil</li><li>Parceiro aduaneiro identificado</li></ul>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <p class="olho"><span>03</span>Mercado</p>
+      <h2>Brasil e Europa: uma oportunidade concreta</h2>
+      <div class="grelha c4">
+        <div class="cartao"><p class="num">200M+</p><p class="num-leg">habitantes no Brasil</p></div>
+        <div class="cartao"><p class="num">80%</p><p class="num-leg">dos produtos já com registo no Brasil</p></div>
+        <div class="cartao"><p class="num">7</p><p class="num-leg">mercados europeus prioritários</p></div>
+        <div class="cartao"><p class="num">+15%</p><p class="num-leg">crescimento anual estimado do e-commerce no Brasil</p></div>
+      </div>
+      <div class="grelha c2">
+        <div class="cartao"><h3>Brasil</h3><ul class="lista">
+          <li>Arranque: São Paulo e Rio de Janeiro</li>
+          <li>Expansão: Minas Gerais, Sul e cobertura nacional</li>
+          <li>Público: classes A e B e comunidades portuguesas</li>
+          <li>Forte ligação cultural e emocional a Portugal</li></ul></div>
+        <div class="cartao"><h3>Europa</h3><ul class="lista">
+          <li>França, Espanha, Luxemburgo, Alemanha, Suíça, Bélgica e Países Baixos</li>
+          <li>Logística imediata via Hidralba II</li>
+          <li>Prazos mais curtos e menor complexidade operacional</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <p class="olho"><span>04</span>Diferencial chave</p>
+      <h2>80% dos produtos já têm registo ativo no Brasil</h2>
+      <p class="sub">O problema no Brasil não é a falta de autorização. É a falta de regularidade e consistência na oferta.</p>
+      <div class="grelha c3">
+        <div class="cartao"><h3>Vinhos e espumantes</h3><p>Importação consolidada e processo aduaneiro validado.</p></div>
+        <div class="cartao"><h3>Azeites</h3><p>Registo MAPA/ANVISA ativo e distribuição existente.</p></div>
+        <div class="cartao"><h3>Conservas</h3><p>Categoria com histórico de importação regular.</p></div>
+        <div class="cartao"><h3>Bacalhau</h3><p>Produto com forte presença no mercado brasileiro.</p></div>
+        <div class="cartao"><h3>Enchidos embalados</h3><p>Registo SIF/SIE existente através dos importadores atuais.</p></div>
+        <div class="cartao"><h3>Desalfandegamento</h3><p>Parceiro aduaneiro identificado, com o custo real mapeado por categoria.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <p class="olho"><span>05</span>Modelo de negócio</p>
+      <h2>Várias fontes de receita, com recorrência crescente</h2>
+      <div class="grelha c2">
+        <div class="cartao">
+          <h3>Economia por pedido</h3>
+          <table class="ue">
+            <tr><td>Ticket médio</td><td>60 €</td></tr>
+            <tr class="menos"><td>Custo CIF + carga tributária (50%)</td><td>−30 €</td></tr>
+            <tr class="menos"><td>Logística internacional</td><td>−7 €</td></tr>
+            <tr class="menos"><td>Fulfillment e entrega</td><td>−5 €</td></tr>
+            <tr class="menos"><td>Marketing variável</td><td>−4 €</td></tr>
+            <tr class="total"><td>Resultado operacional</td><td>14 € (23%)</td></tr>
+          </table>
+        </div>
+        <div class="cartao">
+          <h3>Fontes de receita</h3>
+          <div class="barra" role="img" aria-label="Venda direta 70%, comissões 10%, clubes 8%, Horeca e B2B 7%, publicidade 5%">
+            <span class="k1" style="width:70%">70%</span><span class="k2" style="width:10%"></span><span class="k3" style="width:8%"></span><span class="k4" style="width:7%"></span><span class="k5" style="width:5%"></span>
+          </div>
+          <ul class="legenda">
+            <li><i class="k1"></i>Venda direta no marketplace<b>70%</b></li>
+            <li><i class="k2"></i>Comissões do marketplace<b>10%</b></li>
+            <li><i class="k3"></i>Clubes de assinatura<b>8%</b></li>
+            <li><i class="k4"></i>Canal Horeca e B2B<b>7%</b></li>
+            <li><i class="k5"></i>Publicidade e serviços<b>5%</b></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <p class="olho"><span>06</span>Financeiro</p>
+      <h2>Projeções a quatro anos e custo de aquisição por cliente</h2>
+      <div class="grelha c2">
+        <div class="cartao">
+          <h3>CAC: custo de aquisição de cliente</h3>
+          <table class="ue">
+            <tr><td><b>2027</b> · 90 mil € · ~4.500 clientes</td><td>20 €</td></tr>
+            <tr><td><b>2028</b> · 130 mil € · ~8.500 clientes</td><td>15 €</td></tr>
+            <tr><td><b>2029</b> · 170 mil € · ~14.000 clientes</td><td>12 €</td></tr>
+          </table>
+        </div>
+        <div class="cartao">
+          <h3>LTV / CAC</h3>
+          <p class="num">36x</p>
+          <p class="num-leg">LTV base de 720 € para um CAC de 20 € no 1.º ano. 20x num cenário conservador.</p>
+          <p class="num-leg">O co-marketing com os produtores reduz o CAC pago em cerca de 20%.</p>
+        </div>
+      </div>
+      <div class="tabela-scroll">
+        <table class="fin">
+          <thead><tr><th>Ano</th><th>Receita Brasil</th><th>Receita Europa</th><th>Total</th><th>EBITDA</th></tr></thead>
+          <tbody>
+            <tr><td>2027*</td><td>165.000 €</td><td>126.000 €</td><td class="tot">291.000 €</td><td>Negativo controlado</td></tr>
+            <tr><td>2028</td><td>528.000 €</td><td>360.000 €</td><td class="tot">888.000 €</td><td>8% a 10%</td></tr>
+            <tr><td>2029</td><td>1.080.000 €</td><td>672.000 €</td><td class="tot">1.752.000 €</td><td>12% a 15%</td></tr>
+            <tr><td>2030</td><td>1.800.000 €+</td><td>1.080.000 €+</td><td class="tot">2.880.000 €+</td><td>18% a 22%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="dica-scroll">Deslize a tabela para o lado para ver todas as colunas.</p>
+      <p class="nota">* 2027: arranque gradual, com 500 pedidos por mês atingidos no 2.º semestre.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <p class="olho"><span>07</span>Parceiros e estrutura</p>
+      <h2>Dois parceiros consolidados, risco operacional reduzido</h2>
+      <div class="grelha c2">
+        <div class="cartao"><h3>Hidralba II Lda · hub logístico</h3><ul class="lista">
+          <li>Atividade desde 1985 e experiência logística consolidada</li>
+          <li>Capacidade financeira comprovada</li>
+          <li>Apoio PRR contratualizado para IA logística</li>
+          <li>Em capacitação para logística alimentar internacional</li></ul></div>
+        <div class="cartao"><h3>Artnetwork Consultoria Lda</h3><ul class="lista">
+          <li>Desenvolvimento de marketplaces e estruturas digitais</li>
+          <li>Marketplace Construir Portugal já em funcionamento</li>
+          <li>Experiência em integração logística e automação comercial</li>
+          <li>Gestão e visão estratégica do projeto</li></ul></div>
+      </div>
+      <p class="destaque"><strong>PRR · Processo 03/C05-i14.01/2025.</strong> Apoio contratualizado para IA logística, automação operacional, gestão inteligente de marketplaces e análise preditiva da procura.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <p class="olho"><span>08</span>Roadmap</p>
+      <h2>Quatro fases de crescimento</h2>
+      <div class="fases">
+        <div class="fase"><small>Fase 1</small><h3>Estruturação</h3><p class="quando">2025 a 1.º sem. 2026</p><p>Tecnologia, entrada de produtores, logística Portugal–Brasil, IA e marca.</p></div>
+        <div class="fase"><small>Fase 2</small><h3>Piloto operacional</h3><p class="quando">2.º sem. 2026 a 2027</p><p>Lançamento controlado, B2C no Brasil, validação logística e primeiros clientes.</p></div>
+        <div class="fase"><small>Fase 3</small><h3>Escala comercial</h3><p class="quando">2027 a 2028</p><p>Expansão do catálogo, automação, crescimento digital e Europa.</p></div>
+        <div class="fase"><small>Fase 4</small><h3>Escala internacional</h3><p class="quando">2028 a 2030</p><p>Horeca, clubes premium, América do Norte e Série A.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec escuro">
+    <div class="wrap">
+      <p class="olho"><span>09</span>Investimento</p>
+      <h2>Utilização e retorno esperado</h2>
+      <p class="inv">800.000 €</p>
+      <div class="grelha c2">
+        <div class="cartao">
+          <h3>Utilização</h3>
+          <div class="barra" role="img" aria-label="Capital de giro 25%, expansão logística 25%, marketing 20%, tecnologia 15%, equipa 15%">
+            <span class="k1" style="width:25%">25%</span><span class="k2" style="width:25%">25%</span><span class="k3" style="width:20%">20%</span><span class="k4" style="width:15%">15%</span><span class="k5" style="width:15%">15%</span>
+          </div>
+          <ul class="legenda">
+            <li><i class="k1"></i>Capital de giro<b>200.000 €</b></li>
+            <li><i class="k2"></i>Expansão logística<b>200.000 €</b></li>
+            <li><i class="k3"></i>Marketing e aquisição<b>160.000 €</b></li>
+            <li><i class="k4"></i>Tecnologia e IA<b>120.000 €</b></li>
+            <li><i class="k5"></i>Equipa e operações<b>120.000 €</b></li>
+          </ul>
+        </div>
+        <div class="cartao">
+          <h3>Retorno</h3>
+          <ul class="marcos">
+            <li>Break-even <b>24 meses</b></li>
+            <li>Runway <b>30 a 36 meses</b></li>
+            <li>Saída <b>Série A em 2028–2029 ou venda estratégica</b></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <p class="olho"><span>10</span>Porquê investir</p>
+      <h2>Porque investir na Portugal Gourmet</h2>
+      <div class="porque">
+        <div><section><h3>80% dos produtos com registo no Brasil</h3><p>Risco regulatório mitigado. Não é uma hipótese, é um facto verificável.</p></section></div>
+        <div><section><h3>Produtores confirmados</h3><p>Cadeia de fornecimento com interesse real e modelo de consignação validado.</p></section></div>
+        <div><section><h3>Hidralba: mais de 40 anos de logística</h3><p>Parceiro operacional com capacidade financeira e experiência comprovada.</p></section></div>
+        <div><section><h3>CAC de 20 € sustentável</h3><p>Co-marketing, comunidades e orgânico: uma aquisição eficiente.</p></section></div>
+        <div><section><h3>IA logística via PRR</h3><p>Diferenciador tecnológico financiado. Não é uma promessa, é um contrato.</p></section></div>
+        <div><section><h3>Modelo asset-light escalável</h3><p>Várias fontes de receita, recorrência crescente e expansão a vários países.</p></section></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="escuro fecho-sec">
+  <div class="faixa"></div>
+  <div class="wrap fecho">
+    <img class="pg" src="pg-logo.webp" alt="Portugal Gourmet" width="520" height="400" loading="lazy">
+    <p class="frase">Produtos portugueses com origem, preparados para chegar mais longe.</p>
+    <p class="assina"><strong>Nuno Marques, CEO</strong> · Artnetwork Consultoria Lda, em parceria com Hidralba II Lda<br>Apoio PRR: Processo 03/C05-i14.01/2025</p>
+    <a class="btn" href="portugal-gourmet-pitch.pdf" download>Descarregar PDF</a>
+    <div class="inicia">
+      <small>Uma iniciativa</small>
+      <img src="an-logo-w.webp" alt="ArtNetwork" width="220" height="214">
+      <p>Artnetwork Consultoria Lda · © 2026</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
