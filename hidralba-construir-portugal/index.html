@@ -31,7 +31,7 @@ h1,h2,h3,.deck,.punch{text-wrap:balance}
 p,li{text-wrap:pretty}
 .deck{font:600 clamp(19px,2.3vw,25px)/1.3 var(--disp);color:var(--b3);margin-top:12px;max-width:760px;letter-spacing:-.005em}
 .s-navy .deck,.s-deep .deck{color:#c3cdee}
-.hero .deck{color:var(--o3);font-size:clamp(20px,2.6vw,28px);margin:18px 0 0}
+.hero .deck{color:var(--o3);font-size:clamp(18px,min(2.4vw,3.2vh),28px);margin:clamp(8px,1.6vh,18px) 0 0}
 .s-navy p,.s-deep p,.s-navy li,.s-deep li{line-height:1.68;letter-spacing:.005em}
 ::selection{background:var(--o1);color:var(--b9)}
 .kpi .n,.money,.big2 .n,.own b,.bar b{font-variant-numeric:tabular-nums lining-nums}
@@ -76,19 +76,19 @@ ul.ck li:before{content:"";position:absolute;left:0;top:.2em;width:22px;height:2
 
 /* hero */
 .hero .wrap{width:100%}
-.hero{background:radial-gradient(1100px 600px at 100% 0,rgba(61,82,160,.55),transparent 60%),radial-gradient(700px 500px at 0 100%,rgba(209,124,43,.18),transparent 60%),var(--b9);color:#fff;padding:28px 0 clamp(64px,8vw,96px);min-height:100svh;display:flex;flex-direction:column}
+.hero{background:radial-gradient(1100px 600px at 100% 0,rgba(61,82,160,.55),transparent 60%),radial-gradient(700px 500px at 0 100%,rgba(209,124,43,.18),transparent 60%),var(--b9);color:#fff;padding:clamp(14px,3vh,28px) 0 clamp(18px,4vh,48px);min-height:100svh;display:flex;flex-direction:column}
 .top{display:flex;align-items:center;justify-content:space-between;gap:16px}
-.top .cp{width:150px}
-.top .an{width:74px;opacity:.9}
-.hero .inner{flex:1;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;margin-top:48px}
-.hero h1{color:#fff;font-size:clamp(40px,6.6vw,78px);font-weight:800;line-height:1.02}
+.top .cp{width:clamp(110px,15vh,150px)}
+.top .an{width:clamp(52px,7.5vh,74px);opacity:.9}
+.hero .inner{flex:1;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;margin-top:clamp(12px,3vh,48px)}
+.hero h1{color:#fff;font-size:clamp(36px,min(6vw,8.4vh),78px);font-weight:800;line-height:1.02}
 .hero h1 span{display:block;color:var(--o3)}
-.hero .sub{font:500 clamp(17px,2vw,20px)/1.4 var(--disp);color:#fff;margin:10px 0 18px;max-width:600px}
-.hero p{color:#b9c3e0;max-width:600px;font-size:clamp(16px,1.8vw,18px)}
-.since{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.hero .sub{font:500 clamp(16px,min(1.9vw,2.4vh),20px)/1.4 var(--disp);color:#fff;margin:clamp(6px,1vh,10px) 0 clamp(10px,1.8vh,18px);max-width:600px}
+.hero p{color:#b9c3e0;max-width:600px;font-size:clamp(15px,min(1.7vw,2.2vh),18px)}
+.since{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:clamp(14px,2.6vh,30px)}
 .since span{font:600 14px/1 var(--disp);padding:10px 14px;border-radius:9999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:#fff}
 .since span b{color:var(--o3)}
-.mosaic{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.mosaic{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;width:100%;max-width:min(100%,60vh);justify-self:end}
 .mosaic div{background:#fff;border-radius:18px;aspect-ratio:1;padding:12%;box-shadow:0 20px 40px -18px rgba(0,0,0,.5)}
 .mosaic div:nth-child(3n+2){transform:translateY(22px)}
 .mosaic img{width:100%;height:100%;object-fit:contain}
@@ -255,6 +255,19 @@ footer{background:var(--b9);border-top:1px solid rgba(255,255,255,.08);color:#7f
  .own .b span{display:none}
  .bar{grid-template-columns:44px 1fr 74px;gap:10px;font-size:14px}
  .mosaic div:nth-child(3n+2){transform:translateY(12px)}
+ .hero .inner{margin-top:clamp(16px,3vh,28px);gap:28px}
+ .hero .mosaic{max-width:320px;gap:10px;justify-self:start}
+ .since{gap:8px}
+ .since span{font-size:12.5px;padding:8px 11px}
+ .since .btn,.fecho .btn{width:100%;justify-content:center;margin-top:6px}
+ .s{padding:56px 0}
+ .punch{padding:18px 20px;margin-top:28px}
+ .card{padding:20px}
+}
+@media(max-width:400px){
+ .hero h1{font-size:32px}
+ .hero p{font-size:14.5px;line-height:1.55}
+ .wrap{padding:0 18px}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
@@ -272,8 +285,7 @@ footer{background:var(--b9);border-top:1px solid rgba(255,255,255,.08);color:#7f
    <p class="deck">Oportunidade de Investimento Estratégico</p>
    <div class="sub">A construir o futuro da distribuição de materiais de construção</div>
    <p>Uma empresa com origem em 1985, transformada através da tecnologia, Inteligência Artificial e um novo modelo logístico, preparada para liderar a digitalização da distribuição de materiais de construção em Portugal.</p>
-   <div class="since"><span><b>1985</b> Hidralba</span><span><b>2026</b> construirportugal.pt</span><span><b>PRR</b> IA financiada</span></div>
-   <a class="btn pdfbtn" href="hidralba-construir-portugal.pdf?v=6" download style="margin-top:28px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>Descarregar em PDF</a>
+   <div class="since"><span><b>1985</b> Hidralba</span><span><b>2026</b> construirportugal.pt</span><span><b>PRR</b> IA financiada</span><a class="btn pdfbtn" href="hidralba-construir-portugal.pdf?v=7" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>Descarregar em PDF</a></div>
   </div>
   <div class="mosaic" aria-hidden="true">
    <div><img width="480" height="480" src="img/caldeira.webp" alt=""></div><div><img width="211" height="536" src="img/coluna-duche.webp" alt=""></div><div><img width="349" height="346" src="img/disjuntores.webp" alt=""></div>
@@ -534,7 +546,7 @@ footer{background:var(--b9);border-top:1px solid rgba(255,255,255,.08);color:#7f
       <h2>Modernizar e construir o futuro da distribuição na construção civil</h2>
    <p class="lead" style="color:#b9c3e0">A experiência de quatro décadas. A inovação da Inteligência Artificial. A visão de uma plataforma nacional. O compromisso com o futuro da construção.</p>
    <div class="invite"><b>Convite</b><p style="color:#dfe5f5">Procuramos um parceiro estratégico para participar na próxima fase de crescimento de um projeto que une tradição, tecnologia e inovação.</p><em>Vamos construir o futuro juntos.</em></div>
-   <a class="btn pdfbtn" href="hidralba-construir-portugal.pdf?v=6" download style="margin-top:26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>Descarregar a apresentação em PDF</a>
+   <a class="btn pdfbtn" href="hidralba-construir-portugal.pdf?v=7" download style="margin-top:26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>Descarregar a apresentação em PDF</a>
    <div class="brands"><img width="839" height="371" class="cp" src="cp-logo-w.svg" alt="Construir Portugal"><img class="hl" width="700" height="115" src="hidralba-logo-w.webp" alt="Hidralba II"><img width="220" height="214" class="an" src="an-logo-w.webp" alt="ArtNetwork"></div>
   </div>
   <figure class="predio"><img width="1200" height="800" src="img/predio.webp" alt="Edifícios de escritórios ao fim da tarde"></figure>
