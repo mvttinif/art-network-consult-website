@@ -1,0 +1,4 @@
+# pitch da Portugal Gourmet: fora dos motores de pesquisa (inclui o PDF)
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>
