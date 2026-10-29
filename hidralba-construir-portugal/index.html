@@ -26,7 +26,16 @@ body{font:17px/1.6 var(--body);color:var(--g7);background:var(--g05);overflow-x:
 img{max-width:100%;display:block}
 .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
 h1,h2,h3{font-family:var(--disp);color:var(--b7);line-height:1.12;letter-spacing:-.015em}
-h2{font-size:clamp(28px,4.4vw,46px);font-weight:800;max-width:860px}
+h2{font-size:clamp(30px,4.8vw,50px);font-weight:800;max-width:860px}
+h1,h2,h3,.deck,.punch{text-wrap:balance}
+p,li{text-wrap:pretty}
+.deck{font:600 clamp(19px,2.3vw,25px)/1.3 var(--disp);color:var(--b3);margin-top:12px;max-width:760px;letter-spacing:-.005em}
+.s-navy .deck,.s-deep .deck{color:#c3cdee}
+.hero .deck{color:var(--o3);font-size:clamp(20px,2.6vw,28px);margin:18px 0 0}
+.s-navy p,.s-deep p,.s-navy li,.s-deep li{line-height:1.68;letter-spacing:.005em}
+::selection{background:var(--o1);color:var(--b9)}
+.kpi .n,.money,.big2 .n,.own b,.bar b{font-variant-numeric:tabular-nums lining-nums}
+.tw{scrollbar-color:var(--b1) transparent;scrollbar-width:thin}
 h3{font-size:19px;font-weight:700;margin-bottom:8px}
 p{color:var(--g6)}
 p+p{margin-top:12px}
@@ -44,11 +53,6 @@ em{font-style:italic}
 .s-navy h2,.s-deep h2,.s-navy h3,.s-deep h3{color:#fff}
 .s-navy p,.s-deep p{color:#b9c3e0}
 .s-navy strong,.s-deep strong{color:#fff}
-.tag{display:flex;align-items:center;gap:12px;font:700 12.5px/1.35 var(--disp);letter-spacing:.16em;text-transform:uppercase;color:var(--o9);margin-bottom:18px}
-.tag b{font-weight:800;color:var(--b5);background:var(--b05);border-radius:8px;padding:6px 9px;letter-spacing:.06em}
-.s-navy .tag,.s-deep .tag{color:var(--o3)}
-.s-navy .tag b,.s-deep .tag b{background:rgba(255,255,255,.1);color:#fff}
-.s-mist .tag b{background:#fff}
 .lead{font-size:clamp(18px,2.2vw,21px);line-height:1.55;max-width:780px;margin-top:16px}
 .signal{display:inline-block;width:56px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--o5),var(--o7))}
 .punch{margin-top:36px;padding:22px 26px;border-radius:16px;background:#fff;box-shadow:var(--sh);font:600 clamp(17px,2vw,20px)/1.45 var(--disp);color:var(--b7);max-width:880px}
@@ -79,10 +83,9 @@ ul.ck li:before{content:"";position:absolute;left:0;top:.2em;width:22px;height:2
 .top .cp{width:150px}
 .top .an{width:74px;opacity:.9}
 .hero .inner{flex:1;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;margin-top:48px}
-.hero .tag{color:var(--o3)}
 .hero h1{color:#fff;font-size:clamp(40px,6.6vw,78px);font-weight:800;line-height:1.02}
 .hero h1 span{display:block;color:var(--o3)}
-.hero .sub{font:600 clamp(18px,2.2vw,23px)/1.35 var(--disp);color:#fff;margin:22px 0 18px;max-width:600px}
+.hero .sub{font:500 clamp(17px,2vw,20px)/1.4 var(--disp);color:#fff;margin:10px 0 18px;max-width:600px}
 .hero p{color:#b9c3e0;max-width:600px;font-size:clamp(16px,1.8vw,18px)}
 .since{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
 .since span{font:600 14px/1 var(--disp);padding:10px 14px;border-radius:9999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:#fff}
@@ -262,12 +265,12 @@ footer{background:var(--b9);border-top:1px solid rgba(255,255,255,.08);color:#7f
  </div>
  <div class="wrap inner">
   <div>
-   <div class="tag">Oportunidade de Investimento Estratégico</div>
    <h1>Hidralba<span>Construir Portugal</span></h1>
+   <p class="deck">Oportunidade de Investimento Estratégico</p>
    <div class="sub">Construindo o Futuro da Distribuição de Materiais de Construção</div>
    <p>Uma empresa com origem em 1985, transformada através da tecnologia, Inteligência Artificial e um novo modelo logístico, preparada para liderar a digitalização da distribuição de materiais de construção em Portugal.</p>
    <div class="since"><span><b>1985</b> Hidralba</span><span><b>2026</b> ConstruirPortugal.pt</span><span><b>PRR</b> IA financiada</span></div>
-   <a class="btn pdfbtn" href="hidralba-construir-portugal.pdf?v=2" download style="margin-top:28px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>Descarregar em PDF</a>
+   <a class="btn pdfbtn" href="hidralba-construir-portugal.pdf?v=3" download style="margin-top:28px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>Descarregar em PDF</a>
   </div>
   <div class="mosaic" aria-hidden="true">
    <div><img src="img/caldeira.webp" alt=""></div><div><img src="img/coluna-duche.webp" alt=""></div><div><img src="img/disjuntores.webp" alt=""></div>
@@ -279,8 +282,7 @@ footer{background:var(--b9);border-top:1px solid rgba(255,255,255,.08);color:#7f
 
 <section class="s s-white">
  <div class="wrap">
-  <div class="tag"><b>01</b> Quem somos</div>
-  <h2>Quatro décadas de setor, agora com plataforma própria</h2>
+  <h2>Quem somos</h2>
   <div class="grid g2" style="margin-top:34px;gap:14px 40px">
    <ul class="ck">
     <li>A Hidralba iniciou a sua atividade em 1985 no comércio grossista de materiais de construção e equipamentos hidrossanitários.</li>
@@ -305,8 +307,7 @@ footer{background:var(--b9);border-top:1px solid rgba(255,255,255,.08);color:#7f
 
 <section class="s s-mist">
  <div class="wrap">
-  <div class="tag"><b>02</b> Percurso</div>
-  <h2>De grossista tradicional a plataforma digital</h2>
+  <h2>O nosso percurso</h2>
   <div class="tl">
    <div class="card"><div class="y">1985</div><p><strong>Fundação da Hidralba – Material Hidro-Sanitário.</strong></p><p>Especialização no comércio grossista de materiais de construção.</p></div>
    <div class="card"><div class="y">2007</div><p><strong>Constituição da Hidralba II, Lda.</strong></p><p>Continuidade da atividade empresarial.</p></div>
@@ -322,8 +323,8 @@ footer{background:var(--b9);border-top:1px solid rgba(255,255,255,.08);color:#7f
 
 <section class="s s-white">
  <div class="wrap">
-  <div class="tag"><b>03</b> O desafio do mercado</div>
-  <h2>Um setor com enorme potencial, mas ainda pouco digitalizado</h2>
+  <h2>O desafio do mercado</h2>
+  <p class="deck">Um setor com enorme potencial, mas ainda pouco digitalizado</p>
   <p class="lead">O setor da construção em Portugal continua altamente fragmentado. Os profissionais enfrentam diariamente desafios como:</p>
   <div class="grid g3 pain" style="margin-top:30px">
    <div class="card"><p>Catálogos dispersos por dezenas de fornecedores.</p></div>
@@ -345,7 +346,6 @@ footer{background:var(--b9);border-top:1px solid rgba(255,255,255,.08);color:#7f
 
 <section class="s s-navy">
  <div class="wrap">
-  <div class="tag"><b>04</b> Inteligência Artificial</div>
   <h2>A tecnologia como fator diferenciador</h2>
   <p class="lead"><strong>A Inteligência Artificial não substitui os profissionais. Potencia a sua produtividade.</strong></p>
   <h3 style="margin:34px 0 14px">A IA permite:</h3>
@@ -364,8 +364,7 @@ footer{background:var(--b9);border-top:1px solid rgba(255,255,255,.08);color:#7f
 
 <section class="s s-warm">
  <div class="wrap">
-  <div class="tag"><b>05</b> Indicadores atuais</div>
-  <h2>Onde estamos hoje</h2>
+  <h2>Indicadores atuais</h2>
   <div class="grid g4 kpi" style="margin-top:32px">
    <div class="card"><div class="n">40<small>anos</small></div><div class="l">de experiência no setor</div></div>
    <div class="card"><div class="n">1.300<small>m²</small></div><div class="l">1 armazém em Águeda</div></div>
@@ -387,8 +386,7 @@ footer{background:var(--b9);border-top:1px solid rgba(255,255,255,.08);color:#7f
 
 <section class="s s-white">
  <div class="wrap">
-  <div class="tag"><b>06</b> Vantagens competitivas</div>
-  <h2>Do modelo tradicional à plataforma</h2>
+  <h2>Vantagens competitivas</h2>
   <div class="vs">
    <div class="old"><h3>Modelo tradicional</h3><ul><li>Venda de produtos</li><li>Catálogos isolados</li><li>Pesquisa manual</li><li>Orçamentos demorados</li><li>Relação fornecedor-cliente</li><li>Crescimento limitado</li></ul></div>
    <div class="arrow" aria-hidden="true">→</div>
@@ -402,8 +400,7 @@ footer{background:var(--b9);border-top:1px solid rgba(255,255,255,.08);color:#7f
 
 <section class="s s-mist">
  <div class="wrap">
-  <div class="tag"><b>07</b> Estratégia comercial e logística</div>
-  <h2>Foco na aquisição de mercado e na escala</h2>
+  <h2>Estratégia comercial e logística</h2>
   <div class="grid g2" style="margin-top:32px">
    <div class="card"><h3>Lançamento comercial (set. 2026)</h3><div class="money">40.000 €</div><p>Investimento inicial, nos canais:</p>
     <div class="chips"><span>LinkedIn · fornecedores e decisores B2B</span><span>Email Marketing · base de clientes</span><span>Google Ads · procura qualificada</span><span>Meta Ads · notoriedade e remarketing</span><span>SEO</span><span>Imprensa especializada</span></div></div>
@@ -418,8 +415,7 @@ footer{background:var(--b9);border-top:1px solid rgba(255,255,255,.08);color:#7f
 
 <section class="s s-white">
  <div class="wrap">
-  <div class="tag"><b>08</b> Roadmap e projeções financeiras</div>
-  <h2>Crescimento previsto até 2029</h2>
+  <h2>Roadmap e projeções financeiras</h2>
   <div class="tw" role="region" aria-label="Projeções 2026 a 2029" tabindex="0"><table>
    <tr><th></th><th>2026</th><th>2027</th><th>2028</th><th>2029</th></tr>
    <tr><th scope="row">Fornecedores</th><td>45</td><td>80</td><td>100</td><td>120</td></tr>
@@ -441,8 +437,7 @@ footer{background:var(--b9);border-top:1px solid rgba(255,255,255,.08);color:#7f
 
 <section class="s s-deep">
  <div class="wrap">
-  <div class="tag"><b>09</b> Histórico financeiro e solidez</div>
-  <h2>Uma empresa sólida, sem dívida financeira</h2>
+  <h2>Histórico financeiro e solidez</h2>
   <p class="lead">A redução temporária da faturação resulta exclusivamente de uma decisão estratégica de reorganização da empresa e da preparação da nova plataforma digital. A Hidralba mantém uma situação financeira sólida, sem endividamento financeiro e preparada para iniciar uma nova fase de crescimento.</p>
   <div class="tw" role="region" aria-label="Histórico financeiro 2023 a 2026" tabindex="0"><table>
    <tr><th></th><th>2023</th><th>2024</th><th>2025</th><th>2026</th></tr>
@@ -457,8 +452,7 @@ footer{background:var(--b9);border-top:1px solid rgba(255,255,255,.08);color:#7f
 
 <section class="s s-white">
  <div class="wrap">
-  <div class="tag"><b>10</b> Porque a faturação diminuiu?</div>
-  <h2>Uma escolha dos acionistas, a pensar na próxima década</h2>
+  <h2>Porque a faturação diminuiu?</h2>
   <p class="lead">Em vez de manter um modelo tradicional de crescimento, os acionistas decidiram preparar a empresa para a próxima década. Durante 2025–2026 foram executadas iniciativas estratégicas:</p>
   <div class="grid g3" style="margin-top:30px">
    <div class="card"><h3>Reestruturação operacional</h3></div>
@@ -474,8 +468,8 @@ footer{background:var(--b9);border-top:1px solid rgba(255,255,255,.08);color:#7f
 
 <section class="s s-warm">
  <div class="wrap">
-  <div class="tag"><b>11</b> Porque esta aquisição é diferente?</div>
-  <h2>Uma oportunidade pronta para acelerar</h2>
+  <h2>Porque esta aquisição é diferente?</h2>
+  <p class="deck">Uma oportunidade pronta para acelerar</p>
   <p class="lead">O comprador adquire simultaneamente:</p>
   <ul class="ck grid g2" style="gap:14px 40px;margin-top:26px">
    <li>Empresa com mais de 40 anos de atividade</li><li>Marca reconhecida no setor</li><li>Base de clientes consolidada</li><li>Rede de fornecedores qualificados</li><li>Marketplace B2B operacional</li><li>Plataforma própria de Inteligência Artificial</li><li>Projeto financiado pelo PRR</li><li>Empresa sem dívida financeira</li><li>Modelo logístico escalável</li><li>Equipa tecnológica que permanece após a aquisição</li>
@@ -486,8 +480,8 @@ footer{background:var(--b9);border-top:1px solid rgba(255,255,255,.08);color:#7f
 
 <section class="s s-navy">
  <div class="wrap">
-  <div class="tag"><b>12</b> Equipa e governação</div>
-  <h2>Estrutura após o investimento</h2>
+  <h2>Equipa e governação</h2>
+  <p class="deck">Estrutura após o investimento</p>
   <div class="own" role="img" aria-label="75% investidor estratégico, 25% Artnetwork"><div class="a"><b>75%</b>Investidor estratégico</div><div class="b"><b>25%</b><span>Artnetwork</span></div></div>
   <div class="grid g2">
    <div class="glass"><h3>Hidralba II</h3><p>Origem em 1985, conhecimento profundo do setor, relações consolidadas com clientes e fornecedores, experiência operacional e comercial.</p></div>
@@ -499,8 +493,8 @@ footer{background:var(--b9);border-top:1px solid rgba(255,255,255,.08);color:#7f
 
 <section class="s s-white">
  <div class="wrap">
-  <div class="tag"><b>13</b> Aquisição estratégica</div>
-  <h2>Plataforma Digital da Construção</h2>
+  <h2>Aquisição estratégica</h2>
+  <p class="deck">Plataforma Digital da Construção</p>
   <p class="lead">O acionista maioritário pretende assegurar a continuidade e aceleração do projeto através da entrada de um parceiro estratégico ou da aquisição maioritária da sociedade, mantendo a Artnetwork como parceira tecnológica para garantir continuidade operacional e evolução da plataforma.</p>
   <div class="big2">
    <div class="card"><div class="n">75%</div><p><strong>Aquisição do capital social</strong></p></div>
@@ -516,9 +510,9 @@ footer{background:var(--b9);border-top:1px solid rgba(255,255,255,.08);color:#7f
 
 <section class="s s-navy">
  <div class="wrap vision">
-  <div class="y2030">2030<small>Visão</small></div>
+  <div class="y2030" aria-hidden="true">2030<small>Visão</small></div>
   <div>
-   <div class="tag"><b>14</b> Até 2030 pretendemos</div>
+   <h2 style="font-size:clamp(26px,3.4vw,36px);margin-bottom:22px">Até 2030 pretendemos</h2>
    <ul class="ck" style="font-size:18px">
     <li>Ser a principal plataforma digital B2B da construção em Portugal</li>
     <li>Reunir uma rede nacional de fornecedores especializados</li>
@@ -534,11 +528,10 @@ footer{background:var(--b9);border-top:1px solid rgba(255,255,255,.08);color:#7f
 <section class="s fecho">
  <div class="wrap inner">
   <div>
-   <div class="tag" style="color:var(--o3)">ConstruirPortugal / Hidralba</div>
-   <h2>Modernizar e construir o futuro da distribuição na construção civil</h2>
+      <h2>Modernizar e construir o futuro da distribuição na construção civil</h2>
    <p class="lead" style="color:#b9c3e0">A experiência de quatro décadas. A inovação da Inteligência Artificial. A visão de uma plataforma nacional. O compromisso com o futuro da construção.</p>
    <div class="invite"><b>Convite</b><p style="color:#dfe5f5">Procuramos um parceiro estratégico para participar na próxima fase de crescimento de um projeto que une tradição, tecnologia e inovação.</p><em>Vamos construir o futuro juntos.</em></div>
-   <a class="btn pdfbtn" href="hidralba-construir-portugal.pdf?v=2" download style="margin-top:26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>Descarregar a apresentação em PDF</a>
+   <a class="btn pdfbtn" href="hidralba-construir-portugal.pdf?v=3" download style="margin-top:26px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>Descarregar a apresentação em PDF</a>
    <div class="brands"><img class="cp" src="cp-logo-w.svg" alt="Construir Portugal"><span class="chip-h"><img src="hidralba-logo.webp" alt="Hidralba II"></span><img class="an" src="an-logo-w.webp" alt="ArtNetwork"></div>
   </div>
   <div class="mosaic" aria-hidden="true">
