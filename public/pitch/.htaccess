@@ -1,4 +1,7 @@
-# pitch da Portugal Gourmet: fora dos motores de pesquisa (inclui o PDF)
+# Pitches privados: fora dos motores de pesquisa (vale para as subpastas)
 <IfModule mod_headers.c>
   Header set X-Robots-Tag "noindex, nofollow"
 </IfModule>
+# Endereços antigos do pitch da Portugal Gourmet (/pitch/ e o PDF) levam ao novo
+RedirectMatch 301 ^/pitch/?(index\.html)?$ /pitch/portugal-gourmet/
+RedirectMatch 301 ^/pitch/portugal-gourmet-pitch\.pdf$ /pitch/portugal-gourmet/portugal-gourmet-pitch.pdf

@@ -1,4 +1,2 @@
-# apresentacao: fora dos motores de pesquisa
-<IfModule mod_headers.c>
-  Header set X-Robots-Tag "noindex, nofollow"
-</IfModule>
+# Endereço antigo da apresentação Hidralba / Construir Portugal: leva ao novo
+RedirectMatch 301 ^/hidralba-construir-portugal/(.*)$ /pitch/hidralba-construir-portugal/$1
