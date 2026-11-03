@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0A0A0A">
 <title>Portugal Gourmet · Pitch</title>
-<meta name="description" content="Portugal Gourmet: marketplace internacional de produtos portugueses premium. ArtNetwork Consultoria Lda em parceria com Hidralba II Lda.">
+<meta name="description" content="Portugal Gourmet: marketplace internacional de produtos portugueses premium. Proposta de investimento da Hidralba II Lda e da ArtNetwork Consultoria Lda.">
 <link rel="icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,39 +79,40 @@ p{margin:0}
 .cartao p{color:var(--preto-500);font-size:16px}
 .destaque{margin-top:18px;background:var(--preto);color:var(--marfim-700);padding:22px 24px;font-size:17px;border-top:1px solid var(--ouro)}
 .destaque strong{color:var(--ouro);font-weight:600}
-.provas{display:flex;flex-wrap:wrap;gap:10px 24px;margin:18px 0 0;padding:0;list-style:none;font-weight:600;font-size:15px;color:var(--preto-800)}
-.provas li::before{content:"";display:inline-block;width:13px;height:13px;margin-right:9px;vertical-align:-1px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238C1D33' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/contain no-repeat}
+.cartao.escuro{background:var(--preto);border-color:var(--preto)}
+.cartao.escuro p{color:var(--marfim-700)}
+.cartao.escuro .num{color:var(--ouro)}
+.cartao .num + h3{margin-top:14px}
+.topo-ouro{border-top:2px solid var(--ouro)}.topo-vinho,.fase.topo-vinho{border-top:2px solid var(--vinho)}
+.passo{display:block;font:600 14px/1 var(--corpo);color:var(--vinho);letter-spacing:.08em;margin-bottom:10px}
+/* fontes de receita */
+.fontes{list-style:none;padding:0;margin:32px 0 0;display:grid;gap:16px}
+.fontes li{display:grid;grid-template-columns:1fr 56px;gap:4px 16px;align-items:center;font-size:17px}
+.fontes b{grid-column:2;grid-row:1/3;text-align:right;font:600 22px/1 var(--corpo);color:var(--vinho);font-variant-numeric:tabular-nums}
+.fontes i{height:10px;background:var(--marfim-800)}
+.fontes i::before{content:"";display:block;height:100%;width:var(--p);background:var(--vinho)}
+@media(min-width:720px){.fontes li{grid-template-columns:240px 1fr 56px}.fontes b{grid-column:3;grid-row:1}}
 
 /* cadeia */
 .cadeia{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:32px 0 0;padding:0;list-style:none}
 .cadeia li{padding:10px 14px;border:1px solid var(--linha);background:var(--papel);font-weight:600;font-size:15px}
 .cadeia li.seta{border:0;background:none;padding:0 2px;color:var(--vinho)}
 .cadeia li:first-child,.cadeia li:last-child{background:var(--preto);border-color:var(--preto);color:var(--marfim)}
-.perda{margin-top:18px;font:500 italic clamp(22px,2.8vw,28px)/1.25 var(--display);color:var(--preto)}
-.perda b{font-style:normal;font-weight:700;color:var(--vinho)}
 
 /* números */
 .num,.cartao .num{font:600 clamp(40px,5.4vw,56px)/1 var(--display);color:var(--vinho)}
 .num-leg,.cartao .num-leg{color:var(--preto-500);font-size:15px;margin-top:10px}
-ul.lista{margin:6px 0 0;padding:0;list-style:none;color:var(--preto-500);font-size:16px}
-ul.lista li{padding:6px 0 6px 18px;position:relative}
-ul.lista li::before{content:"";position:absolute;left:0;top:15px;width:7px;height:1px;background:var(--ouro-700)}
 
 /* tabelas */
 .ue{width:100%;border-collapse:collapse;font-size:16px}
 .ue td{padding:10px 0;border-bottom:1px solid var(--marfim-800)}
 .ue td:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap;padding-left:12px}
-.ue tr.menos td:last-child{color:var(--preto-500);font-weight:400}
 .ue tr.total td{border-bottom:0;padding-top:14px;font:700 22px/1.2 var(--display);color:var(--vinho)}
-.barra{display:flex;height:36px;overflow:hidden;margin:8px 0 16px}
-.barra span{display:flex;align-items:center;justify-content:center;color:var(--marfim);font-size:13px;font-weight:600}
 .legenda{list-style:none;padding:0;margin:0;font-size:15px;color:var(--preto-500)}
 .legenda li{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--marfim-800)}
 .legenda li:last-child{border-bottom:0}
 .legenda i{width:12px;height:12px;flex:none}
 .legenda b{color:var(--preto-800);margin-left:auto;font-variant-numeric:tabular-nums;font-weight:600}
-.k1{background:var(--vinho)}.k2{background:var(--vinho-500)}.k3{background:var(--ouro-700)}.k4{background:var(--ouro)}.k5{background:var(--ouro-300)}
-.k3,.k4,.k5{color:var(--preto)!important}
 
 .tabela-scroll{overflow-x:auto;margin-top:16px;border:1px solid var(--linha);background:var(--papel);-webkit-overflow-scrolling:touch}
 .fin{width:100%;min-width:600px;border-collapse:collapse;font-size:16px;font-variant-numeric:tabular-nums}
@@ -143,18 +144,9 @@ ul.lista li::before{content:"";position:absolute;left:0;top:15px;width:7px;heigh
 .escuro .legenda{color:var(--marfim-700)}
 .escuro .legenda li{border-color:rgba(243,239,232,.1)}
 .escuro .legenda b{color:var(--marfim)}
-.marcos{list-style:none;padding:0;margin:8px 0 0}
-.marcos li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid rgba(243,239,232,.1);color:var(--marfim-700);font-size:16px}
-.marcos li:last-child{border-bottom:0}
-.marcos b{color:var(--ouro);font-weight:600;text-align:right}
+.escuro .num{color:var(--ouro)}
+.escuro .num-leg,.escuro .sub{color:var(--marfim-700)}
 
-/* porquê */
-.porque{display:grid;gap:14px;margin-top:32px;grid-template-columns:1fr}
-@media(min-width:720px){.porque{grid-template-columns:1fr 1fr}}
-.porque > div{display:flex;gap:16px;align-items:flex-start;background:var(--papel);border:1px solid var(--linha);padding:20px}
-.porque > div::before{content:"";flex:none;width:30px;height:30px;border:1px solid var(--ouro);border-radius:50%;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238C1D33' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/15px no-repeat}
-.porque h3{font-size:22px}
-.porque p{color:var(--preto-500);font-size:15px;margin-top:4px}
 
 /* fecho (escuro) */
 .fecho{text-align:center;padding:72px 0 56px}
@@ -169,31 +161,31 @@ ul.lista li::before{content:"";position:absolute;left:0;top:15px;width:7px;heigh
 
 /* PDF horizontal: uma secção por página A4 */
 @media print{
+  /* o PDF é gerado com scale 1.3: as alturas em mm estão divididas por 1.3 */
   @page{size:A4 landscape;margin:0}
   body{background:var(--marfim);-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .topo,.btn,.dica-scroll{display:none}
   .faixa{display:none}
-  .wrap{max-width:none;padding:0 14mm}
+  .wrap{max-width:none;padding:0 11mm}
   body{font-size:14px}
-  header.escuro,.sec,.fecho-sec{break-after:page;break-inside:avoid;min-height:209mm;padding:11mm 0!important;border:0!important}
+  header.escuro,.sec,.fecho-sec{break-after:page;break-inside:avoid;min-height:160mm;padding:8mm 0!important;border:0!important}
   .fecho-sec{break-after:auto;padding:0!important}
   .sec h2{font-size:36px;margin-top:10px}
-  .sub,.cartao p,.ue,.legenda,.fin,.fase p,.porque p,ul.lista,.num-leg,.cartao .num-leg,.marcos li,.destaque{font-size:13.5px}
+  .sub,.cartao p,.ue,.legenda,.fin,.fase p,.num-leg,.cartao .num-leg,.destaque,.fontes li{font-size:13.5px}
   .ue td{padding:6px 0}.fin th,.fin td{padding:7px 12px}
   .cartao .num,.num{font-size:40px}.inv{font-size:72px;margin-top:10px}
-  .perda{font-size:22px;margin-top:12px}
-  .fecho{padding:16mm 0 0}.fecho .pg{width:220px}.fecho .frase{font-size:26px;margin-top:16px}
+  .fecho{padding:10mm 0 0}.fecho .pg{width:180px}.fecho .frase{font-size:26px;margin-top:16px}
   .fecho .assina{margin-top:16px}.inicia{margin-top:22px;padding-top:16px;gap:8px}.inicia img{width:70px}
   .fecho-sec .faixa{display:none}
-  .capa{grid-template-columns:1fr 1fr;gap:12mm;padding:0;min-height:186mm}
+  .capa{grid-template-columns:1fr 1fr;gap:12mm;padding:0;min-height:143mm}
   .capa-texto{order:1}.capa-img{order:2;aspect-ratio:14/11}
   .c2{grid-template-columns:1fr 1fr}.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}
-  .fases{grid-template-columns:repeat(4,1fr)}.porque{grid-template-columns:1fr 1fr}
-  .grelha,.fases,.porque,.cadeia{margin-top:16px;gap:10px}
-  .cartao,.fase,.porque > div{padding:14px}
+  .fases{grid-template-columns:repeat(4,1fr)}
+  .grelha,.fases,.cadeia,.fontes{margin-top:16px;gap:10px}
+  .cartao,.fase{padding:14px}
   .sec h2{max-width:none}
   .fin{min-width:0}.tabela-scroll{overflow:visible}
-  .fecho{padding:20mm 0 0}
+  .fecho{padding:10mm 0 0}
 }
 </style>
 </head>
@@ -203,7 +195,7 @@ ul.lista li::before{content:"";position:absolute;left:0;top:15px;width:7px;heigh
   <div class="wrap">
     <div class="topo">
       <div class="marca"><img src="pg-monograma.webp" alt="" width="30" height="32"><span>Portugal Gourmet</span></div>
-      <a class="btn" href="portugal-gourmet-pitch.pdf?v=2" download>
+      <a class="btn" href="portugal-gourmet-pitch.pdf?v=3" download>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>PDF<span class="txt-longo">&nbsp;horizontal</span>
       </a>
     </div>
@@ -211,8 +203,8 @@ ul.lista li::before{content:"";position:absolute;left:0;top:15px;width:7px;heigh
       <div class="capa-texto">
         <h1><img src="pg-logo.webp" alt="Portugal Gourmet" width="520" height="400"></h1>
         <p class="lead">Marketplace internacional de produtos portugueses premium</p>
-        <ul class="pilares"><li>Tecnologia</li><li>Logística</li><li>Inteligência Artificial</li><li>Cultura Portuguesa</li></ul>
-        <p class="assina"><strong>ArtNetwork Consultoria Lda</strong> · Hidralba II Lda<br>CEO: Nuno Marques</p>
+        <ul class="pilares"><li>Tecnologia</li><li>Logística</li><li>Marcas</li><li>Cultura</li></ul>
+        <p class="assina"><strong>Hidralba II Lda</strong> · ArtNetwork Consultoria Lda<br>Proposta de investimento · novembro de 2026</p>
       </div>
       <div class="capa-img"><img src="hero-editorial.webp" alt="Azeite, vinho tinto, conservas e pão sobre uma mesa de pedra" width="1400" height="1100" fetchpriority="high"></div>
     </div>
@@ -223,209 +215,215 @@ ul.lista li::before{content:"";position:absolute;left:0;top:15px;width:7px;heigh
 <main>
   <section class="sec">
     <div class="wrap">
-      <h2>O mercado atual desperdiça margem e regularidade</h2>
-      <ol class="cadeia" aria-label="Cadeia atual do produtor ao consumidor">
+      <h2>O investimento combina uma empresa consolidada e uma nova operação</h2>
+      <p class="sub">Uma participação maioritária na Hidralba II associada ao lançamento internacional do Portugal Gourmet.</p>
+      <div class="grelha c2">
+        <div class="cartao topo-ouro"><h3>Hidralba II · empresa existente</h3><p>Atividade empresarial desde 1985, histórico de clientes e fornecedores, estrutura comercial e experiência de coordenação operacional.</p></div>
+        <div class="cartao topo-ouro"><h3>Portugal Gourmet · expansão</h3><p>Nova unidade de negócio, integrada na Hidralba II, para comercialização internacional de produtos portugueses premium.</p></div>
+      </div>
+      <p class="destaque"><strong>800.000 €</strong> = 330.000 € de aquisição de quotas + 470.000 € de investimento no negócio</p>
+      <p class="nota">Proposta sujeita à formalização da operação e à análise financeira e jurídica habitual.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <h2>O problema: exportar é diferente de vender continuamente</h2>
+      <p class="sub">A cadeia tradicional pode limitar a margem do produtor e a continuidade da promoção da marca.</p>
+      <ol class="cadeia" aria-label="Cadeia tradicional do produtor ao consumidor">
         <li>Produtor</li><li class="seta" aria-hidden="true">→</li><li>Importador</li><li class="seta" aria-hidden="true">→</li><li>Distribuidor</li><li class="seta" aria-hidden="true">→</li><li>Loja</li><li class="seta" aria-hidden="true">→</li><li>Consumidor</li>
       </ol>
-      <p class="perda">Pelo caminho, o produtor perde <b>40% a 60%</b> da margem.</p>
       <div class="grelha c3">
-        <div class="cartao"><h3>Sem regularidade no Brasil</h3><p>80% dos produtos têm registo ativo, mas chegam ao consumidor de forma irregular e inconsistente.</p></div>
-        <div class="cartao"><h3>Produtor sem poder</h3><p>Pequenos produtores sem estrutura logística, presença digital ou capacidade de exportação.</p></div>
-        <div class="cartao"><h3>Intermediários a mais</h3><p>Cada passo da cadeia reduz a margem, o controlo da marca e a proximidade ao consumidor final.</p></div>
+        <div class="cartao topo-ouro"><h3>Valor repartido</h3><p>A margem comercial é distribuída por vários intervenientes.</p></div>
+        <div class="cartao topo-ouro"><h3>Marketing irregular</h3><p>Pode faltar incentivo para promover continuamente a marca.</p></div>
+        <div class="cartao topo-ouro"><h3>Pouca informação</h3><p>O fabricante tende a conhecer menos a procura do consumidor.</p></div>
       </div>
+      <p class="destaque"><strong>Portugal Gourmet:</strong> criar procura, recorrência e participação económica no valor final.</p>
     </div>
   </section>
 
   <section class="sec">
     <div class="wrap">
-      <h2>Uma ponte direta entre o produtor português e o consumidor global</h2>
-      <div class="grelha c3">
-        <div class="cartao"><h3>Marketplace internacional</h3><p>Plataforma especializada em produtos portugueses premium, com uma experiência de compra à altura.</p></div>
-        <div class="cartao"><h3>Logística integrada</h3><p>Consolidação via Hidralba II: exportação, entreposto aduaneiro e preparação de encomendas no Brasil e na Europa.</p></div>
-        <div class="cartao"><h3>IA logística (PRR)</h3><p>Previsão de procura por SKU, escolha automática entre via aérea e marítima, gestão de stock em tempo real e estruturação do marketing digital.</p></div>
+      <h2>O nosso diferencial: parceria comercial contínua com os fabricantes</h2>
+      <p class="sub">O valor para o produtor não termina necessariamente na expedição da mercadoria.</p>
+      <div class="grelha c2">
+        <div class="cartao topo-ouro"><h3>Exportação tradicional</h3><p>O fabricante vende ao importador por um preço previamente negociado. A valorização posterior e o marketing local ficam sobretudo com os intermediários.</p></div>
+        <div class="cartao topo-vinho"><h3>Modelo Portugal Gourmet</h3><p>Os fabricantes aderentes podem manter o produto em consignação até à venda final e receber uma remuneração superior, nos termos do contrato. A Hidralba recebe uma comissão.</p></div>
       </div>
-      <p class="destaque"><strong>Modelo de consignação.</strong> O produtor mantém a propriedade do produto até à venda ao consumidor final. Mais margem para o produtor e nenhum capital parado em stock.</p>
-      <ul class="provas"><li>Produtores interessados confirmados</li><li>80% dos produtos com registo ativo no Brasil</li><li>Parceiro aduaneiro identificado</li></ul>
+      <p class="destaque"><strong>Interesses alinhados:</strong> fabricante + Hidralba + promoção conjunta + vendas recorrentes.</p>
+      <p class="nota">A melhoria de remuneração depende do preço, dos impostos, da logística e dos acordos comerciais; não é garantida.</p>
     </div>
   </section>
 
   <section class="sec">
     <div class="wrap">
-      <h2>Brasil e Europa: uma oportunidade concreta</h2>
+      <h2>Dois modelos comerciais para um catálogo diversificado</h2>
+      <p class="sub">A estrutura proposta diferencia o tratamento dos pequenos produtores e das marcas estruturadas.</p>
+      <div class="grelha c2">
+        <div class="cartao topo-ouro"><h3>Pequenos produtores · revenda</h3><p>A Hidralba compra os produtos, suporta os custos da operação contratada e obtém margem comercial na revenda. O modelo facilita a entrada de pequenos produtores nos mercados externos.</p></div>
+        <div class="cartao topo-vinho"><h3>Fabricantes · comissão</h3><p>O fabricante mantém a propriedade até à venda, nos termos contratuais, e assume os encargos acordados. A Hidralba coordena a comercialização, a logística e os serviços, mediante comissão.</p></div>
+      </div>
+      <p class="destaque"><strong>Comissão média de referência: 12%</strong> · variável por fabricante, escala e condições contratuais</p>
+      <p class="nota">Composição de 50% / 50%: objetivo para o portefólio, não repartição da faturação.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <h2>Operação integrada: da origem à venda final</h2>
+      <p class="sub">A Hidralba coordena a cadeia comercial, em articulação com fornecedores e operadores internacionais.</p>
       <div class="grelha c4">
-        <div class="cartao"><p class="num">200M+</p><p class="num-leg">habitantes no Brasil</p></div>
-        <div class="cartao"><p class="num">80%</p><p class="num-leg">dos produtos já com registo no Brasil</p></div>
-        <div class="cartao"><p class="num">7</p><p class="num-leg">mercados europeus prioritários</p></div>
-        <div class="cartao"><p class="num">+15%</p><p class="num-leg">crescimento anual estimado do e-commerce no Brasil</p></div>
+        <div class="cartao"><span class="passo">01</span><h3>Produtores</h3><p>Catálogo, identidade e condições comerciais</p></div>
+        <div class="cartao"><span class="passo">02</span><h3>Hidralba II</h3><p>Consolidação, coordenação e gestão da operação</p></div>
+        <div class="cartao"><span class="passo">03</span><h3>Operadores</h3><p>Transporte, importação, armazenagem e entrega</p></div>
+        <div class="cartao"><span class="passo">04</span><h3>Plataforma</h3><p>Marketing, encomendas, apoio e análise da procura</p></div>
       </div>
-      <div class="grelha c2">
-        <div class="cartao"><h3>Brasil</h3><ul class="lista">
-          <li>Arranque: São Paulo e Rio de Janeiro</li>
-          <li>Expansão: Minas Gerais, Sul e cobertura nacional</li>
-          <li>Público: classes A e B e comunidades portuguesas</li>
-          <li>Forte ligação cultural e emocional a Portugal</li></ul></div>
-        <div class="cartao"><h3>Europa</h3><ul class="lista">
-          <li>França, Espanha, Luxemburgo, Alemanha, Suíça, Bélgica e Países Baixos</li>
-          <li>Logística imediata via Hidralba II</li>
-          <li>Prazos mais curtos e menor complexidade operacional</li></ul></div>
-      </div>
+      <p class="destaque">A eficiência operacional será construída com <strong>logística parceira e processos just-in-time</strong>.</p>
     </div>
   </section>
 
   <section class="sec">
     <div class="wrap">
-      <h2>80% dos produtos já têm registo ativo no Brasil</h2>
-      <p class="sub">O problema no Brasil não é a falta de autorização. É a falta de regularidade e consistência na oferta.</p>
+      <h2>Mercados de entrada: Europa e Brasil</h2>
+      <p class="sub">A expansão é faseada para concentrar recursos e validar a operação antes de aumentar a escala.</p>
+      <div class="grelha c2">
+        <div class="cartao topo-ouro"><h3>Europa · abril de 2027</h3><p>Início comercial previsto em França; prospeção e expansão gradual para Espanha, Luxemburgo, Alemanha, Bélgica, Países Baixos e Suíça. Comunidades portuguesas e público gourmet.</p></div>
+        <div class="cartao topo-ouro"><h3>Brasil · junho de 2027</h3><p>Início comercial previsto em São Paulo e no Rio de Janeiro, com posterior desenvolvimento regional, canal Horeca e parceiros de distribuição.</p></div>
+      </div>
+      <p class="destaque">Datas-alvo condicionadas à entrada do investimento e à preparação operacional.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <h2>Preparação realista: contactos avançados, operação por lançar</h2>
+      <p class="sub">A diferenciação foi concebida; a validação quantitativa terá lugar no piloto comercial.</p>
       <div class="grelha c3">
-        <div class="cartao"><h3>Vinhos e espumantes</h3><p>Importação consolidada e processo aduaneiro validado.</p></div>
-        <div class="cartao"><h3>Azeites</h3><p>Registo MAPA/ANVISA ativo e distribuição existente.</p></div>
-        <div class="cartao"><h3>Conservas</h3><p>Categoria com histórico de importação regular.</p></div>
-        <div class="cartao"><h3>Bacalhau</h3><p>Produto com forte presença no mercado brasileiro.</p></div>
-        <div class="cartao"><h3>Enchidos embalados</h3><p>Registo SIF/SIE existente através dos importadores atuais.</p></div>
-        <div class="cartao"><h3>Desalfandegamento</h3><p>Parceiro aduaneiro identificado, com o custo real mapeado por categoria.</p></div>
+        <div class="cartao topo-ouro"><h3>Fornecedores</h3><p>Produtores portugueses contactados e interessados. Não existem ainda contratos de fornecimento ou cartas de intenção assinadas.</p></div>
+        <div class="cartao topo-ouro"><h3>Brasil</h3><p>Operadores logísticos em conversações preliminares; potenciais investidores brasileiros interessados em avaliar o projeto.</p></div>
+        <div class="cartao topo-ouro"><h3>Instituições</h3><p>Contactos e apoio da AEP, do IAPMEI e do BPF, sem implicar contratos comerciais ou financiamento adicional garantido.</p></div>
       </div>
+      <p class="destaque"><strong>Portal Portugal Gourmet:</strong> arquitetura tecnológica concebida; execução condicionada ao investimento.</p>
+      <p class="nota">Ainda não há histórico próprio de vendas, CAC (custo de aquisição de cliente) observado, tráfego ou retenção de clientes.</p>
     </div>
   </section>
 
   <section class="sec">
     <div class="wrap">
-      <h2>Várias fontes de receita, com recorrência crescente</h2>
+      <h2>Tecnologia e inteligência artificial: financiamento em execução</h2>
+      <p class="sub">Base tecnológica comum à Hidralba e às suas plataformas, com implementação enquadrada no PRR.</p>
       <div class="grelha c2">
-        <div class="cartao">
-          <h3>Economia por pedido</h3>
-          <table class="ue">
-            <tr><td>Valor médio por encomenda</td><td>60 €</td></tr>
-            <tr class="menos"><td>Custo CIF + carga tributária (50%)</td><td>−30 €</td></tr>
-            <tr class="menos"><td>Logística internacional</td><td>−7 €</td></tr>
-            <tr class="menos"><td>Preparação e entrega</td><td>−5 €</td></tr>
-            <tr class="menos"><td>Marketing variável</td><td>−4 €</td></tr>
-            <tr class="total"><td>Resultado operacional</td><td>14 € (23%)</td></tr>
-          </table>
-        </div>
-        <div class="cartao">
-          <h3>Fontes de receita</h3>
-          <div class="barra" role="img" aria-label="Venda direta 70%, comissões 10%, clubes 8%, Horeca e B2B 7%, publicidade 5%">
-            <span class="k1" style="width:70%">70%</span><span class="k2" style="width:10%"></span><span class="k3" style="width:8%"></span><span class="k4" style="width:7%"></span><span class="k5" style="width:5%"></span>
-          </div>
-          <ul class="legenda">
-            <li><i class="k1"></i>Venda direta no marketplace<b>70%</b></li>
-            <li><i class="k2"></i>Comissões do marketplace<b>10%</b></li>
-            <li><i class="k3"></i>Clubes de assinatura<b>8%</b></li>
-            <li><i class="k4"></i>Canal Horeca e B2B<b>7%</b></li>
-            <li><i class="k5"></i>Publicidade e serviços<b>5%</b></li>
-          </ul>
-        </div>
+        <div class="cartao escuro"><p class="num">170.000 €</p><h3>PRR contratualizado</h3><p>Apoio aprovado, com desembolsos já iniciados. A afetação é transversal e não exclusiva do Portugal Gourmet.</p></div>
+        <div class="cartao topo-ouro"><h3>Capacidades previstas</h3><p>Integração de fornecedores, automação de encomendas, previsão da procura, apoio à gestão de stock e planeamento de abastecimento just-in-time. A arquitetura está definida e pronta para implementação.</p></div>
       </div>
+      <p class="destaque">Apoio PRR separado dos <strong>800.000 €</strong> de investimento privado proposto.</p>
     </div>
   </section>
 
   <section class="sec">
     <div class="wrap">
-      <h2>Projeções a quatro anos e custo de aquisição por cliente</h2>
-      <div class="grelha c2">
-        <div class="cartao">
-          <h3>CAC: custo de aquisição de cliente</h3>
-          <table class="ue">
-            <tr><td><b>2027</b> · 90 mil € · ~4.500 clientes</td><td>20 €</td></tr>
-            <tr><td><b>2028</b> · 130 mil € · ~8.500 clientes</td><td>15 €</td></tr>
-            <tr><td><b>2029</b> · 170 mil € · ~14.000 clientes</td><td>12 €</td></tr>
-          </table>
-        </div>
-        <div class="cartao">
-          <h3>LTV / CAC</h3>
-          <p class="num">36x</p>
-          <p class="num-leg">LTV base de 720 € para um CAC de 20 € no 1.º ano. 20 vezes num cenário conservador.</p>
-          <p class="num-leg">O co-marketing com os produtores reduz o CAC pago em cerca de 20%.</p>
-        </div>
-      </div>
+      <h2>Plano comercial: fontes de receita complementares</h2>
+      <p class="sub">Percentagens de planeamento; a composição efetiva dependerá da adoção dos dois modelos comerciais.</p>
+      <ul class="fontes">
+        <li>Venda direta / marketplace<i style="--p:70%"></i><b>70%</b></li>
+        <li>Comissões<i style="--p:10%"></i><b>10%</b></li>
+        <li>Clubes e assinaturas<i style="--p:8%"></i><b>8%</b></li>
+        <li>Horeca e B2B<i style="--p:9%"></i><b>9%</b></li>
+        <li>Publicidade e serviços<i style="--p:3%"></i><b>3%</b></li>
+      </ul>
+      <p class="destaque">É fundamental distinguir <strong>volume de vendas (GMV), receita de comissões e margem de revenda</strong>.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <h2>Projeções indicativas de faturação de 2027 a 2030</h2>
+      <p class="sub">Cenário de referência herdado do plano anterior; sujeito a recálculo por modelo de receita.</p>
       <div class="tabela-scroll">
         <table class="fin">
-          <thead><tr><th>Ano</th><th>Receita Brasil</th><th>Receita Europa</th><th>Total</th><th>EBITDA</th></tr></thead>
+          <thead><tr><th>Ano</th><th>Volume de vendas projetado*</th><th>EBITDA projetado</th></tr></thead>
           <tbody>
-            <tr><td>2027*</td><td>165.000 €</td><td>126.000 €</td><td class="tot">291.000 €</td><td>Negativo controlado</td></tr>
-            <tr><td>2028</td><td>528.000 €</td><td>360.000 €</td><td class="tot">888.000 €</td><td>8% a 10%</td></tr>
-            <tr><td>2029</td><td>1.080.000 €</td><td>672.000 €</td><td class="tot">1.752.000 €</td><td>12% a 15%</td></tr>
-            <tr><td>2030</td><td>1.800.000 €+</td><td>1.080.000 €+</td><td class="tot">2.880.000 €+</td><td>18% a 22%</td></tr>
+            <tr><td>2027</td><td class="tot">291.000 €</td><td>Negativo</td></tr>
+            <tr><td>2028</td><td class="tot">888.000 €</td><td>8% a 10%</td></tr>
+            <tr><td>2029</td><td class="tot">1.752.000 €</td><td>12% a 15%</td></tr>
+            <tr><td>2030</td><td class="tot">2.880.000 €+</td><td>18% a 22%</td></tr>
           </tbody>
         </table>
       </div>
       <p class="dica-scroll">Deslize a tabela para o lado para ver todas as colunas.</p>
-      <p class="nota">* 2027: arranque gradual, com 500 pedidos por mês atingidos no 2.º semestre.</p>
-    </div>
-  </section>
-
-  <section class="sec">
-    <div class="wrap">
-      <h2>Dois parceiros consolidados, risco operacional reduzido</h2>
-      <div class="grelha c2">
-        <div class="cartao"><h3>Hidralba II Lda · centro logístico</h3><ul class="lista">
-          <li>Atividade desde 1985 e experiência logística consolidada</li>
-          <li>Capacidade financeira comprovada</li>
-          <li>Apoio PRR contratualizado para IA logística</li>
-          <li>Em capacitação para logística alimentar internacional</li></ul></div>
-        <div class="cartao"><h3>ArtNetwork Consultoria Lda</h3><ul class="lista">
-          <li>Desenvolvimento de marketplaces e estruturas digitais</li>
-          <li>Marketplace Construir Portugal já em funcionamento</li>
-          <li>Experiência em integração logística e automação comercial</li>
-          <li>Gestão e visão estratégica do projeto</li></ul></div>
-      </div>
-      <p class="destaque"><strong>PRR · Processo 03/C05-i14.01/2025.</strong> Apoio contratualizado para IA logística, automação operacional, gestão inteligente de marketplaces e análise preditiva da procura.</p>
-    </div>
-  </section>
-
-  <section class="sec">
-    <div class="wrap">
-      <h2>Quatro fases de crescimento</h2>
-      <div class="fases">
-        <div class="fase"><h3><span class="fase-n">Fase 1</span> Estruturação</h3><p class="quando">2025 a 1.º sem. 2026</p><p>Tecnologia, entrada de produtores, logística Portugal–Brasil, IA e marca.</p></div>
-        <div class="fase"><h3><span class="fase-n">Fase 2</span> Piloto operacional</h3><p class="quando">2.º sem. 2026 a 2027</p><p>Lançamento controlado, B2C no Brasil, validação logística e primeiros clientes.</p></div>
-        <div class="fase"><h3><span class="fase-n">Fase 3</span> Escala comercial</h3><p class="quando">2027 a 2028</p><p>Expansão do catálogo, automação, crescimento digital e Europa.</p></div>
-        <div class="fase"><h3><span class="fase-n">Fase 4</span> Escala internacional</h3><p class="quando">2028 a 2030</p><p>Horeca, clubes premium, América do Norte e Série A.</p></div>
-      </div>
+      <p class="nota">* Os montantes foram anteriormente apresentados como receitas; ainda é necessário separar faturação própria, GMV e comissões. Não constituem previsão auditada.</p>
     </div>
   </section>
 
   <section class="sec escuro">
     <div class="wrap">
-      <h2>Utilização e retorno esperado</h2>
+      <h2>Investimento global</h2>
       <p class="inv">800.000 €</p>
+      <p class="sub">A aquisição da participação societária e o capital para o projeto são operações diferentes.</p>
       <div class="grelha c2">
-        <div class="cartao">
-          <h3>Utilização</h3>
-          <div class="barra" role="img" aria-label="Capital de giro 25%, expansão logística 25%, marketing 20%, tecnologia 15%, equipa 15%">
-            <span class="k1" style="width:25%">25%</span><span class="k2" style="width:25%">25%</span><span class="k3" style="width:20%">20%</span><span class="k4" style="width:15%">15%</span><span class="k5" style="width:15%">15%</span>
-          </div>
-          <ul class="legenda">
-            <li><i class="k1"></i>Capital de giro<b>200.000 €</b></li>
-            <li><i class="k2"></i>Expansão logística<b>200.000 €</b></li>
-            <li><i class="k3"></i>Marketing e aquisição<b>160.000 €</b></li>
-            <li><i class="k4"></i>Tecnologia e IA<b>120.000 €</b></li>
-            <li><i class="k5"></i>Equipa e operações<b>120.000 €</b></li>
-          </ul>
-        </div>
-        <div class="cartao">
-          <h3>Retorno</h3>
-          <ul class="marcos">
-            <li>Ponto de equilíbrio <b>24 meses</b></li>
-            <li>Autonomia financeira <b>30 a 36 meses</b></li>
-            <li>Saída <b>Série A em 2028–2029 ou venda estratégica</b></li>
-          </ul>
-        </div>
+        <div class="cartao"><p class="num">330.000 €</p><h3>Aquisição de 87,5% da Hidralba II</h3><p class="num-leg">Preço proposto pelas quotas; não integra o orçamento operacional do Portugal Gourmet.</p></div>
+        <div class="cartao"><p class="num">470.000 €</p><h3>Implementação do Portugal Gourmet</h3><p class="num-leg">Capital para mercadorias, marketing, logística, equipa, desenvolvimento específico e contingência.</p></div>
+      </div>
+      <p class="destaque">Valor implícito de 100% da Hidralba antes da operação: <strong>cerca de 377.143 €</strong>.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <h2>Aplicação estimada dos 470.000 €</h2>
+      <p class="sub">Orçamento indicativo, a detalhar no novo Plano de Negócios e sujeito a orçamentos efetivos.</p>
+      <div class="cartao" style="margin-top:32px">
+        <table class="ue">
+          <tr><td>Capital de exploração e mercadorias</td><td>125.000 €</td></tr>
+          <tr><td>Marketing e aquisição de clientes</td><td>115.000 €</td></tr>
+          <tr><td>Logística e implementação internacional</td><td>95.000 €</td></tr>
+          <tr><td>Equipa e gestão operacional</td><td>65.000 €</td></tr>
+          <tr><td>Tecnologia específica Portugal Gourmet</td><td>35.000 €</td></tr>
+          <tr><td>Legal, fiscal e regulamentação</td><td>15.000 €</td></tr>
+          <tr><td>Reserva de contingência</td><td>20.000 €</td></tr>
+          <tr class="total"><td>Total</td><td>470.000 €</td></tr>
+        </table>
       </div>
     </div>
   </section>
 
   <section class="sec">
     <div class="wrap">
-      <h2>Porque investir na Portugal Gourmet</h2>
-      <div class="porque">
-        <div><section><h3>80% dos produtos com registo no Brasil</h3><p>Risco regulatório mitigado. Não é uma hipótese, é um facto verificável.</p></section></div>
-        <div><section><h3>Produtores confirmados</h3><p>Cadeia de fornecimento com interesse real e modelo de consignação validado.</p></section></div>
-        <div><section><h3>Hidralba: mais de 40 anos de logística</h3><p>Parceiro operacional com capacidade financeira e experiência comprovada.</p></section></div>
-        <div><section><h3>CAC de 20 € sustentável</h3><p>Co-marketing, comunidades e orgânico: uma aquisição eficiente.</p></section></div>
-        <div><section><h3>IA logística via PRR</h3><p>Diferenciador tecnológico financiado. Não é uma promessa, é um contrato.</p></section></div>
-        <div><section><h3>Modelo leve em ativos e escalável</h3><p>Várias fontes de receita, recorrência crescente e expansão a vários países.</p></section></div>
+      <h2>Aplicação faseada nos primeiros 18 meses</h2>
+      <p class="sub">Cronograma financeiro a contar da entrada do investimento, não de janeiro de 2026.</p>
+      <div class="fases">
+        <div class="fase"><small>Meses 1 a 3</small><h3>95.000 €</h3><p>Contratos, estruturação, tecnologia e logística inicial</p></div>
+        <div class="fase"><small>Meses 4 a 6</small><h3>135.000 €</h3><p>Lançamento comercial e ativação de canais</p></div>
+        <div class="fase"><small>Meses 7 a 12</small><h3>150.000 €</h3><p>Marketing, mercadorias e consolidação da operação</p></div>
+        <div class="fase"><small>Meses 13 a 18</small><h3>90.000 €</h3><p>Expansão controlada e contingência</p></div>
       </div>
+      <p class="destaque">As datas-alvo de lançamento serão ajustadas caso o financiamento se concretize mais tarde.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <h2>Quatro fases de crescimento: calendário revisto</h2>
+      <p class="sub">Marco temporal: novembro de 2026. A implementação comercial começa apenas com o investimento.</p>
+      <div class="fases">
+        <div class="fase"><h3><span class="fase-n">Fase 1</span> Preparação</h3><p class="quando">Nov. 2026 a mar. 2027</p><p>Fecho do investimento, parceiros e preparação logística</p></div>
+        <div class="fase topo-vinho"><h3><span class="fase-n">Fase 2</span> Lançamento</h3><p class="quando">Abr. a jun. 2027</p><p>Europa em abril; Brasil em junho, condicionados ao investimento</p></div>
+        <div class="fase"><h3><span class="fase-n">Fase 3</span> Consolidação</h3><p class="quando">2.º sem. 2027 a 2028</p><p>Procura, reposição, marketing e otimização operacional</p></div>
+        <div class="fase"><h3><span class="fase-n">Fase 4</span> Expansão</h3><p class="quando">2029 a 2030</p><p>B2B/Horeca, assinaturas e avaliação de novos mercados</p></div>
+      </div>
+      <p class="nota">Cronograma dependente da conclusão da captação e das autorizações necessárias por produto e mercado.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <h2>Governação, execução e riscos de lançamento</h2>
+      <p class="sub">A oportunidade combina ativos existentes com uma nova atividade ainda em fase pré-operacional.</p>
+      <div class="grelha c2">
+        <div class="cartao topo-ouro"><h3>Hidralba II</h3><p>Estrutura empresarial e gestão comercial, financeira e logística. O Portugal Gourmet será uma unidade de negócio integrada na Hidralba.</p></div>
+        <div class="cartao topo-vinho"><h3>ArtNetwork</h3><p>Parceira estratégica e tecnológica, com 12,5% do capital da Hidralba e contrato de serviços próprio a estruturar por entregáveis.</p></div>
+      </div>
+      <p class="destaque"><strong>Pontos-chave a validar:</strong> contas da Hidralba, margens e CAC reais, custos de importação, contratos e tesouraria.</p>
     </div>
   </section>
 </main>
@@ -434,11 +432,11 @@ ul.lista li::before{content:"";position:absolute;left:0;top:15px;width:7px;heigh
   <div class="faixa"></div>
   <div class="wrap fecho">
     <img class="pg" src="pg-logo.webp" alt="Portugal Gourmet" width="520" height="400" loading="lazy">
-    <p class="frase">Produtos portugueses com origem, preparados para chegar mais longe.</p>
-    <p class="assina"><strong>Nuno Marques, CEO</strong> · ArtNetwork Consultoria Lda, em parceria com Hidralba II Lda<br>Apoio PRR: Processo 03/C05-i14.01/2025</p>
-    <a class="btn" href="portugal-gourmet-pitch.pdf?v=2" download>Descarregar PDF</a>
+    <p class="frase">Mais do que exportar: criar marcas portuguesas com vendas internacionais continuadas.</p>
+    <p class="assina"><strong>Proposta de investimento: 800.000 €</strong><br>Hidralba II · ArtNetwork · novembro de 2026<br>Proposta para discussão com investidores · Projeções sujeitas a validação</p>
+    <a class="btn" href="portugal-gourmet-pitch.pdf?v=3" download>Descarregar PDF</a>
     <div class="inicia">
-      <small>Uma iniciativa</small>
+      <small>Parceira estratégica e tecnológica</small>
       <img src="an-logo-w.webp" alt="ArtNetwork" width="220" height="214">
       <p>ArtNetwork Consultoria Lda · © 2026</p>
     </div>
