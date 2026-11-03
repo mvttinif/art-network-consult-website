@@ -115,15 +115,14 @@ p{margin:0}
 .legenda b{color:var(--preto-800);margin-left:auto;font-variant-numeric:tabular-nums;font-weight:600}
 
 .tabela-scroll{overflow-x:auto;margin-top:16px;border:1px solid var(--linha);background:var(--papel);-webkit-overflow-scrolling:touch}
-.fin{width:100%;min-width:600px;border-collapse:collapse;font-size:16px;font-variant-numeric:tabular-nums}
-.fin th,.fin td{padding:13px 16px;text-align:right;border-bottom:1px solid var(--marfim-800);white-space:nowrap}
+.fin{width:100%;min-width:0;border-collapse:collapse;font-size:16px;font-variant-numeric:tabular-nums}
+.fin th,.fin td{padding:13px 16px;text-align:right;border-bottom:1px solid var(--marfim-800)}
+.fin td{white-space:nowrap}
 .fin th:first-child,.fin td:first-child{text-align:left}
 .fin thead th{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--preto-500);font-weight:600}
 .fin tbody tr:last-child td{border-bottom:0}
 .fin td.tot{font-weight:600;color:var(--vinho)}
 .nota{font-size:14px;color:var(--preto-500);margin-top:12px}
-.dica-scroll{display:none;font-size:13px;color:var(--preto-500);margin-top:8px}
-@media(max-width:640px){.dica-scroll{display:block}}
 
 /* fases */
 .fases{display:grid;gap:14px;margin-top:32px;grid-template-columns:1fr}
@@ -164,7 +163,7 @@ p{margin:0}
   /* o PDF é gerado com scale 1.3: as alturas em mm estão divididas por 1.3 */
   @page{size:A4 landscape;margin:0}
   body{background:var(--marfim);-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .topo,.btn,.dica-scroll{display:none}
+  .topo,.btn{display:none}
   .faixa{display:none}
   .wrap{max-width:none;padding:0 11mm}
   body{font-size:14px}
@@ -195,7 +194,7 @@ p{margin:0}
   <div class="wrap">
     <div class="topo">
       <div class="marca"><img src="pg-monograma.webp" alt="" width="30" height="32"><span>Portugal Gourmet</span></div>
-      <a class="btn" href="portugal-gourmet-pitch.pdf?v=3" download>
+      <a class="btn" href="portugal-gourmet-pitch.pdf?v=4" download>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>PDF<span class="txt-longo">&nbsp;horizontal</span>
       </a>
     </div>
@@ -244,7 +243,7 @@ p{margin:0}
 
   <section class="sec">
     <div class="wrap">
-      <h2>O nosso diferencial: parceria comercial contínua com os fabricantes</h2>
+      <h2>O que nos diferencia: parceria comercial contínua com os fabricantes</h2>
       <p class="sub">O valor para o produtor não termina necessariamente na expedição da mercadoria.</p>
       <div class="grelha c2">
         <div class="cartao topo-ouro"><h3>Exportação tradicional</h3><p>O fabricante vende ao importador por um preço previamente negociado. A valorização posterior e o marketing local ficam sobretudo com os intermediários.</p></div>
@@ -264,7 +263,7 @@ p{margin:0}
         <div class="cartao topo-vinho"><h3>Fabricantes · comissão</h3><p>O fabricante mantém a propriedade até à venda, nos termos contratuais, e assume os encargos acordados. A Hidralba coordena a comercialização, a logística e os serviços, mediante comissão.</p></div>
       </div>
       <p class="destaque"><strong>Comissão média de referência: 12%</strong> · variável por fabricante, escala e condições contratuais</p>
-      <p class="nota">Composição de 50% / 50%: objetivo para o portefólio, não repartição da faturação.</p>
+      <p class="nota">Objetivo de portefólio: metade pequenos produtores, metade fabricantes (composição do catálogo, não repartição da faturação).</p>
     </div>
   </section>
 
@@ -287,7 +286,7 @@ p{margin:0}
       <h2>Mercados de entrada: Europa e Brasil</h2>
       <p class="sub">A expansão é faseada para concentrar recursos e validar a operação antes de aumentar a escala.</p>
       <div class="grelha c2">
-        <div class="cartao topo-ouro"><h3>Europa · abril de 2027</h3><p>Início comercial previsto em França; prospeção e expansão gradual para Espanha, Luxemburgo, Alemanha, Bélgica, Países Baixos e Suíça. Comunidades portuguesas e público gourmet.</p></div>
+        <div class="cartao topo-ouro"><h3>Europa · abril de 2027</h3><p>Início comercial previsto em França; prospeção e expansão gradual para Espanha, Luxemburgo, Alemanha, Bélgica, Países Baixos e Suíça. Público-alvo: comunidades portuguesas e consumidores gourmet.</p></div>
         <div class="cartao topo-ouro"><h3>Brasil · junho de 2027</h3><p>Início comercial previsto em São Paulo e no Rio de Janeiro, com posterior desenvolvimento regional, canal Horeca e parceiros de distribuição.</p></div>
       </div>
       <p class="destaque">Datas-alvo condicionadas à entrada do investimento e à preparação operacional.</p>
@@ -331,14 +330,14 @@ p{margin:0}
         <li>Horeca e B2B<i style="--p:9%"></i><b>9%</b></li>
         <li>Publicidade e serviços<i style="--p:3%"></i><b>3%</b></li>
       </ul>
-      <p class="destaque">É fundamental distinguir <strong>volume de vendas (GMV), receita de comissões e margem de revenda</strong>.</p>
+      <p class="destaque">O volume de vendas (GMV) não é receita: <strong>nas vendas à comissão, a receita da Hidralba é a comissão; na revenda, é a margem</strong>.</p>
     </div>
   </section>
 
   <section class="sec">
     <div class="wrap">
-      <h2>Projeções indicativas de faturação de 2027 a 2030</h2>
-      <p class="sub">Cenário de referência herdado do plano anterior; sujeito a recálculo por modelo de receita.</p>
+      <h2>Projeções indicativas do volume de vendas de 2027 a 2030</h2>
+      <p class="sub">Cenário de referência, sujeito a recálculo por modelo de receita.</p>
       <div class="tabela-scroll">
         <table class="fin">
           <thead><tr><th>Ano</th><th>Volume de vendas projetado*</th><th>EBITDA projetado</th></tr></thead>
@@ -350,8 +349,7 @@ p{margin:0}
           </tbody>
         </table>
       </div>
-      <p class="dica-scroll">Deslize a tabela para o lado para ver todas as colunas.</p>
-      <p class="nota">* Os montantes foram anteriormente apresentados como receitas; ainda é necessário separar faturação própria, GMV e comissões. Não constituem previsão auditada.</p>
+      <p class="nota">* Volume de vendas total, ainda sem separação entre faturação própria e vendas à comissão. Valores indicativos, não auditados.</p>
     </div>
   </section>
 
@@ -371,7 +369,7 @@ p{margin:0}
   <section class="sec">
     <div class="wrap">
       <h2>Aplicação estimada dos 470.000 €</h2>
-      <p class="sub">Orçamento indicativo, a detalhar no novo Plano de Negócios e sujeito a orçamentos efetivos.</p>
+      <p class="sub">Valores indicativos, a detalhar no novo Plano de Negócios e sujeitos a orçamentos efetivos.</p>
       <div class="cartao" style="margin-top:32px">
         <table class="ue">
           <tr><td>Capital de exploração e mercadorias</td><td>125.000 €</td></tr>
@@ -390,7 +388,7 @@ p{margin:0}
   <section class="sec">
     <div class="wrap">
       <h2>Aplicação faseada nos primeiros 18 meses</h2>
-      <p class="sub">Cronograma financeiro a contar da entrada do investimento, não de janeiro de 2026.</p>
+      <p class="sub">Cronograma financeiro contado a partir da entrada do investimento.</p>
       <div class="fases">
         <div class="fase"><small>Meses 1 a 3</small><h3>95.000 €</h3><p>Contratos, estruturação, tecnologia e logística inicial</p></div>
         <div class="fase"><small>Meses 4 a 6</small><h3>135.000 €</h3><p>Lançamento comercial e ativação de canais</p></div>
@@ -403,8 +401,8 @@ p{margin:0}
 
   <section class="sec">
     <div class="wrap">
-      <h2>Quatro fases de crescimento: calendário revisto</h2>
-      <p class="sub">Marco temporal: novembro de 2026. A implementação comercial começa apenas com o investimento.</p>
+      <h2>Quatro fases de crescimento</h2>
+      <p class="sub">Calendário a partir de novembro de 2026. A implementação comercial só começa com a entrada do investimento.</p>
       <div class="fases">
         <div class="fase"><h3><span class="fase-n">Fase 1</span> Preparação</h3><p class="quando">Nov. 2026 a mar. 2027</p><p>Fecho do investimento, parceiros e preparação logística</p></div>
         <div class="fase topo-vinho"><h3><span class="fase-n">Fase 2</span> Lançamento</h3><p class="quando">Abr. a jun. 2027</p><p>Europa em abril; Brasil em junho, condicionados ao investimento</p></div>
@@ -423,7 +421,7 @@ p{margin:0}
         <div class="cartao topo-ouro"><h3>Hidralba II</h3><p>Estrutura empresarial e gestão comercial, financeira e logística. O Portugal Gourmet será uma unidade de negócio integrada na Hidralba.</p></div>
         <div class="cartao topo-vinho"><h3>ArtNetwork</h3><p>Parceira estratégica e tecnológica, com 12,5% do capital da Hidralba e contrato de serviços próprio a estruturar por entregáveis.</p></div>
       </div>
-      <p class="destaque"><strong>Pontos-chave a validar:</strong> contas da Hidralba, margens e CAC reais, custos de importação, contratos e tesouraria.</p>
+      <p class="destaque"><strong>Pontos-chave para a análise do investidor:</strong> contas da Hidralba, margens e CAC reais, custos de importação, contratos e tesouraria.</p>
     </div>
   </section>
 </main>
@@ -434,7 +432,7 @@ p{margin:0}
     <img class="pg" src="pg-logo.webp" alt="Portugal Gourmet" width="520" height="400" loading="lazy">
     <p class="frase">Mais do que exportar: criar marcas portuguesas com vendas internacionais continuadas.</p>
     <p class="assina"><strong>Proposta de investimento: 800.000 €</strong><br>Hidralba II · ArtNetwork · novembro de 2026<br>Proposta para discussão com investidores · Projeções sujeitas a validação</p>
-    <a class="btn" href="portugal-gourmet-pitch.pdf?v=3" download>Descarregar PDF</a>
+    <a class="btn" href="portugal-gourmet-pitch.pdf?v=4" download>Descarregar PDF</a>
     <div class="inicia">
       <small>Parceira estratégica e tecnológica</small>
       <img src="an-logo-w.webp" alt="ArtNetwork" width="220" height="214">
